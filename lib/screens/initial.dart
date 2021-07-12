@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:petitami/screens/register.dart';
+import 'package:petitami/components/AppBar.dart';
 
 class Initial extends StatelessWidget {
   const Initial({Key? key}) : super(key: key);
@@ -7,11 +9,7 @@ class Initial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Image.asset('assets/images/logo.png',
-            fit: BoxFit.contain, height: 60),
-        centerTitle: true,
-      ),
+      appBar: header(),
       body: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -29,8 +27,8 @@ class Initial extends StatelessWidget {
               EdgeInsets.only(top: 100, left: 40, right: 40, bottom: 5),
               child: ElevatedButton(
                 onPressed: () {
-                  /*Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Register()));*/
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Register()));
                 },
                 child: Text('CADASTRAR'),
               ),

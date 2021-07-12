@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "39360034187",
+    "project_id": "petitami-e35c9",
+    "storage_bucket": "petitami-e35c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:39360034187:android:42223439c14fa08c5f6b8e",
+        "android_client_info": {
+          "package_name": "br.com.simim.petitami.petitami"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "39360034187-ksadtoivtfik8ur94s945jqi7eog0spa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.simim.petitami.petitami",
+            "certificate_hash": "70796bf3fee12358bc48bb8afd44d36cfed2c0a9"
+          }
+        },
+        {
+          "client_id": "39360034187-h2pkciag4cttiegpslprfpv7eogb05ej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrw2Wxd0aIR6ZfIVMTTsAFrhUvcMYUlLM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "39360034187-h2pkciag4cttiegpslprfpv7eogb05ej.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
