@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:petitami/components/AppBar.dart';
-import 'package:petitami/components/progressionbar.dart';
+import 'package:petitami/screens/home_content.dart';
+import 'package:petitami/screens/splash_screen.dart';
+import 'package:petitami/screens/unit.dart';
+
+import 'account_configurations.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -11,66 +14,35 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int _index = 0;
+  final List<Widget> _screen = [
+    Unit(),
+    HomeContent(),
+    AccountConfigurations(),
+  ];
+
+  void onTabTapped(int index) {
+    setState(() {
+      _index = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: header(),
-      body: Container(
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 30, horizontal: 30),
-              child: Text(
-                'Concluído:',
-                style: GoogleFonts.imprima(fontSize: 25),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(right: 40, left: 40, bottom: 30),
-              child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(30)),
-                child: linearProgressIndicator(48),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(right: 30, left: 30, bottom: 20),
-              child: Text(
-                'Continue estudando: ',
-                style: GoogleFonts.imprima(fontSize: 25),
-              ),
-            ),
-            Padding(
-                padding: EdgeInsets.only(right: 120, left: 120, bottom: 30),
-                child: IconButton(
-                  icon: Image.network(
-                    'https://drive.google.com/uc?export=view&id=1kuRsV6aoYv_jS_6xvBt8lJKSdgK6OepR',
-                  ),
-                  iconSize: 150,
-                  onPressed: (){
-
-                  },
-                )
-            ),
-            Padding(
-              padding: EdgeInsets.only(right: 30, left: 30, bottom: 20),
-              child: Text(
-                'Quanto tempo falta: ',
-                style: GoogleFonts.imprima(fontSize: 25),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(right: 30, left: 30, bottom: 20),
-              child: Text(
-                'Dados última unidade: ',
-                style: GoogleFonts.imprima(fontSize: 25),
-              ),
-            ),
-          ],
-        ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Color(0xFF0B27EA),
+        currentIndex: _index,
+        onTap: onTabTapped,
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.vpn_key), label: 'Unidades'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Início'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.supervised_user_circle), label: 'Configurações'),
+        ],
       ),
+      body: _screen[_index],
     );
   }
 }
