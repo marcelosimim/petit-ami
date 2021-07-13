@@ -3,6 +3,7 @@ import 'package:petitami/components/AppBar.dart';
 import 'package:petitami/screens/home_content.dart';
 import 'package:petitami/screens/splash_screen.dart';
 import 'package:petitami/screens/unit.dart';
+import 'package:petitami/widgets/custom_drawer.dart';
 
 import 'account_configurations.dart';
 
@@ -14,11 +15,11 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int _index = 0;
+  int _index = 1;
   final List<Widget> _screen = [
-    Unit(),
+    CustomDrawer(),
     HomeContent(),
-    AccountConfigurations(),
+    Unit(),
   ];
 
   void onTabTapped(int index) {
@@ -35,11 +36,12 @@ class _HomeState extends State<Home> {
         currentIndex: _index,
         onTap: onTabTapped,
         items: [
+
           BottomNavigationBarItem(
-              icon: Icon(Icons.vpn_key), label: 'Unidades'),
+              icon: Icon(Icons.account_circle), label: 'Configurações'),
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Início'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.supervised_user_circle), label: 'Configurações'),
+              icon: Icon(Icons.school), label: 'Unidades'),
         ],
       ),
       body: _screen[_index],
