@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:petitami/screens/register.dart';
 import 'package:petitami/components/AppBar.dart';
 
+import 'login.dart';
+
 class Initial extends StatelessWidget {
   const Initial({Key? key}) : super(key: key);
 
@@ -59,8 +61,8 @@ class Initial extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 40, vertical: 5),
               child: ElevatedButton(
                 onPressed: () {
-                  /*Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Login()));*/
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Login()));
                 },
                 child: Text('ENTRAR'),
               ),

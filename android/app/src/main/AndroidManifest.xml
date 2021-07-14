@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.simim.petitami.petitami">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
+       android:usesCleartextTraffic="true"
         android:label="petitami"
         android:icon="@mipmap/ic_launcher">
         <activity
