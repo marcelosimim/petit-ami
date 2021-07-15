@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:petitami/functions/french_level.dart';
 import 'package:petitami/models/user_model.dart';
 import 'package:petitami/screens/initial.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -12,6 +13,7 @@ class CustomDrawer extends StatefulWidget {
 }
 
 class _CustomDrawerState extends State<CustomDrawer> {
+
   @override
   Widget build(BuildContext context) {
     return Drawer(child:
@@ -55,7 +57,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             Padding(
               padding: EdgeInsets.only(bottom: 20),
               child: Text(
-                'Nível do francês: ',
+                'Nível do francês: ${new FrenchLevel(model.userData['current_unit']).getLevel()}',
                 style: GoogleFonts.imprima(fontSize: 20),
               ),
             ),
