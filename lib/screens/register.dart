@@ -1,9 +1,11 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:petitami/components/AppBar.dart';
+import 'package:petitami/components/appbar.dart';
+import 'package:petitami/components/inputdecoration.dart';
 import 'package:petitami/models/user_model.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:petitami/functions/register_functions.dart';
 
 import 'home.dart';
 
@@ -15,7 +17,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  Map<String, dynamic> ?_userData;
+  final registerFunctions = new RegisterFunctions();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final _scaffoldKey = GlobalKey<ScaffoldMessengerState>();
@@ -24,36 +26,12 @@ class _RegisterState extends State<Register> {
   final _emailController = TextEditingController();
   final _passController = TextEditingController();
 
-  bool _languageControl = true;
-  String _emailQuestion = "Entrer l'email:";
-  String _nameQuestion = 'Insérez votre nom:';
-  String _passwordQuestion = 'Entrer un mot de passe: ';
-  String _passwordConfirmationQuestion = 'Confirmez le mot de passe: ';
-  String? _password;
-
-  void translate(){
-    if (_languageControl) {
-      _emailQuestion = 'Insira o email:';
-      _nameQuestion = 'Insira seu nome:';
-      _passwordQuestion = 'Insira uma senha:';
-      _passwordConfirmationQuestion = 'Confirme a senha:';
-      _languageControl = false;
-    } else {
-      _emailQuestion = "Entrer l'email:";
-      _nameQuestion = 'Insérez votre nom:';
-      _passwordQuestion = 'Entrer un mot de passe: ';
-      _passwordConfirmationQuestion =
-      'Confirmez le mot de passe: ';
-      _languageControl = true;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         key: _scaffoldKey,
         resizeToAvoidBottomInset: false,
-        appBar: header(),
+        appBar: appbar(),
         body: ScopedModelDescendant<UserModel>(
             builder: (context, child, model) {
               return Form(
@@ -67,7 +45,7 @@ class _RegisterState extends State<Register> {
                           TextButton(
                             onPressed: () {
                               setState(() {
-                                translate();
+                                registerFunctions.translate();
                               });
                             },
                             child: Text('Clique aqui para traduzir',
@@ -75,7 +53,7 @@ class _RegisterState extends State<Register> {
                           ),
                           Padding(
                             padding: EdgeInsets.only(top: 100),
-                            child: Text(_emailQuestion,
+                            child: Text(registerFunctions.emailQuestion,
                                 style: GoogleFonts.imprima(fontSize: 20)),
                           ),
                           Padding(
@@ -87,21 +65,7 @@ class _RegisterState extends State<Register> {
                                 keyboardType: TextInputType.emailAddress,
                                 style: TextStyle(fontSize: 15, color: Colors.white),
                                 controller: _emailController,
-                                decoration: InputDecoration(
-                                  helperText: ' ',
-                                  filled: true,
-                                  fillColor: Color(0xFF05158A),
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(15)),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                          color: Colors.blue),
-                                      borderRadius: BorderRadius.circular(15)),
-                                  enabledBorder: OutlineInputBorder(
-                                      borderSide:
-                                      BorderSide(color: Colors.transparent),
-                                      borderRadius: BorderRadius.circular(15)),
-                                ),
+                                decoration: textFormFieldInputDecoration(Icon(Icons.email,color: Colors.white70)),
                                 validator: (value) {
                                   if (value == null || value == '') {
                                     return 'Campo obrigatório';
@@ -114,7 +78,7 @@ class _RegisterState extends State<Register> {
                               ),
                             ),
                           ),
-                          Text(_nameQuestion,
+                          Text(registerFunctions.nameQuestion,
                               style: GoogleFonts.imprima(fontSize: 20)),
                           Padding(
                             padding:
@@ -125,21 +89,7 @@ class _RegisterState extends State<Register> {
                               child: TextFormField(
                                 style: TextStyle(fontSize: 15, color: Colors.white),
                                 controller: _nameController,
-                                decoration: InputDecoration(
-                                  helperText: ' ',
-                                  filled: true,
-                                  fillColor: Color(0xFF05158A),
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(15)),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                          color: Colors.blue),
-                                      borderRadius: BorderRadius.circular(15)),
-                                  enabledBorder: OutlineInputBorder(
-                                      borderSide:
-                                      BorderSide(color: Colors.transparent),
-                                      borderRadius: BorderRadius.circular(15)),
-                                ),
+                                decoration: textFormFieldInputDecoration(Icon(Icons.drive_file_rename_outline,color: Colors.white70)),
                                 validator: (value) {
                                   if (value == null || value == '') {
                                     return 'Campo obrigatório';
@@ -149,7 +99,7 @@ class _RegisterState extends State<Register> {
                               ),
                             ),
                           ),
-                          Text(_passwordQuestion,
+                          Text(registerFunctions.passwordQuestion,
                               style: GoogleFonts.imprima(fontSize: 20)),
                           Padding(
                             padding:
@@ -161,23 +111,8 @@ class _RegisterState extends State<Register> {
                                 obscureText: true,
                                 style: TextStyle(fontSize: 15, color: Colors.white),
                                 controller: _passController,
-                                decoration: InputDecoration(
-                                  helperText: ' ',
-                                  filled: true,
-                                  fillColor: Color(0xFF05158A),
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(15)),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                          color: Colors.blue),
-                                      borderRadius: BorderRadius.circular(15)),
-                                  enabledBorder: OutlineInputBorder(
-                                      borderSide:
-                                      BorderSide(color: Colors.transparent),
-                                      borderRadius: BorderRadius.circular(15)),
-                                ),
+                                decoration: textFormFieldInputDecoration(Icon(Icons.lock_open,color: Colors.white70)),
                                 validator: (value) {
-                                  _password = value;
                                   if (value == null || value == '') {
                                     return 'Campo obrigatório';
                                   } else if (value.length < 8) {
@@ -188,7 +123,7 @@ class _RegisterState extends State<Register> {
                               ),
                             ),
                           ),
-                          Text(_passwordConfirmationQuestion,
+                          Text(registerFunctions.passwordConfirmationQuestion,
                               style: GoogleFonts.imprima(fontSize: 20)),
                           Padding(
                             padding:
@@ -200,26 +135,11 @@ class _RegisterState extends State<Register> {
                                 obscureText: true,
                                 style: TextStyle(fontSize: 15, color: Colors.white),
                                 //controller: null,
-                                decoration: InputDecoration(
-                                  helperText: ' ',
-                                  filled: true,
-                                  fillColor: Color(0xFF05158A),
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(15)),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                          color: Colors.blue),
-                                      borderRadius: BorderRadius.circular(15)),
-                                  enabledBorder: OutlineInputBorder(
-                                      borderSide:
-                                      BorderSide(color: Colors.transparent),
-                                      borderRadius: BorderRadius.circular(15)),
-                                ),
+                                decoration: textFormFieldInputDecoration(Icon(Icons.lock_outline,color: Colors.white70)),
                                 validator: (value) {
                                   if (value == null || value == '') {
                                     return 'Campo obrigatório';
-                                  } else if (value != _password) {
-                                    print(_password);
+                                  } else if (value != _passController) {
                                     return 'As senhas não coincidem';
                                   }
                                   return null;
@@ -230,17 +150,12 @@ class _RegisterState extends State<Register> {
                           ElevatedButton(
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
-                                  print('formulario ok');
-                                  _userData = model.userData;
-
                                   Map<String, dynamic> userData = {
                                     "name": _nameController.text,
                                     "email": _emailController.text,
                                     "current_unit": 1.0,
                                     "current_exercise": 1,
                                   };
-
-                                  print('data usuario criada: $userData');
                                   model.signUp(
                                       userData: userData,
                                       pass: _passController.text,

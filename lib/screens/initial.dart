@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:petitami/components/appbar.dart';
 import 'package:petitami/screens/register.dart';
-import 'package:petitami/components/AppBar.dart';
 
 import 'login.dart';
 
@@ -11,7 +11,7 @@ class Initial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: header(),
+      appBar: appbar(),
       body: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:petitami/components/AppBar.dart';
+import 'package:petitami/components/appbar.dart';
 import 'package:petitami/screens/home_content.dart';
-import 'package:petitami/screens/splash_screen.dart';
 import 'package:petitami/screens/unit.dart';
 import 'package:petitami/widgets/custom_drawer.dart';
 
@@ -30,7 +29,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: header(),
+      appBar: appbar(),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Color(0xFF0B27EA),
         currentIndex: _index,

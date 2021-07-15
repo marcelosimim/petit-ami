@@ -2,6 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:petitami/components/inputdecoration.dart';
 import 'package:petitami/models/user_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -19,12 +20,11 @@ class _LoginState extends State<Login> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+
   String? _email;
   String? _password;
   var _showPassword = Icons.visibility;
   bool _obscureText = true;
-
-  Map<String, dynamic> ?_userData;
 
   @override
   Widget build(BuildContext context) {
@@ -59,23 +59,7 @@ class _LoginState extends State<Login> {
                       keyboardType: TextInputType.emailAddress,
                       style: TextStyle(color: Colors.white, fontSize: 15),
                       controller: _emailController,
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(
-                          Icons.email,
-                          color: Colors.white70,
-                        ),
-                        helperText: '  ',
-                        filled: true,
-                        fillColor: Color(0xFF05158A),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.transparent),
-                            borderRadius: BorderRadius.circular(15)),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blue),
-                            borderRadius: BorderRadius.circular(15)),
-                      ),
+                      decoration: textFormFieldInputDecoration(Icon(Icons.email,color: Colors.white70)),
                       validator: (value) {
                         if (value == null || value == '') {
                           return 'Campo obrigatório';
@@ -102,24 +86,7 @@ class _LoginState extends State<Login> {
                           obscureText: _obscureText,
                           style: TextStyle(color: Colors.white, fontSize: 15),
                           controller: _passwordController,
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              Icons.lock,
-                              color: Colors.white70,
-                            ),
-                            helperText: '  ',
-                            filled: true,
-                            fillColor: Color(0xFF05158A),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15)),
-                            focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.blue),
-                                borderRadius: BorderRadius.circular(15)),
-                            enabledBorder: OutlineInputBorder(
-                                borderSide:
-                                BorderSide(color: Colors.transparent),
-                                borderRadius: BorderRadius.circular(15)),
-                          ),
+                          decoration: textFormFieldInputDecoration(Icon(Icons.lock,color: Colors.white70)),
                           validator: (value) {
                             _password = value;
                             if (value == null || value == '') {
@@ -156,14 +123,11 @@ class _LoginState extends State<Login> {
                     style: ElevatedButton.styleFrom(primary: Color(0xFF0B27EA)),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        print('na validação, recuperando o model -> ${model.userData}');
-                        _userData = model.userData;
                         model.signIn(
                             email: _emailController.text,
                             pass: _passwordController.text,
                             onSuccess: _onSuccess,
                             onFail: _onFail);
-                        print('na validação, recuperando o model 2 -> ${model.userData}');
                       }
                       else {
                         print('falha na validação ');
@@ -179,7 +143,6 @@ class _LoginState extends State<Login> {
   }
 
   void _onSuccess(){
-    print('sucess no login! -> _userData: $_userData');
     Navigator.pushReplacement(context,
         MaterialPageRoute(builder: (context) => Home()));
   }

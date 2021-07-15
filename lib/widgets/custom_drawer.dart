@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:petitami/models/user_model.dart';
+import 'package:petitami/screens/initial.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class CustomDrawer extends StatefulWidget {
@@ -11,13 +12,10 @@ class CustomDrawer extends StatefulWidget {
 }
 
 class _CustomDrawerState extends State<CustomDrawer> {
-
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: ScopedModelDescendant<UserModel>(
-        builder: (context, child, model)
-    {
+    return Drawer(child:
+        ScopedModelDescendant<UserModel>(builder: (context, child, model) {
       return Container(
         color: Color(0xFF05158A),
         child: Column(
@@ -62,20 +60,30 @@ class _CustomDrawerState extends State<CustomDrawer> {
               ),
             ),
             Padding(
-                padding: EdgeInsets.only(top: 50, bottom: 20, left: 20),
+                padding: EdgeInsets.only(top: 120, bottom: 20, left: 20),
                 child: Row(
                   children: [
-                    TextButton(onPressed: () {},
-                        child: Text('EDITAR PERFIL',
-                          style: GoogleFonts.imprima(fontSize: 15),)),
-                    TextButton(onPressed: () {},
+                    TextButton(
+                        onPressed: () {},
                         child: Text(
-                          'SAIR', style: GoogleFonts.imprima(fontSize: 15),))
+                          'EDITAR PERFIL',
+                          style: GoogleFonts.imprima(fontSize: 15),
+                        )),
+                    TextButton(
+                        onPressed: () {
+                          model.signOut();
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (context) => Initial()));
+                        },
+                        child: Text(
+                          'SAIR',
+                          style: GoogleFonts.imprima(fontSize: 15),
+                        ))
                   ],
                 )),
           ],
         ),
       );
-  }));
+    }));
   }
 }
