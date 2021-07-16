@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:petitami/functions/french_level.dart';
 import 'package:petitami/models/user_model.dart';
+import 'package:petitami/screens/account_configuration.dart';
 import 'package:petitami/screens/initial.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -66,7 +67,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 child: Row(
                   children: [
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (context) => AccountConfiguration()));
+                        },
                         child: Text(
                           'EDITAR PERFIL',
                           style: GoogleFonts.imprima(fontSize: 15),

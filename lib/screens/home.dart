@@ -4,7 +4,7 @@ import 'package:petitami/screens/home_content.dart';
 import 'package:petitami/screens/unit.dart';
 import 'package:petitami/widgets/custom_drawer.dart';
 
-import 'account_configurations.dart';
+import 'account_configuration.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
