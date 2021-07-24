@@ -26,6 +26,10 @@ class _RegisterState extends State<Register> {
   final _emailController = TextEditingController();
   final _passController = TextEditingController();
 
+  final _textFormFiedlWidth = 200.0;
+  var _showPassword = Icons.visibility;
+  bool _obscureText = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,14 +56,14 @@ class _RegisterState extends State<Register> {
                                 style: GoogleFonts.imprima(fontSize: 15)),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 100),
+                            padding: EdgeInsets.only(top: 40),
                             child: Text(registerFunctions.emailQuestion,
                                 style: GoogleFonts.imprima(fontSize: 20)),
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(vertical: 10),
                             child: Container(
-                              width: 300,
+                              width: _textFormFiedlWidth,
                               height: 60,
                               child: TextFormField(
                                 keyboardType: TextInputType.emailAddress,
@@ -84,7 +88,7 @@ class _RegisterState extends State<Register> {
                             padding:
                             EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                             child: Container(
-                              width: 300,
+                              width: 250,
                               height: 60,
                               child: TextFormField(
                                 style: TextStyle(fontSize: 15, color: Colors.white),
@@ -103,25 +107,49 @@ class _RegisterState extends State<Register> {
                               style: GoogleFonts.imprima(fontSize: 20)),
                           Padding(
                             padding:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-                            child: Container(
-                              width: 300,
-                              height: 60,
-                              child: TextFormField(
-                                obscureText: true,
-                                style: TextStyle(fontSize: 15, color: Colors.white),
-                                controller: _passController,
-                                decoration: textFormFieldInputDecoration(Icon(Icons.lock_open,color: Colors.white70)),
-                                validator: (value) {
-                                  if (value == null || value == '') {
-                                    return 'Campo obrigatório';
-                                  } else if (value.length < 8) {
-                                    return 'Insira pelo menos 8 caracteres';
-                                  }
-                                  return null;
-                                },
-                              ),
-                            ),
+                            EdgeInsets.only(top: 10, bottom: 10, left: 75),
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: _textFormFiedlWidth,
+                                  height: 60,
+                                  child: TextFormField(
+                                    obscureText: _obscureText,
+                                    style: TextStyle(fontSize: 15, color: Colors.white),
+                                    controller: _passController,
+                                    decoration: textFormFieldInputDecoration(Icon(Icons.lock_open,color: Colors.white70)),
+                                    validator: (value) {
+                                      if (value == null || value == '') {
+                                        return 'Campo obrigatório';
+                                      } else if (value.length < 8) {
+                                        return 'Insira pelo menos 8 caracteres';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(bottom: 20),
+                                  child: IconButton(
+                                    icon: Icon(_showPassword),
+                                    color: Colors.white70,
+                                    onPressed: (){
+                                      if(_showPassword.toString() == 'IconData(U+0E6BD)'){
+                                        setState(() {
+                                          _showPassword = Icons.visibility_off;
+                                          _obscureText = false;
+                                        });
+                                      }else{
+                                        setState(() {
+                                          _showPassword = Icons.visibility;
+                                          _obscureText = true;
+                                        });
+                                      }
+                                    },
+                                  ),
+                                )
+                              ],
+                            )
                           ),
                           Text(registerFunctions.passwordConfirmationQuestion,
                               style: GoogleFonts.imprima(fontSize: 20)),
@@ -129,10 +157,10 @@ class _RegisterState extends State<Register> {
                             padding:
                             EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                             child: Container(
-                              width: 300,
+                              width: _textFormFiedlWidth,
                               height: 60,
                               child: TextFormField(
-                                obscureText: true,
+                                obscureText: _obscureText,
                                 style: TextStyle(fontSize: 15, color: Colors.white),
                                 //controller: null,
                                 decoration: textFormFieldInputDecoration(Icon(Icons.lock_outline,color: Colors.white70)),
