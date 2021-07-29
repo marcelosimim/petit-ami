@@ -2,9 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:petitami/components/progressionbar.dart';
-import 'package:petitami/functions/home_content_functions.dart';
 import 'package:petitami/models/user_model.dart';
 import 'package:scoped_model/scoped_model.dart';
+
+import 'exercise.dart';
 
 class HomeContent extends StatefulWidget {
   const HomeContent({Key? key}) : super(key: key);
@@ -14,24 +15,13 @@ class HomeContent extends StatefulWidget {
 }
 
 class _HomeContentState extends State<HomeContent> {
-
   String _cover = '';
 
-  @override
-  void initState() {
-      setState(() {
-        setCover();
-      });
-  }
-
-  Future<String> setCover() async {
-    print('IMAGE:');
-    final DocumentReference document = Firestore.instance.collection("unit").document('unit1_exercise0');
-
-    await document.get().then<dynamic>(( DocumentSnapshot snapshot) async{
-      print(snapshot.data['image']);
+  Future<String> _setCover() async {
+    final DocumentReference document =
+        Firestore.instance.collection("unit").document('unit1_exercise0');
+    await document.get().then<dynamic>((DocumentSnapshot snapshot) async {
       _cover = snapshot.data['image'];
-      return snapshot.data['image'];
     });
 
     return '';
@@ -68,18 +58,32 @@ class _HomeContentState extends State<HomeContent> {
               ),
             ),
             Padding(
-                padding: EdgeInsets.only(right: 120, left: 120, bottom: 30),
-                child: IconButton(
-                  icon: Image.network(
-                      _cover
-                  ),
-                  iconSize: 150,
-                  onPressed: (){
-                      setState(() {
-                        
-                      });
-                  },
-                )
+              padding: EdgeInsets.only(right: 120, left: 120, bottom: 30),
+              child: FutureBuilder(
+                  future: _setCover(),
+                  builder: (context, snapshot) {
+                    switch (snapshot.connectionState) {
+                      case ConnectionState.waiting:
+                      case ConnectionState.none:
+                        return CircularProgressIndicator(
+                            valueColor:
+                                AlwaysStoppedAnimation<Color>(Colors.white),
+                            strokeWidth: 5.0,
+                          );
+                      default:
+                        if (snapshot.hasError)
+                          return Container();
+                        else
+                          return IconButton(
+                            icon: Image.network(_cover),
+                            iconSize: 150,
+                            onPressed: () {
+                              Navigator.pushReplacement(context,
+                                  MaterialPageRoute(builder: (context) => Exercise()));
+                            },
+                          );
+                    }
+                  }),
             ),
             Padding(
               padding: EdgeInsets.only(right: 30, left: 30, bottom: 20),
@@ -97,6 +101,7 @@ class _HomeContentState extends State<HomeContent> {
             ),
           ],
         ),
-      );});
-    }
+      );
+    });
   }
+}
