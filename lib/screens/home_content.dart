@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:petitami/components/progressionbar.dart';
+import 'package:petitami/functions/home_content_functions.dart';
 import 'package:petitami/models/user_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -12,6 +14,29 @@ class HomeContent extends StatefulWidget {
 }
 
 class _HomeContentState extends State<HomeContent> {
+
+  String _cover = '';
+
+  @override
+  void initState() {
+      setState(() {
+        setCover();
+      });
+  }
+
+  Future<String> setCover() async {
+    print('IMAGE:');
+    final DocumentReference document = Firestore.instance.collection("unit").document('unit1_exercise0');
+
+    await document.get().then<dynamic>(( DocumentSnapshot snapshot) async{
+      print(snapshot.data['image']);
+      _cover = snapshot.data['image'];
+      return snapshot.data['image'];
+    });
+
+    return '';
+  }
+
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<UserModel>(builder: (context, child, model) {
@@ -46,11 +71,13 @@ class _HomeContentState extends State<HomeContent> {
                 padding: EdgeInsets.only(right: 120, left: 120, bottom: 30),
                 child: IconButton(
                   icon: Image.network(
-                    'https://drive.google.com/uc?export=view&id=1kuRsV6aoYv_jS_6xvBt8lJKSdgK6OepR',
+                      _cover
                   ),
                   iconSize: 150,
                   onPressed: (){
-
+                      setState(() {
+                        
+                      });
                   },
                 )
             ),

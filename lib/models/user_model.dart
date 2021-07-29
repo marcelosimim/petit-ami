@@ -108,4 +108,8 @@ class UserModel extends Model {
     notifyListeners();
   }
 
+  void changeUserData(String? name, String? password){
+    //this.userData
+  }
+
 }
