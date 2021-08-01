@@ -6,7 +6,6 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter/material.dart';
 
 class UserModel extends Model {
-
   FirebaseAuth _auth = FirebaseAuth.instance;
 
   var firebaseUser;
@@ -24,16 +23,18 @@ class UserModel extends Model {
     _loadCurrentUser();
   }
 
-  void signUp({required Map<String, dynamic> userData, required String pass,
-    required VoidCallback onSuccess, required VoidCallback onFail}){
-
+  void signUp(
+      {required Map<String, dynamic> userData,
+      required String pass,
+      required VoidCallback onSuccess,
+      required VoidCallback onFail}) {
     isLoading = true;
     notifyListeners();
 
-    _auth.createUserWithEmailAndPassword(
-        email: userData["email"],
-        password: pass
-    ).then((user) async {
+    _auth
+        .createUserWithEmailAndPassword(
+            email: userData["email"], password: pass)
+        .then((user) async {
       firebaseUser = user;
 
       await _saveUserData(userData);
@@ -41,36 +42,36 @@ class UserModel extends Model {
       onSuccess();
       isLoading = false;
       notifyListeners();
-    }).catchError((e){
+    }).catchError((e) {
       onFail();
       isLoading = false;
       notifyListeners();
     });
-
   }
 
-  void signIn({required String email, required String pass,
-    required VoidCallback onSuccess, required VoidCallback onFail}) async {
-
+  void signIn(
+      {required String email,
+      required String pass,
+      required VoidCallback onSuccess,
+      required VoidCallback onFail}) async {
     isLoading = true;
     notifyListeners();
 
-    _auth.signInWithEmailAndPassword(email: email, password: pass).then(
-            (user) async {
-          firebaseUser = user;
+    _auth
+        .signInWithEmailAndPassword(email: email, password: pass)
+        .then((user) async {
+      firebaseUser = user;
 
-          await _loadCurrentUser();
+      await _loadCurrentUser();
 
-          onSuccess();
-          isLoading = false;
-          notifyListeners();
-
-        }).catchError((e){
+      onSuccess();
+      isLoading = false;
+      notifyListeners();
+    }).catchError((e) {
       onFail();
       isLoading = false;
       notifyListeners();
     });
-
   }
 
   void signOut() async {
@@ -82,34 +83,59 @@ class UserModel extends Model {
     notifyListeners();
   }
 
-  void recoverPass(String email){
+  void recoverPass(String email) {
     _auth.sendPasswordResetEmail(email: email);
   }
 
-  bool isLoggedIn(){
+  bool isLoggedIn() {
     return firebaseUser != null;
   }
 
   Future<Null> _saveUserData(Map<String, dynamic> userData) async {
     this.userData = userData;
-    await Firestore.instance.collection("users").document(firebaseUser!.uid).setData(userData);
+    await Firestore.instance
+        .collection("users")
+        .document(firebaseUser!.uid)
+        .setData(userData);
   }
 
   Future<Null> _loadCurrentUser() async {
-    if(firebaseUser == null)
-      firebaseUser = await _auth.currentUser();
-    if(firebaseUser != null){
-      if(userData["name"] == null){
-        DocumentSnapshot docUser =
-        await Firestore.instance.collection("users").document(firebaseUser!.uid).get();
+    if (firebaseUser == null) firebaseUser = await _auth.currentUser();
+    if (firebaseUser != null) {
+      if (userData["name"] == null) {
+        DocumentSnapshot docUser = await Firestore.instance
+            .collection("users")
+            .document(firebaseUser!.uid)
+            .get();
         userData = docUser.data;
       }
     }
     notifyListeners();
   }
 
-  void changeUserData(String? name, String? password){
-    //this.userData
+  bool updateUserData(String? name, String? password) {
+    String currentUserID = firebaseUser.uid;
+    var snapshots = Firestore.instance
+        .collection('users')
+        .document(currentUserID)
+        .updateData({'name': name == null ? userData['name'] : name});
+    notifyListeners();
+
+    return true;
   }
 
+  void setUnit(int unit) {}
+
+  int setExercise(int exercise, String op) {
+    String currentUserID = firebaseUser.uid;
+    var snapshots = Firestore.instance
+        .collection('users')
+        .document(currentUserID)
+        .updateData(op == '+' ? {'current_exercise' : exercise+1} : {'current_exercise' : exercise-1});
+    return exercise+1;
+  }
+
+  void changeUserData(String? name, String? password) {
+    //this.userData
+  }
 }

@@ -16,14 +16,18 @@ class _UnitState extends State<Unit> {
           Firestore.instance.collection('cover').orderBy('pos').getDocuments(),
       builder: (context, snapshot) {
         if (!snapshot.hasData)
-          return SliverToBoxAdapter(
-            child: Container(
-              height: 200,
-              alignment: Alignment.center,
-              child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-              ),
-            ),
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                height: 200,
+                alignment: Alignment.center,
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                ),
+              )
+            ],
           );
         else
           return Padding(
@@ -49,7 +53,3 @@ class _UnitState extends State<Unit> {
     );
   }
 }
-
-/*
-
- */

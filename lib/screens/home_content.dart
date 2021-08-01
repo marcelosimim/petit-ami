@@ -23,7 +23,7 @@ class _HomeContentState extends State<HomeContent> {
         Firestore.instance.collection("unit").document('unit${unit}');
     await document.get().then<dynamic>((DocumentSnapshot snapshot) async {
       _cover = snapshot.data['cover'];
-      print(_cover);
+      //print(_cover);
     });
 
     return '';
@@ -68,10 +68,10 @@ class _HomeContentState extends State<HomeContent> {
                       case ConnectionState.waiting:
                       case ConnectionState.none:
                         return CircularProgressIndicator(
-                            valueColor:
-                                AlwaysStoppedAnimation<Color>(Colors.white),
-                            strokeWidth: 5.0,
-                          );
+                          valueColor:
+                              AlwaysStoppedAnimation<Color>(Colors.white),
+                          strokeWidth: 5.0,
+                        );
                       default:
                         if (snapshot.hasError)
                           return Container();
@@ -80,8 +80,10 @@ class _HomeContentState extends State<HomeContent> {
                             icon: Image.network(_cover),
                             iconSize: 150,
                             onPressed: () {
-                              Navigator.pushReplacement(context,
-                                  MaterialPageRoute(builder: (context) => Exercise()));
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Exercise()));
                             },
                           );
                     }
@@ -101,7 +103,14 @@ class _HomeContentState extends State<HomeContent> {
                 style: GoogleFonts.imprima(fontSize: 25),
               ),
             ),
-            ],
+            ElevatedButton(onPressed: (){
+
+              setState(() {
+
+              });
+
+            }, child: Text('teste update')),
+          ],
         ),
       );
     });

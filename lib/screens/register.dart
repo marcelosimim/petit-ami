@@ -167,7 +167,7 @@ class _RegisterState extends State<Register> {
                                 validator: (value) {
                                   if (value == null || value == '') {
                                     return 'Campo obrigatório';
-                                  } else if (value != _passController) {
+                                  } else if (value != _passController.text) {
                                     return 'As senhas não coincidem';
                                   }
                                   return null;

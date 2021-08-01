@@ -29,7 +29,19 @@ class _ExerciseState extends State<Exercise> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appbar(),
+      appBar: AppBar(
+        title: Image.asset('assets/images/logo.png',
+            fit: BoxFit.contain, height: 60),
+        centerTitle: true,
+        actions: [
+          IconButton(onPressed: (){
+            print(_imageValue);
+            setState(() {
+                _imageSetted = false;
+            });
+          }, icon: Icon(Icons.refresh))
+        ],
+      ),
       resizeToAvoidBottomInset: true,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: AvatarGlow(
@@ -58,9 +70,19 @@ class _ExerciseState extends State<Exercise> {
               Row(
                 children: [
                   IconButton(
-                      onPressed: () {
+                      onPressed: () async {
                         if (model.userData['current_exercise'] > 1) {
-                          //exec--;
+                          int e = model.setExercise(model.userData['current_exercise'], '-');
+                          final DocumentReference document = Firestore.instance
+                              .collection("exercises")
+                              .document('u${model.userData['current_unit']}_e${e}');
+                          await document
+                              .get()
+                              .then<dynamic>((DocumentSnapshot snapshot) async {
+                            print('img: ' + snapshot.data['img']);
+                            _imageValue = 'https://drive.google.com/uc?export=view&id=' + snapshot.data['img'];
+                            print(_imageValue);
+                          });
                         }
                       },
                       icon: Icon(
@@ -109,7 +131,7 @@ class _ExerciseState extends State<Exercise> {
                                 _imageSetted = true;
                               _imageValue = snapshot.data.toString();
                               return Image.network(
-                                snapshot.data.toString(),
+                                _imageValue!,
                                 height: 200,
                                 //width: 350,
                               );
@@ -119,7 +141,11 @@ class _ExerciseState extends State<Exercise> {
               Padding(
                 padding: EdgeInsets.only(top: 20, bottom: 20),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+
+                    });
+                  },
                   child: Text('ÉCOUTEZ'),
                   style: ElevatedButton.styleFrom(primary: Colors.red),
                 ),
@@ -149,18 +175,39 @@ class _ExerciseState extends State<Exercise> {
                 onPressed: () async {
                   _imageSetted = false;
                   String? _check;
-                  String unit = model.userData['current_unit'].toString().replaceAll('.', '').replaceAll('0', '');
-                  String exercise = model.userData['current_unit'].toString().replaceAll('.', '').replaceAll('0', '');
-                  final DocumentReference document =
-                  Firestore.instance.collection("exercises").document(
-                      'u${unit}_e${exercise}');
-                  await document.get().then<dynamic>((DocumentSnapshot snapshot) async {
-                    print('snap: '+snapshot.data['check']);
+                  String unit = model.userData['current_unit']
+                      .toString()
+                      .replaceAll('.', '')
+                      .replaceAll('0', '');
+                  String exercise = model.userData['current_unit']
+                      .toString()
+                      .replaceAll('.', '')
+                      .replaceAll('0', '');
+                  final DocumentReference document = Firestore.instance
+                      .collection("exercises")
+                      .document('u${unit}_e${exercise}');
+                  await document
+                      .get()
+                      .then<dynamic>((DocumentSnapshot snapshot) async {
+                    print('snap: ' + snapshot.data['check']);
                     _check = snapshot.data['check'];
                   });
                   if (_text == _check) {
-                    print('tudo ok');
-                  }else{
+                    int e = model.setExercise(model.userData['current_exercise'], '+');
+                    final DocumentReference document = Firestore.instance
+                        .collection("exercises")
+                        .document('u${unit}_e${['current_exercise']}');
+                    await document
+                        .get()
+                        .then<dynamic>((DocumentSnapshot snapshot) async {
+                      print('img: ' + snapshot.data['img']);
+                      _imageValue = 'https://drive.google.com/uc?export=view&id=' + snapshot.data['img'];
+                      print(_imageValue);
+                        });
+                    setState(() {
+
+                    });
+                  } else {
                     print('falso');
                   }
                 },
