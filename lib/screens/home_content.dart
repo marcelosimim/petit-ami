@@ -17,11 +17,12 @@ class HomeContent extends StatefulWidget {
 class _HomeContentState extends State<HomeContent> {
   String _cover = '';
 
-  Future<String> _setCover() async {
+  Future<String> _setCover(String unit) async {
+    unit = unit.replaceAll('.', '').replaceAll('0', '');
     final DocumentReference document =
-        Firestore.instance.collection("unit").document('unit1_exercise0');
+        Firestore.instance.collection("unit").document('unit${unit}');
     await document.get().then<dynamic>((DocumentSnapshot snapshot) async {
-      _cover = snapshot.data['image'];
+      _cover = snapshot.data['cover'];
       print(_cover);
     });
 
@@ -61,7 +62,7 @@ class _HomeContentState extends State<HomeContent> {
             Padding(
               padding: EdgeInsets.only(right: 120, left: 120, bottom: 30),
               child: FutureBuilder(
-                  future: _setCover(),
+                  future: _setCover(model.userData['current_unit'].toString()),
                   builder: (context, snapshot) {
                     switch (snapshot.connectionState) {
                       case ConnectionState.waiting:
