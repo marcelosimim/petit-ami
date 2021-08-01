@@ -22,6 +22,7 @@ class _HomeContentState extends State<HomeContent> {
         Firestore.instance.collection("unit").document('unit1_exercise0');
     await document.get().then<dynamic>((DocumentSnapshot snapshot) async {
       _cover = snapshot.data['image'];
+      print(_cover);
     });
 
     return '';
@@ -99,7 +100,7 @@ class _HomeContentState extends State<HomeContent> {
                 style: GoogleFonts.imprima(fontSize: 25),
               ),
             ),
-          ],
+            ],
         ),
       );
     });
