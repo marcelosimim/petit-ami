@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:petitami/models/user_model.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Unit extends StatefulWidget {
   const Unit({Key? key}) : super(key: key);
@@ -54,7 +55,8 @@ class _UnitState extends State<Unit> {
                               ),
                             )),
                         onTap: () async {
-                          final url = doc.data['pdf'];
+                          var url = 'https://drive.google.com/uc?export=view&id=' + doc.data['pdf'];
+                          if( model.userData['current_unit'].toInt() <= doc.data['pos']) _launchInBrowser(url);
                           print(url);
                         },
                       );
@@ -64,5 +66,17 @@ class _UnitState extends State<Unit> {
         );
       }),
     );
+  }
+}
+
+Future<void> _launchInBrowser(String url) async {
+  if (await canLaunch(url)) {
+    await launch(
+      url,
+      forceSafariVC: false,
+      forceWebView: false,
+    );
+  } else {
+    throw 'Could not launch $url';
   }
 }
