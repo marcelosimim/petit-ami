@@ -34,10 +34,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
               padding: EdgeInsets.only(bottom: 100),
               child: CircleAvatar(
                 backgroundColor: Color(0xFF0B27EA),
-                radius: 100,
+                radius: 70,
                 child: Image.asset(
                   'assets/images/french_white_man.png',
-                  height: 160,
+                  height: 100,
                 ),
               ),
             ),
