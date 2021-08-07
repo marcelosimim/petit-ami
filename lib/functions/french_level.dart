@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class FrenchLevel{
 
-  double? _level;
+  int? _level;
 
-  FrenchLevel(double level){
+  FrenchLevel(int level){
     this._level = level;
   }
 

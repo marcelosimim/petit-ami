@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,7 @@ class UserModel extends Model {
   FirebaseAuth _auth = FirebaseAuth.instance;
 
   var firebaseUser;
+  var uid;
   Map<String, dynamic> userData = Map();
 
   bool isLoading = false;
@@ -92,22 +94,29 @@ class UserModel extends Model {
   }
 
   Future<Null> _saveUserData(Map<String, dynamic> userData) async {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+
     this.userData = userData;
-    await Firestore.instance
-        .collection("users")
-        .document(firebaseUser!.uid)
-        .setData(userData);
+    await FirebaseFirestore.instance
+        .collection("users").doc(_auth.currentUser!.uid.toString()).set(userData).then((value) => print('ok'))
+        .catchError((error) => print('error: '+error));
   }
 
   Future<Null> _loadCurrentUser() async {
-    if (firebaseUser == null) firebaseUser = await _auth.currentUser();
+    if (firebaseUser == null) firebaseUser = await _auth.currentUser!;
     if (firebaseUser != null) {
       if (userData["name"] == null) {
-        DocumentSnapshot docUser = await Firestore.instance
+        DocumentSnapshot docUser = await FirebaseFirestore.instance
             .collection("users")
-            .document(firebaseUser!.uid)
+            .doc(_auth.currentUser!.uid.toString())
             .get();
-        userData = docUser.data;
+        userData = {
+          'name': docUser['name'],
+          'email': docUser['email'],
+          'current_unit': docUser['current_unit'],
+          'current_exercise': docUser['current_exercise']
+        };
+        print('oi6');
       }
     }
     notifyListeners();
@@ -115,10 +124,10 @@ class UserModel extends Model {
 
   bool updateUserData(String? name, String? password) {
     String currentUserID = firebaseUser.uid;
-    var snapshots = Firestore.instance
+    var snapshots = FirebaseFirestore.instance
         .collection('users')
-        .document(currentUserID)
-        .updateData({'name': name == null ? userData['name'] : name});
+        .doc(currentUserID)
+        .update({'name': name == null ? userData['name'] : name});
     notifyListeners();
 
     return true;
@@ -128,14 +137,16 @@ class UserModel extends Model {
 
   int setExercise(int exercise, String op) {
     String currentUserID = firebaseUser.uid;
-    var snapshots = Firestore.instance
+    var snapshots = FirebaseFirestore.instance
         .collection('users')
-        .document(currentUserID)
-        .updateData(op == '+' ? {'current_exercise' : exercise+1} : {'current_exercise' : exercise-1});
+        .doc(currentUserID)
+        .update(op == '+' ? {'current_exercise' : exercise+1} : {'current_exercise' : exercise-1});
+    notifyListeners();
     return exercise+1;
   }
 
   void changeUserData(String? name, String? password) {
     //this.userData
   }
+
 }

@@ -17,10 +17,9 @@ class _UnitState extends State<Unit> {
     return Scaffold(
       body: ScopedModelDescendant<UserModel>(builder: (context, child, model) {
         return FutureBuilder<QuerySnapshot>(
-          future: Firestore.instance
+          future: FirebaseFirestore.instance
               .collection('cover')
-              .orderBy('pos')
-              .getDocuments(),
+              .orderBy('pos').get(),
           builder: (context, snapshot) {
             if (!snapshot.hasData)
               return Column(
@@ -43,21 +42,22 @@ class _UnitState extends State<Unit> {
                     crossAxisCount: 3,
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 30,
-                    children: snapshot.data!.documents.map((doc) {
+                    children: snapshot.data!.docs.map((doc) {
                       return GestureDetector(
                         child: GridTile(
                             child: ColorFiltered(
-                              colorFilter: ColorFilter.mode(model.userData['current_unit'].toInt() >= doc.data['pos'] ?
+                              colorFilter: ColorFilter.mode(model.userData['current_unit'].toInt() >= 1//doc.data['pos']
+                                   ?
                                   Colors.blue : Colors.black,BlendMode.saturation),
                               child: Image.network(
-                                'https://drive.google.com/uc?export=view&id=' +
-                                    doc.data!['img'],
+                                'https://drive.google.com/uc?export=view&id='
+                                    //doc.  .data!['img'],
                               ),
                             )),
                         onTap: () async {
-                          var url = 'https://drive.google.com/uc?export=view&id=' + doc.data['pdf'];
-                          if( model.userData['current_unit'].toInt() <= doc.data['pos']) _launchInBrowser(url);
-                          print(url);
+                          //var url = 'https://drive.google.com/uc?export=view&id=' + doc.data['pdf'];
+                          //if( model.userData['current_unit'].toInt() <= doc.data['pos']) _launchInBrowser(url);
+                          //print(url);
                         },
                       );
                     }).toList(),

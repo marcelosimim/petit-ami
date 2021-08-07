@@ -20,9 +20,10 @@ class _HomeContentState extends State<HomeContent> {
   Future<String> _setCover(String unit) async {
     unit = unit.replaceAll('.', '').replaceAll('0', '');
     final DocumentReference document =
-        Firestore.instance.collection("unit").document('unit${unit}');
+    FirebaseFirestore.instance.collection("unit").doc('unit${unit}');
     await document.get().then<dynamic>((DocumentSnapshot snapshot) async {
-      _cover = snapshot.data['cover'];
+      Map<String, dynamic> data = snapshot.data! as Map<String, dynamic>;
+      _cover = data['cover'];
       //print(_cover);
     });
 
@@ -103,13 +104,6 @@ class _HomeContentState extends State<HomeContent> {
                 style: GoogleFonts.imprima(fontSize: 25),
               ),
             ),
-            ElevatedButton(onPressed: (){
-
-              setState(() {
-
-              });
-
-            }, child: Text('teste update')),
           ],
         ),
       );

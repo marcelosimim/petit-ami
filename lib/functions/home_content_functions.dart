@@ -8,11 +8,12 @@ class HomeContentFunctions{
     //print(await Firestore.instance.collection('unit').snapshots());
     //Firestore.instance.collection('unit');
 
-    final DocumentReference document =   Firestore.instance.collection("unit").document('unit1_exercise0');
+    final DocumentReference document =  FirebaseFirestore.instance.collection("unit").doc('unit1_exercise0');
 
     await document.get().then<dynamic>(( DocumentSnapshot snapshot) async{
-        print(snapshot.data['image']);
-        return snapshot.data['image'];
+      Map<String, dynamic> data = snapshot.data as Map<String, dynamic>;
+        print(data['image']);
+        return data['image'];
     });
 
     return 'https://emojigraph.org/media/apple/clown-face_1f921.png';

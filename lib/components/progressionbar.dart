@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-LinearProgressIndicator linearProgressIndicator(double userCurrentUnity){
+LinearProgressIndicator linearProgressIndicator(int userCurrentUnity){
   return LinearProgressIndicator(
     valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF2440FF)),
     backgroundColor: Colors.redAccent,

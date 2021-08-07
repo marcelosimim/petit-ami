@@ -74,7 +74,6 @@ class _RegisterState extends State<Register> {
                                   if (value == null || value == '') {
                                     return 'Campo obrigatório';
                                   } else if (EmailValidator.validate(value)) {
-                                    print(value);
                                     return null;
                                   }
                                   return 'Email inválido!';
@@ -178,10 +177,11 @@ class _RegisterState extends State<Register> {
                           ElevatedButton(
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
+                                  print('registro ok');
                                   Map<String, dynamic> userData = {
                                     "name": _nameController.text,
                                     "email": _emailController.text,
-                                    "current_unit": 1.0,
+                                    "current_unit": 1,
                                     "current_exercise": 1,
                                   };
                                   model.signUp(
