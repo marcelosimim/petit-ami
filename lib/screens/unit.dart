@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:petitami/models/user_model.dart';
+import 'package:petitami/widgets/image_grid_item.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -12,71 +14,32 @@ class Unit extends StatefulWidget {
 }
 
 class _UnitState extends State<Unit> {
+  Future<String> _setCover(int unit) async {
+    Reference ref =
+        FirebaseStorage.instance.ref().child('cover').child('/capa${unit}.png');
+    //_cover = ref.getDownloadURL().toString();
+    return ref.getDownloadURL();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {});
+        },
+      ),
       body: ScopedModelDescendant<UserModel>(builder: (context, child, model) {
-        return FutureBuilder<QuerySnapshot>(
-          future: FirebaseFirestore.instance
-              .collection('cover')
-              .orderBy('pos').get(),
-          builder: (context, snapshot) {
-            if (!snapshot.hasData)
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 200,
-                    alignment: Alignment.center,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                    ),
-                  )
-                ],
-              );
-            else
-              return Padding(
-                  padding: EdgeInsets.symmetric(vertical: 30),
-                  child: GridView.count(
-                    crossAxisCount: 3,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 30,
-                    children: snapshot.data!.docs.map((doc) {
-                      return GestureDetector(
-                        child: GridTile(
-                            child: ColorFiltered(
-                              colorFilter: ColorFilter.mode(model.userData['current_unit'].toInt() >= 1//doc.data['pos']
-                                   ?
-                                  Colors.blue : Colors.black,BlendMode.saturation),
-                              child: Image.network(
-                                'https://drive.google.com/uc?export=view&id='
-                                    //doc.  .data!['img'],
-                              ),
-                            )),
-                        onTap: () async {
-                          //var url = 'https://drive.google.com/uc?export=view&id=' + doc.data['pdf'];
-                          //if( model.userData['current_unit'].toInt() <= doc.data['pos']) _launchInBrowser(url);
-                          //print(url);
-                        },
-                      );
-                    }).toList(),
-                  ));
-          },
-        );
+        return GridView.builder(
+          itemCount: 18,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3, mainAxisSpacing: 10),
+            itemBuilder: (context, index) {
+              return ImageGridItem(index + 1, model.userData['current_unit']);
+            });
       }),
     );
   }
 }
 
-Future<void> _launchInBrowser(String url) async {
-  if (await canLaunch(url)) {
-    await launch(
-      url,
-      forceSafariVC: false,
-      forceWebView: false,
-    );
-  } else {
-    throw 'Could not launch $url';
-  }
-}
+

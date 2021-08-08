@@ -116,7 +116,6 @@ class UserModel extends Model {
           'current_unit': docUser['current_unit'],
           'current_exercise': docUser['current_exercise']
         };
-        print('oi6');
       }
     }
     notifyListeners();

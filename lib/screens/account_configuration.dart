@@ -86,7 +86,7 @@ class _AccountConfigurationState extends State<AccountConfiguration> {
                                 controller: _passwordController,
                                 validator: (value) {
                                   _password = value;
-                                  if (value!.length > 0 && value!.length < 8) {
+                                  if (value!.length > 0 && value.length < 8) {
                                     return 'Insira pelo menos 8 caracteres';
                                   }
                                 },

@@ -10,10 +10,11 @@ class Exercises {
     exercise = exercise.replaceAll('.', '').replaceAll('0', '');
 
     final DocumentReference document =
-    Firestore.instance.collection("exercises").document(
+    FirebaseFirestore.instance.collection("exercises").doc(
         'u${unit}_e${exercise}');
     await document.get().then<dynamic>((DocumentSnapshot snapshot) async {
-      id = snapshot.data['img'];
+      Map<String, dynamic> data = snapshot.data as Map<String, dynamic>;
+      id = data['img'];
     });
     return 'https://drive.google.com/uc?export=view&id=' + id!;
 
@@ -28,11 +29,12 @@ class Exercises {
     exercise = exercise.replaceAll('.', '').replaceAll('0', '');
 
     final DocumentReference document =
-    Firestore.instance.collection("exercises").document(
+    FirebaseFirestore.instance.collection("exercises").doc(
         'u${unit}_e${exercise}');
     await document.get().then<dynamic>((DocumentSnapshot snapshot) async {
-      print('snap: '+snapshot.data['check']);
-      _check = snapshot.data['check'].toString().toLowerCase();
+      Map<String, dynamic> data = snapshot.data as Map<String, dynamic>;
+      print('snap: '+data['check']);
+      _check = data['check'].toString().toLowerCase();
       return ;
     });
 

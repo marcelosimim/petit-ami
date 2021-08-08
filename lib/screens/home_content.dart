@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:petitami/components/progressionbar.dart';
 import 'package:petitami/models/user_model.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 import 'exercise.dart';
 
@@ -17,17 +19,12 @@ class HomeContent extends StatefulWidget {
 class _HomeContentState extends State<HomeContent> {
   String _cover = '';
 
-  Future<String> _setCover(String unit) async {
-    unit = unit.replaceAll('.', '').replaceAll('0', '');
-    final DocumentReference document =
-    FirebaseFirestore.instance.collection("unit").doc('unit${unit}');
-    await document.get().then<dynamic>((DocumentSnapshot snapshot) async {
-      Map<String, dynamic> data = snapshot.data! as Map<String, dynamic>;
-      _cover = data['cover'];
-      //print(_cover);
-    });
 
-    return '';
+  Future<String> _setCover(int unit) async {
+    Reference ref = FirebaseStorage.instance
+        .ref().child('cover').child('/capa${unit}.png');
+    _cover = ref.getDownloadURL().toString();
+    return ref.getDownloadURL();
   }
 
   @override
@@ -49,7 +46,7 @@ class _HomeContentState extends State<HomeContent> {
             Padding(
               padding: EdgeInsets.only(right: 40, left: 40, bottom: 30),
               child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(30)),
+                borderRadius: BorderRadius.all(Radius.circular(10)),
                 child: linearProgressIndicator(model.userData['current_unit']),
               ),
             ),
@@ -63,22 +60,24 @@ class _HomeContentState extends State<HomeContent> {
             Padding(
               padding: EdgeInsets.only(right: 120, left: 120, bottom: 30),
               child: FutureBuilder(
-                  future: _setCover(model.userData['current_unit'].toString()),
+                  future: _setCover(model.userData['current_unit']),
                   builder: (context, snapshot) {
                     switch (snapshot.connectionState) {
                       case ConnectionState.waiting:
                       case ConnectionState.none:
-                        return CircularProgressIndicator(
+                        return Center(child: CircularProgressIndicator(
                           valueColor:
-                              AlwaysStoppedAnimation<Color>(Colors.white),
+                          AlwaysStoppedAnimation<Color>(Colors.white),
                           strokeWidth: 5.0,
-                        );
+                        ),);
                       default:
                         if (snapshot.hasError)
-                          return Container();
+                          return Container(
+                            child: Text('error')
+                          );
                         else
                           return IconButton(
-                            icon: Image.network(_cover),
+                            icon: Image.network(snapshot.data.toString()),
                             iconSize: 150,
                             onPressed: () {
                               Navigator.pushReplacement(

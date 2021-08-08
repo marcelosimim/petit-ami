@@ -146,6 +146,13 @@ class _LoginState extends State<Login> {
   }
 
   void _onFail(){
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text(
+          'Success!\n Copied download URL to Clipboard!',
+        ),
+      ),
+    );
     print('Fail');
   }
 }
