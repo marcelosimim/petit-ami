@@ -134,14 +134,17 @@ class UserModel extends Model {
 
   void setUnit(int unit) {}
 
-  int setExercise(int exercise, String op) {
-    String currentUserID = firebaseUser.uid;
+  void setExercise(int increment) {
+    print('setExercise');
+    print('userdata: ${userData['current_exercise']}');
+    print('increment: ${increment}');
+    String currentUserID = _auth.currentUser!.uid.toString();
     var snapshots = FirebaseFirestore.instance
         .collection('users')
         .doc(currentUserID)
-        .update(op == '+' ? {'current_exercise' : exercise+1} : {'current_exercise' : exercise-1});
+        .update({'current_exercise' : userData['current_exercise']+increment});
+    userData['current_exercise'] += increment;
     notifyListeners();
-    return exercise+1;
   }
 
   void changeUserData(String? name, String? password) {

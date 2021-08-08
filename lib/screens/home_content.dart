@@ -80,7 +80,7 @@ class _HomeContentState extends State<HomeContent> {
                             icon: Image.network(snapshot.data.toString()),
                             iconSize: 150,
                             onPressed: () {
-                              Navigator.pushReplacement(
+                              Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => Exercise()));
