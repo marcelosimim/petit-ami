@@ -1,24 +1,36 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'initial.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
+
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+
+    Timer(Duration(seconds: 3), (){
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Initial()));
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //esse aqui viu? backgroundColor: Color(0xFF14279A),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          IconButton(onPressed: () {
-            Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => Initial()
-                ));
-          }, icon: Image.asset('assets/images/logo.png'), iconSize: 500,),
+          Image.asset('assets/images/logo.png'),
           Text(
             'Petit Ami',
             style: GoogleFonts.architectsDaughter(

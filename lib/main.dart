@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:petitami/screens/initial.dart';
+import 'package:petitami/screens/splash_screen.dart';
 import 'package:petitami/theme/theme.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         model: UserModel(),
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: Initial(),
+            home: SplashScreen(),
             theme: AppTheme.mainTheme));
   }
 }
