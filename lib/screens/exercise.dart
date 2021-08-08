@@ -1,6 +1,6 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:petitami/functions/exercises_functions.dart';
 import 'package:petitami/models/user_model.dart';
@@ -8,7 +8,6 @@ import 'package:petitami/widgets/image_exercise.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 
-import 'home.dart';
 
 class Exercise extends StatefulWidget {
   const Exercise({Key? key}) : super(key: key);
@@ -18,10 +17,14 @@ class Exercise extends StatefulWidget {
 }
 
 class _ExerciseState extends State<Exercise> {
+  final Exercises functions = new Exercises();
+  AudioPlayer audioPlayer = new AudioPlayer(mode: PlayerMode.MEDIA_PLAYER);
+  bool _isPlaying = false;
   bool _isListening = false;
   final _speech = new SpeechToText();
   double _confidence = 1.0;
   String? _text;
+  String? _currentAudio;
 
   @override
   Widget build(BuildContext context) {
@@ -72,10 +75,9 @@ class _ExerciseState extends State<Exercise> {
                 Padding(
                   padding: EdgeInsets.only(top: 20, bottom: 20),
                   child: ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-
-                      });
+                    onPressed: () async{
+                      String url = await functions.getAudioUrl(model.userData['current_unit'], model.userData['current_exercise']);
+                      playAudio(url);
                     },
                     child: Text('ÉCOUTEZ'),
                     style: ElevatedButton.styleFrom(primary: Colors.red),
@@ -154,6 +156,25 @@ class _ExerciseState extends State<Exercise> {
         _isListening = false;
       });
       _speech.stop();
+    }
+  }
+
+  void playAudio(String url) async{
+    if(_isPlaying && _currentAudio != url){
+      audioPlayer.pause();
+      int result = await audioPlayer.play(url);
+      if(result == 1){
+        setState(() {
+          _currentAudio = url;
+        });
+      }
+    }else if(!_isPlaying){
+      int result = await audioPlayer.play(url);
+      if(result == 1){
+        setState(() {
+          _isPlaying = true;
+        });
+      }
     }
   }
 }
