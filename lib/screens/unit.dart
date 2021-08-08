@@ -24,11 +24,6 @@ class _UnitState extends State<Unit> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {});
-        },
-      ),
       body: ScopedModelDescendant<UserModel>(builder: (context, child, model) {
         return GridView.builder(
           itemCount: 18,
