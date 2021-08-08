@@ -214,6 +214,14 @@ class _RegisterState extends State<Register> {
   }
 
   void _onFail(){
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        backgroundColor: Color(0xFF0B27EA),
+        content: Text(
+          'Falha ao criar usuário.',
+        ),
+      ),
+    );
     print('fail');
   }
 }

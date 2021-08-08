@@ -148,8 +148,9 @@ class _LoginState extends State<Login> {
   void _onFail(){
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
+        backgroundColor: Color(0xFF0B27EA),
         content: Text(
-          'Success!\n Copied download URL to Clipboard!',
+          'Usuário ou senha inválido(s)',
         ),
       ),
     );
