@@ -26,7 +26,7 @@ class _RegisterState extends State<Register> {
   final _emailController = TextEditingController();
   final _passController = TextEditingController();
 
-  final _textFormFiedlWidth = 200.0;
+  final _textFormFiedlWidth = 250.0;
   var _showPassword = Icons.visibility;
   bool _obscureText = true;
 
@@ -85,9 +85,9 @@ class _RegisterState extends State<Register> {
                               style: GoogleFonts.imprima(fontSize: 20)),
                           Padding(
                             padding:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                            EdgeInsets.symmetric(vertical: 10),
                             child: Container(
-                              width: 250,
+                              width: _textFormFiedlWidth,
                               height: 60,
                               child: TextFormField(
                                 style: TextStyle(fontSize: 15, color: Colors.white),
@@ -106,17 +106,47 @@ class _RegisterState extends State<Register> {
                               style: GoogleFonts.imprima(fontSize: 20)),
                           Padding(
                             padding:
-                            EdgeInsets.only(top: 10, bottom: 10, left: 75),
-                            child: Row(
-                              children: [
-                                Container(
+                            EdgeInsets.symmetric(vertical: 10),
+                                child: Container(
                                   width: _textFormFiedlWidth,
                                   height: 60,
                                   child: TextFormField(
                                     obscureText: _obscureText,
                                     style: TextStyle(fontSize: 15, color: Colors.white),
                                     controller: _passController,
-                                    decoration: textFormFieldInputDecoration(Icon(Icons.lock_open,color: Colors.white70)),
+                                    decoration: InputDecoration(
+                                      prefixIcon: Icon(Icons.lock_open, color: Colors.white70,),
+                                      suffixIcon: IconButton(
+                                        icon: Icon(_showPassword),
+                                        color: Colors.white70,
+                                        onPressed: (){
+                                          if(_showPassword.toString() == 'IconData(U+0E6BD)'){
+                                            setState(() {
+                                              _showPassword = Icons.visibility_off;
+                                              _obscureText = false;
+                                            });
+                                          }else{
+                                            setState(() {
+                                              _showPassword = Icons.visibility;
+                                              _obscureText = true;
+                                            });
+                                          }
+                                        },
+                                      ),
+                                      helperText: ' ',
+                                      filled: true,
+                                      fillColor: Color(0xFF05158A),
+                                      border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(15)),
+                                      focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Colors.blue),
+                                          borderRadius: BorderRadius.circular(15)),
+                                      enabledBorder: OutlineInputBorder(
+                                          borderSide:
+                                          BorderSide(color: Colors.transparent),
+                                          borderRadius: BorderRadius.circular(15)),
+                                    ),
                                     validator: (value) {
                                       if (value == null || value == '') {
                                         return 'Campo obrigatório';
@@ -127,29 +157,7 @@ class _RegisterState extends State<Register> {
                                     },
                                   ),
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(bottom: 20),
-                                  child: IconButton(
-                                    icon: Icon(_showPassword),
-                                    color: Colors.white70,
-                                    onPressed: (){
-                                      if(_showPassword.toString() == 'IconData(U+0E6BD)'){
-                                        setState(() {
-                                          _showPassword = Icons.visibility_off;
-                                          _obscureText = false;
-                                        });
-                                      }else{
-                                        setState(() {
-                                          _showPassword = Icons.visibility;
-                                          _obscureText = true;
-                                        });
-                                      }
-                                    },
-                                  ),
-                                )
-                              ],
-                            )
-                          ),
+                            ),
                           Text(registerFunctions.passwordConfirmationQuestion,
                               style: GoogleFonts.imprima(fontSize: 20)),
                           Padding(
