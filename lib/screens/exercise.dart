@@ -7,6 +7,7 @@ import 'package:petitami/models/user_model.dart';
 import 'package:petitami/widgets/image_exercise.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:speech_to_text/speech_to_text.dart';
+import 'package:petitami/route/route.dart' as route;
 
 
 class Exercise extends StatefulWidget {
@@ -36,9 +37,9 @@ class _ExerciseState extends State<Exercise> {
           actions: [
             IconButton(
                 onPressed: () {
-                  Navigator.pop(context, new Exercise());
+                  Navigator.pushNamedAndRemoveUntil(context, route.homePage, (route) => false);
                 },
-                icon: Icon(Icons.refresh))
+                icon: Icon(Icons.exit_to_app), color: Colors.red,)
           ],
         ),
         resizeToAvoidBottomInset: true,
@@ -118,7 +119,7 @@ class _ExerciseState extends State<Exercise> {
                     });
                     if (_text == _check) {
                       model.setExercise(1);
-                      Navigator.push(context, new MaterialPageRoute(builder: (context) => Exercise()));
+                      Navigator.pushNamedAndRemoveUntil(context, route.exercisePage, (route) => false);
                     } else {
                       print('falso');
                     }

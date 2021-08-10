@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:petitami/components/appbar.dart';
 import 'package:petitami/screens/register.dart';
+import 'package:petitami/route/route.dart' as route;
 
 import 'login.dart';
 
@@ -29,8 +30,7 @@ class Initial extends StatelessWidget {
               EdgeInsets.only(top: 100, left: 40, right: 40, bottom: 5),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Register()));
+                  Navigator.pushNamed(context, route.registerPage);
                 },
                 child: Text('CADASTRAR'),
               ),
@@ -61,8 +61,7 @@ class Initial extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 40, vertical: 5),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Login()));
+                  Navigator.pushNamed(context, route.loginPage);
                 },
                 child: Text('ENTRAR'),
               ),

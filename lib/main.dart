@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:petitami/screens/initial.dart';
 import 'package:petitami/screens/splash_screen.dart';
 import 'package:petitami/theme/theme.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:petitami/route/route.dart' as route;
 
 import 'models/user_model.dart';
 
@@ -28,7 +28,10 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
             home: SplashScreen(),
-            theme: AppTheme.mainTheme));
+            theme: AppTheme.mainTheme,
+            onGenerateRoute: route.controller,
+            initialRoute: route.splashScreen,
+        ));
   }
 }
 

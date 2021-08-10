@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:petitami/components/inputdecoration.dart';
 import 'package:petitami/models/user_model.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:petitami/route/route.dart' as route;
 
 import 'home.dart';
 
@@ -141,8 +142,7 @@ class _LoginState extends State<Login> {
   }
 
   void _onSuccess(){
-    Navigator.pushReplacement(context,
-        MaterialPageRoute(builder: (context) => Home()));
+    Navigator.pushNamedAndRemoveUntil(context, route.homePage, (route) => false);
   }
 
   void _onFail(){

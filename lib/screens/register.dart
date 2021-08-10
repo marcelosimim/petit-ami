@@ -6,7 +6,7 @@ import 'package:petitami/components/inputdecoration.dart';
 import 'package:petitami/models/user_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:petitami/functions/register_functions.dart';
-
+import 'package:petitami/route/route.dart' as route;
 import 'home.dart';
 
 class Register extends StatefulWidget {
@@ -213,12 +213,8 @@ class _RegisterState extends State<Register> {
   void _onSuccess(){
     print('sucess');
     Future.delayed(Duration(seconds: 2)).then((_){
-      Navigator.of(context).pop();
+      Navigator.pushNamedAndRemoveUntil(context, route.homePage, (route) => false);
     });
-
-    Navigator.pushReplacement(context,
-        MaterialPageRoute(
-            builder: (context) => Home()));
   }
 
   void _onFail(){

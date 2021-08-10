@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:petitami/route/route.dart' as route;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Timer(Duration(seconds: 3), (){
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Initial()));
+      Navigator.pushNamedAndRemoveUntil(context, route.initialPage, (route) => false);
     });
   }
 

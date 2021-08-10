@@ -6,6 +6,7 @@ import 'package:petitami/components/progressionbar.dart';
 import 'package:petitami/models/user_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:petitami/route/route.dart' as route;
 
 import 'exercise.dart';
 
@@ -46,7 +47,7 @@ class _HomeContentState extends State<HomeContent> {
             Padding(
               padding: EdgeInsets.only(right: 40, left: 40, bottom: 30),
               child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+                borderRadius: BorderRadius.all(Radius.circular(30)),
                 child: linearProgressIndicator(model.userData['current_unit']),
               ),
             ),
@@ -80,10 +81,7 @@ class _HomeContentState extends State<HomeContent> {
                             icon: Image.network(snapshot.data.toString()),
                             iconSize: 150,
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Exercise()));
+                              Navigator.pushNamedAndRemoveUntil(context, route.exercisePage, (route) => false);
                             },
                           );
                     }

@@ -5,6 +5,7 @@ import 'package:petitami/models/user_model.dart';
 import 'package:petitami/screens/account_configuration.dart';
 import 'package:petitami/screens/initial.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:petitami/route/route.dart' as route;
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -68,8 +69,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   children: [
                     TextButton(
                         onPressed: () {
-                          Navigator.pushReplacement(context,
-                              MaterialPageRoute(builder: (context) => AccountConfiguration()));
+                          Navigator.pushNamed(context, route.accountConfigPage);
                         },
                         child: Text(
                           'EDITAR PERFIL',
@@ -78,8 +78,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     TextButton(
                         onPressed: () {
                           model.signOut();
-                          Navigator.pushReplacement(context,
-                              MaterialPageRoute(builder: (context) => Initial()));
+                          Navigator.pushNamedAndRemoveUntil(context, route.initialPage, (route) => false);
                         },
                         child: Text(
                           'SAIR',
