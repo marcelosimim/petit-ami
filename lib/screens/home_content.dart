@@ -1,8 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:petitami/components/progressionbar.dart';
+import 'package:petitami/functions/exercises_functions.dart';
 import 'package:petitami/models/user_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -18,12 +17,13 @@ class HomeContent extends StatefulWidget {
 }
 
 class _HomeContentState extends State<HomeContent> {
+  final Exercises functions = new Exercises();
+  bool? _exerciseType;
   String _cover = '';
 
-
   Future<String> _setCover(int unit) async {
-    Reference ref = FirebaseStorage.instance
-        .ref().child('cover').child('/capa${unit}.png');
+    Reference ref =
+        FirebaseStorage.instance.ref().child('cover').child('/capa${unit}.png');
     _cover = ref.getDownloadURL().toString();
     return ref.getDownloadURL();
   }
@@ -66,22 +66,31 @@ class _HomeContentState extends State<HomeContent> {
                     switch (snapshot.connectionState) {
                       case ConnectionState.waiting:
                       case ConnectionState.none:
-                        return Center(child: CircularProgressIndicator(
-                          valueColor:
-                          AlwaysStoppedAnimation<Color>(Colors.white),
-                          strokeWidth: 5.0,
-                        ),);
+                        return Center(
+                          child: CircularProgressIndicator(
+                            valueColor:
+                                AlwaysStoppedAnimation<Color>(Colors.white),
+                            strokeWidth: 5.0,
+                          ),
+                        );
                       default:
                         if (snapshot.hasError)
-                          return Container(
-                            child: Text('error')
-                          );
+                          return Container(child: Text('error'));
                         else
                           return IconButton(
                             icon: Image.network(snapshot.data.toString()),
                             iconSize: 150,
-                            onPressed: () {
-                              Navigator.pushNamedAndRemoveUntil(context, route.exercisePage, (route) => false);
+                            onPressed: () async {
+                              _exerciseType = await functions.getExerciseType(
+                                  model.userData['current_unit'],
+                                  model.userData['current_exercise']);
+                              _exerciseType == true
+                                  ? Navigator.pushNamedAndRemoveUntil(context,
+                                      route.answerPage, (route) => false)
+                                  : Navigator.pushNamedAndRemoveUntil(
+                                      context,
+                                      route.listenAndRepeatPage,
+                                      (route) => false);
                             },
                           );
                     }

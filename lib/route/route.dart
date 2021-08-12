@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:petitami/screens/account_configuration.dart';
 import 'package:petitami/screens/exercise.dart';
+import 'package:petitami/screens/exercise/answer.dart';
+import 'package:petitami/screens/exercise/listen_and_repeat.dart';
 import 'package:petitami/screens/home.dart';
 import 'package:petitami/screens/home_content.dart';
 import 'package:petitami/screens/initial.dart';
@@ -18,6 +20,8 @@ const String homeContentPage = 'home_content';
 const String unitPage = 'unit';
 const String exercisePage = 'exercise';
 const String accountConfigPage = 'account_config';
+const String listenAndRepeatPage = 'listen_and_repeat';
+const String answerPage = 'answer';
 
 Route<dynamic> controller(RouteSettings setting){
 
@@ -36,10 +40,14 @@ Route<dynamic> controller(RouteSettings setting){
       return MaterialPageRoute(builder: (context) => HomeContent());
     case unitPage:
       return MaterialPageRoute(builder: (context) => Unit());
-    case exercisePage:
-      return MaterialPageRoute(builder: (context) => Exercise());
+    //case exercisePage:
+      //return MaterialPageRoute(builder: (context) => Exercise());
     case accountConfigPage:
       return MaterialPageRoute(builder: (context) => AccountConfiguration());
+    case listenAndRepeatPage:
+      return MaterialPageRoute(builder: (context) => ListenAndRepeat());
+    case answerPage:
+      return MaterialPageRoute(builder: (context) => Answer());
     default:
       throw ('PAGE NOT FOUND!');
   }
