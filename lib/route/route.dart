@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:petitami/screens/account_configuration.dart';
 import 'package:petitami/screens/exercise.dart';
 import 'package:petitami/screens/exercise/answer.dart';
+import 'package:petitami/screens/exercise/question.dart';
 import 'package:petitami/screens/exercise/listen_and_repeat.dart';
 import 'package:petitami/screens/home.dart';
 import 'package:petitami/screens/home_content.dart';
@@ -22,6 +23,7 @@ const String exercisePage = 'exercise';
 const String accountConfigPage = 'account_config';
 const String listenAndRepeatPage = 'listen_and_repeat';
 const String answerPage = 'answer';
+const String questionPage = 'question';
 
 Route<dynamic> controller(RouteSettings setting){
 
@@ -46,6 +48,8 @@ Route<dynamic> controller(RouteSettings setting){
       return MaterialPageRoute(builder: (context) => AccountConfiguration());
     case listenAndRepeatPage:
       return MaterialPageRoute(builder: (context) => ListenAndRepeat());
+    case questionPage:
+      return MaterialPageRoute(builder: (context) => Question());
     case answerPage:
       return MaterialPageRoute(builder: (context) => Answer());
     default:

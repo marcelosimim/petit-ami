@@ -28,6 +28,13 @@ class _ListenAndRepeatState extends State<ListenAndRepeat> {
   String? _check;
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print('EXERCICIO DE ESCUTA E REPETICAO');
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: appbar_exercise(context),
@@ -86,12 +93,12 @@ class _ListenAndRepeatState extends State<ListenAndRepeat> {
                   child: ElevatedButton(
                     onPressed: () async{
                       _check = await functions.getAnswer(model.userData['current_unit'], model.userData['current_exercise']);
-                      print(_check);
-                      print(_speechText);
+                      print(_check.toString().toLowerCase());
+                      print(_speechText.toLowerCase());
                       if(_check.toString().toLowerCase() == _speechText.toLowerCase()){
                         model.setExercise(1);
                         bool? next = await functions.getExerciseType(model.userData['current_unit'],  model.userData['current_exercise']);
-                        next == true? Navigator.pushReplacementNamed(context, route.answerPage)
+                        next == true? Navigator.pushReplacementNamed(context, route.questionPage)
                           : Navigator.pushReplacementNamed(
                       context,
                       route.listenAndRepeatPage);

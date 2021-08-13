@@ -7,13 +7,6 @@ import 'package:petitami/route/route.dart' as route;
 
 import 'models/user_model.dart';
 
-/*void main() async {
-  runApp(MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
-      theme: AppTheme.mainTheme));
-}*/
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -34,24 +27,3 @@ class MyApp extends StatelessWidget {
         ));
   }
 }
-
-/*void main() async {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-      builder: (context, snapshot) {
-        return ScopedModel<UserModel>(
-            model: UserModel(),
-            child: MaterialApp(
-                debugShowCheckedModeBanner: false,
-                home: SplashScreen(),
-                theme: AppTheme.mainTheme));
-      },
-      future: Firebase.initializeApp(),
-    );
-  }
-}*/

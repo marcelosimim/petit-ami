@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:petitami/components/appbar.dart';
@@ -38,7 +39,13 @@ class Initial extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 40, vertical: 5),
               child: ElevatedButton.icon(
-                onPressed: () {},
+                onPressed: () {
+                  /*FirebaseFirestore.instance.collection('unit1').doc('e1').set(
+                      {
+                        'answer' : false,
+                        'check': ''
+                      });*/
+                },
                 icon: Image.asset(
                   'assets/images/google_icon.png',
                   height: 35,

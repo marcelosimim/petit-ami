@@ -63,7 +63,7 @@ class _ImageGridItemState extends State<ImageGridItem> {
                   .black, BlendMode.saturation),
           child: IconButton(onPressed: () {
            if(widget._index! <= widget._currentUnit!){
-             _launchInBrowser(pdfUrl!);
+             //_launchInBrowser(pdfUrl!);
            }
           }, icon: Image.memory(imageFile!))
       );

@@ -7,7 +7,6 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:petitami/route/route.dart' as route;
 
-import 'exercise.dart';
 
 class HomeContent extends StatefulWidget {
   const HomeContent({Key? key}) : super(key: key);
@@ -86,7 +85,7 @@ class _HomeContentState extends State<HomeContent> {
                                   model.userData['current_exercise']);
                               _exerciseType == true
                                   ? Navigator.pushNamedAndRemoveUntil(context,
-                                      route.answerPage, (route) => false)
+                                      route.questionPage, (route) => false)
                                   : Navigator.pushNamedAndRemoveUntil(
                                       context,
                                       route.listenAndRepeatPage,

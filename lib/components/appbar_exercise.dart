@@ -9,7 +9,7 @@ AppBar appbar_exercise(BuildContext context){
     actions: [
       IconButton(
         onPressed: () {
-          Navigator.pushNamed(context, route.homePage);
+          Navigator.pushNamedAndRemoveUntil(context, route.homePage, (route) => false);
         },
         icon: Icon(Icons.exit_to_app), color: Colors.red,)
     ],

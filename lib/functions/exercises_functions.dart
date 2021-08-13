@@ -15,37 +15,34 @@ class Exercises {
     return link;
   }
 
-  Future<String?> getAnswer(int unit, int exercise) async {
+  Future<String?> getAnswer(int u, int e) async {
     String? _check;
 
     final DocumentReference document = FirebaseFirestore.instance
-        .collection("exercises")
-        .doc('u${unit}_e${exercise}');
+        .collection("unit${u}")
+        .doc('e${e}');
     await document
         .get()
         .then<dynamic>((DocumentSnapshot snapshot) async {
-      print('snapshot ${snapshot['check']}');
       _check = snapshot['check'];
       print('check: '+ _check!);
     });
-    return _check;
+    return _check.toString().replaceAll('?', '').replaceAll('!', '').replaceAll(',', '').replaceAll('.', '');
   }
 
-  Future<bool?> getExerciseType(int unit, int exercise) async{
-    bool _answer;
+  Future<bool?> getExerciseType(int u, int e) async{
+    bool? _answer;
 
-    print(unit);
-    print(exercise);
 
     final DocumentReference document = FirebaseFirestore.instance
-        .collection("exercises")
-        .doc('u${unit}_e${exercise}');
+        .collection("unit${u}")
+        .doc('e${e}');
     await document
         .get()
         .then<dynamic>((DocumentSnapshot snapshot) async {
       print('snapshot ${snapshot['answer']}');
       _answer = snapshot['answer'];
     });
-    return null;
+    return _answer;
   }
 }
