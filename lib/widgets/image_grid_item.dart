@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:petitami/functions/french_level.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ImageGridItem extends StatefulWidget {
@@ -59,11 +60,11 @@ class _ImageGridItemState extends State<ImageGridItem> {
     } else {
       return ColorFiltered(
           colorFilter: ColorFilter.mode(
-              widget._index! <= widget._currentUnit! ? Colors.lightBlue : Colors
+              new FrenchLevel(widget._currentUnit).getBook() >= widget._index!  ? Colors.lightBlue : Colors
                   .black, BlendMode.saturation),
           child: IconButton(onPressed: () {
-           if(widget._index! <= widget._currentUnit!){
-             //_launchInBrowser(pdfUrl!);
+           if(new FrenchLevel(widget._currentUnit).getBook() >= widget._index!){
+             _launchInBrowser(pdfUrl!);
            }
           }, icon: Image.memory(imageFile!))
       );

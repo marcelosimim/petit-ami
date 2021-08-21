@@ -33,18 +33,7 @@ class _AccountConfigurationState extends State<AccountConfiguration> {
               child: Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20),
-                    child: CircleAvatar(
-                      backgroundColor: Color(0xFF0B27EA),
-                      radius: 50,
-                      child: Image.asset(
-                        'assets/images/french_white_man.png',
-                        height: 160,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 10),
+                    padding: EdgeInsets.only(top:100, bottom: 10),
                     child: Text(
                       'Nome:',
                       style: GoogleFonts.imprima(fontSize: 20),

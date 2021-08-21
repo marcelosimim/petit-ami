@@ -1,6 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petitami/components/appbar_exercise.dart';
 import 'package:petitami/functions/exercises_functions.dart';
 import 'package:petitami/models/user_model.dart';
@@ -39,48 +40,42 @@ class _ListenAndRepeatState extends State<ListenAndRepeat> {
     return Scaffold(
         appBar: appbar_exercise(context),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: AvatarGlow(
-          animate: _isListening,
-          glowColor: Colors.redAccent,
-          endRadius: 75.0,
-          //duration: const Duration(milliseconds: 100),
-          repeat: true,
-          child: FloatingActionButton(
-            backgroundColor: Colors.red,
-            child: Icon(
-              Icons.mic,
-            ),
-            onPressed: () {
-              setState(() {
-                if(!_isListening)
-                _speechText = '';
-              });
-              _listen();
-            },
-          ),
-        ),
-        body: ScopedModelDescendant<UserModel>(builder: (context, child, model) {
+        body:
+            ScopedModelDescendant<UserModel>(builder: (context, child, model) {
           return Container(
             width: double.infinity,
             child: Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(top: 20),
-                  child: ImageExercise(model.userData['current_unit'],
-                      model.userData['current_exercise']),
+                  padding: EdgeInsets.only(top: 10),
+                  child: Text(
+                      'Unité ${model.userData['current_unit']} - ${model.userData['current_exercise']}', style:  GoogleFonts.imprima(color: Colors.white, fontSize: 20),),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 20, bottom: 20),
-                  child: ElevatedButton(
-                    onPressed: () async{
-                      String url = await functions.getAudioUrl(model.userData['current_unit'], model.userData['current_exercise']);
-                      playAudio(url);
-                    },
-                    child: Text('ÉCOUTEZ'),
-                    //child: Icon(Icons.play_circle_fill),
-                    style: ElevatedButton.styleFrom(primary: Colors.red),
+                  padding: EdgeInsets.only(top: 20),
+                  child: Container(
+                    width: 350,
+                    child: ImageExercise(model.userData['current_unit'],
+                        model.userData['current_exercise']),
                   ),
                 ),
+                Padding(
+                    padding: EdgeInsets.only(top: 20, bottom: 20),
+                    child: ElevatedButton(
+                      child: Text('ÉCOUTEZ'),
+                      style: ElevatedButton.styleFrom(
+                          onPrimary: Colors.white,
+                          primary: Colors.red,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(5.0),
+                          )),
+                      onPressed: () async {
+                        String url = await functions.getAudioUrl(
+                            model.userData['current_unit'],
+                            model.userData['current_exercise']);
+                        playAudio(url);
+                      },
+                    )),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -89,77 +84,129 @@ class _ListenAndRepeatState extends State<ListenAndRepeat> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 20, bottom: 20),
-                  child: ElevatedButton(
-                    onPressed: () async{
-                      _check = await functions.getAnswer(model.userData['current_unit'], model.userData['current_exercise']);
-                      print(_check.toString().toLowerCase());
-                      print(_speechText.toLowerCase());
-                      if(_check.toString().toLowerCase() == _speechText.toLowerCase()){
-                        model.setExercise(1);
-                        bool? next = await functions.getExerciseType(model.userData['current_unit'],  model.userData['current_exercise']);
-                        next == true? Navigator.pushReplacementNamed(context, route.questionPage)
-                          : Navigator.pushReplacementNamed(
-                      context,
-                      route.listenAndRepeatPage);
-                      }
-                    },
-                    child: Text('CONFIRMAR'),
-                    //child: Icon(Icons.play_circle_fill),
-                    style: ElevatedButton.styleFrom(primary: Colors.red),
+                  padding: EdgeInsets.only(top: 80, bottom: 20),
+                  child: AvatarGlow(
+                    animate: _isListening,
+                    glowColor: Colors.redAccent,
+                    endRadius: 75.0,
+                    repeat: true,
+                    child: FloatingActionButton(
+                      backgroundColor: Colors.red,
+                      child: Icon(
+                        Icons.mic,
+                      ),
+                      onPressed: () async {
+                        setState(() {
+                          if (!_isListening) _speechText = '';
+                        });
+                        if (!_isListening) {
+                          bool available = await _speech.initialize(
+                            onStatus: (val) => print('onStatus: $val'),
+                            onError: (val) {
+                              print('onError: $val');
+                              setState(() {
+                                _isListening = false;
+                              });
+                            },
+                          );
+                          if (available) {
+                            setState(() {
+                              _isListening = true;
+                            });
+                            _speech.listen(
+                              localeId: 'fr-FR',
+                              onResult: (val) => setState(
+                                () async {
+                                  setState(() {
+                                    _speechText = val.recognizedWords;
+                                  });
+
+                                  if (val.hasConfidenceRating &&
+                                      val.confidence > 0) {
+                                    _confidence = val.confidence;
+                                  }
+                                  if (val.finalResult) {
+                                    _isListening = false;
+                                    _check = await functions.getAnswer(
+                                        model.userData['current_unit'],
+                                        model.userData['current_exercise']);
+                                    print(_check.toString().toLowerCase());
+                                    print(_speechText.toLowerCase());
+                                    if (_check.toString().toLowerCase() ==
+                                        _speechText.toLowerCase()) {
+                                      bool _unitEnd =
+                                          await functions.changeUnit(
+                                              model.userData['current_unit'],
+                                              model.userData[
+                                                  'current_exercise']);
+                                      if (_unitEnd) {
+                                        model.setUnit(1);
+                                      } else {
+                                        model.setExercise(1);
+                                      }
+                                      bool? next =
+                                          await functions.getExerciseType(
+                                              model.userData['current_unit'],
+                                              model.userData[
+                                                  'current_exercise']);
+                                      next == true
+                                          ? Navigator.pushReplacementNamed(
+                                              context, route.questionPage)
+                                          : Navigator.pushReplacementNamed(
+                                              context,
+                                              route.listenAndRepeatPage);
+                                    } else {
+                                      _onFail();
+                                    }
+                                  }
+                                },
+                              ),
+                            );
+                          }
+                        } else {
+                          setState(() {
+                            _isListening = false;
+                          });
+                          _speech.stop();
+                        }
+                      },
+                    ),
                   ),
                 ),
               ],
             ),
           );
-        })
-    );
+        }));
   }
 
-  void _listen() async {
-    if (!_isListening) {
-      bool available = await _speech.initialize(
-        onStatus: (val) => print('onStatus: $val'),
-        onError: (val) => print('onError: $val'),
-      );
-      if (available) {
-        setState(() {
-          _isListening = true;
-        });
-        _speech.listen(
-          localeId: 'fr-FR',
-          onResult: (val) => setState(() {
-            _speechText = val.recognizedWords;
-            if (val.hasConfidenceRating && val.confidence > 0) {
-              _confidence = val.confidence;
-            }
-          }),
-        );
-      }
-    } else {
-      setState(() {
-        _isListening = false;
-      });
-      _speech.stop();
-    }
-  }
-
-  void playAudio(String url) async{
-    if(_isPlaying){
+  void playAudio(String url) async {
+    if (_isPlaying) {
       audioPlayer.pause();
       int result = await audioPlayer.play(url);
-      if(result == 1){
+      if (result == 1) {
         setState(() {
           _currentAudio = url;
         });
       }
-    }else if(!_isPlaying){
+    } else if (!_isPlaying) {
       int result = await audioPlayer.play(url);
-      if(result == 1){
+      if (result == 1) {
         setState(() {
           _isPlaying = true;
         });
       }
     }
+  }
+
+  void _onFail() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        backgroundColor: Color(0xFF0B27EA),
+        content: Text(
+          'Resposta incorreta. Tente novamente!',
+        ),
+      ),
+    );
+    print('Fail');
   }
 }

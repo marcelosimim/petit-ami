@@ -45,4 +45,23 @@ class Exercises {
     });
     return _answer;
   }
+
+  Future<bool> changeUnit(int u, int e) async {
+    int? _size;
+    final DocumentReference document = FirebaseFirestore.instance
+        .collection("unit${u}")
+        .doc('info');
+    await document
+        .get()
+        .then<dynamic>((DocumentSnapshot snapshot) async {
+      print('snapshot ${snapshot['size']}');
+      _size = snapshot['size'];
+    });
+
+    if(e == _size){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }

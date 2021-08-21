@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
         items: [
 
           BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle), label: 'Configurações'),
+              icon: Icon(Icons.account_circle), label: 'Perfil'),
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Início'),
           BottomNavigationBarItem(
               icon: Icon(Icons.school), label: 'Unidades'),

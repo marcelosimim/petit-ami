@@ -34,7 +34,7 @@ class _QuestionState extends State<Question> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: appbar_exercise(context),
-        resizeToAvoidBottomInset: true,
+        resizeToAvoidBottomInset: false,
         body:
             ScopedModelDescendant<UserModel>(builder: (context, child, model) {
           return Container(
@@ -43,21 +43,28 @@ class _QuestionState extends State<Question> {
               children: [
                 Padding(
                   padding: EdgeInsets.only(top: 20),
-                  child: ImageExercise(model.userData['current_unit'],
-                      model.userData['current_exercise']),
+                  child: Container(
+                    width: 350,
+                    child: ImageExercise(model.userData['current_unit'],
+                        model.userData['current_exercise']),
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 20, bottom: 20),
                   child: ElevatedButton(
+                    child: Text('ÉCOUTEZ'),
+                    style: ElevatedButton.styleFrom(
+                        onPrimary: Colors.white,
+                        primary: Colors.red,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(5.0),
+                        )),
                     onPressed: () async {
                       String url = await functions.getAudioUrl(
                           model.userData['current_unit'],
                           model.userData['current_exercise']);
                       playAudio(url);
                     },
-                    child: Text('ÉCOUTEZ'),
-                    //child: Icon(Icons.play_circle_fill),
-                    style: ElevatedButton.styleFrom(primary: Colors.red),
                   ),
                 ),
                 Form(
@@ -88,13 +95,19 @@ class _QuestionState extends State<Question> {
                   onPressed: () async {
                     String? _check;
                     _check = await functions.getAnswer(model.userData['current_unit'], model.userData['current_exercise']+1);
-                    print(_answerController.text);
-                    if (_answerController.text.toLowerCase() == _check.toString().toLowerCase()) {
-                      model.setExercise(1);
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, route.answerPage, (route) => false);
+                    if (_answerController.text.toLowerCase().replaceAll(",", '') == _check.toString().toLowerCase()) {
+                      bool _unitEnd = await functions.changeUnit(model.userData['current_unit'], model.userData['current_exercise']);
+                      if(_unitEnd){
+                        model.setUnit(1);
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, route.homePage, (route) => false);
+                      }else{
+                        model.setExercise(1);
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, route.answerPage, (route) => false);
+                      }
                     } else {
-                      print('falso');
+                      _onFail();
                     }
                   },
                   child: Text('ENVIAR'),
@@ -122,5 +135,17 @@ class _QuestionState extends State<Question> {
         });
       }
     }
+  }
+
+  void _onFail(){
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        backgroundColor: Color(0xFF0B27EA),
+        content: Text(
+          'Resposta incorreta. Tente novamente!',
+        ),
+      ),
+    );
+    print('Fail');
   }
 }

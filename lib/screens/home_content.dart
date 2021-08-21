@@ -39,7 +39,7 @@ class _HomeContentState extends State<HomeContent> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 30, horizontal: 30),
               child: Text(
-                'Concluído:',
+                'Progresso do curso:',
                 style: GoogleFonts.imprima(fontSize: 25),
               ),
             ),
@@ -95,7 +95,7 @@ class _HomeContentState extends State<HomeContent> {
                     }
                   }),
             ),
-            Padding(
+            /*Padding(
               padding: EdgeInsets.only(right: 30, left: 30, bottom: 20),
               child: Text(
                 'Quanto tempo falta: ',
@@ -108,7 +108,7 @@ class _HomeContentState extends State<HomeContent> {
                 'Dados última unidade: ',
                 style: GoogleFonts.imprima(fontSize: 25),
               ),
-            ),
+            ),*/
           ],
         ),
       );

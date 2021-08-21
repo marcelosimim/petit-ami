@@ -47,11 +47,10 @@ class _AnswerState extends State<Answer> {
                 child: ElevatedButton(
                   onPressed: () async {
                     print(model.userData['current_exercise']);
-                    /*
                     String url = await functions.getAudioUrl(
                         model.userData['current_unit'],
                         model.userData['current_exercise']);
-                    playAudio(url);*/
+                    playAudio(url);
                   },
                   child: Text('ÉCOUTEZ'),
                   //child: Icon(Icons.play_circle_fill),
@@ -60,7 +59,12 @@ class _AnswerState extends State<Answer> {
               ),
               ElevatedButton(
                 onPressed: () async{
-                  model.setExercise(1);
+                  bool _unitEnd = await functions.changeUnit(model.userData['current_unit'], model.userData['current_exercise']);
+                  if(_unitEnd){
+                      model.setUnit(1);
+                  }else{
+                    model.setExercise(1);
+                  }
                   bool? next = await functions.getExerciseType(model.userData['current_unit'],  model.userData['current_exercise']);
                   next == true? Navigator.pushReplacementNamed(context, route.questionPage)
                       : Navigator.pushReplacementNamed(

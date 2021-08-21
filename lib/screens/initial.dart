@@ -40,10 +40,10 @@ class Initial extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 40, vertical: 5),
               child: ElevatedButton.icon(
                 onPressed: () {
-                  /*FirebaseFirestore.instance.collection('unit1').doc('e1').set(
+                  /*FirebaseFirestore.instance.collection('unit1').doc('e88').set(
                       {
                         'answer' : false,
-                        'check': ''
+                        'check': "où habite Marie?"
                       });*/
                 },
                 icon: Image.asset(

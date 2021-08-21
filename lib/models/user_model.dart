@@ -132,8 +132,14 @@ class UserModel extends Model {
     return true;
   }
 
-  void setUnit(int unit) {
-
+  void setUnit(int increment) {
+    String currentUserID = _auth.currentUser!.uid.toString();
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(currentUserID)
+        .update({'current_unit' : userData['current_unit']+increment, 'current_exercise' : 1});
+    userData['current_exercise'] += increment;
+    notifyListeners();
   }
 
   void setExercise(int increment) {
