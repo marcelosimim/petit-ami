@@ -6,6 +6,9 @@ target 'PetitAmi' do
   use_frameworks!
 
   # Pods for PetitAmi
+  pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Firestore'
   pod 'Swinject'
 
   target 'PetitAmiTests' do
