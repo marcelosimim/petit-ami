@@ -17,6 +17,8 @@
 		A306904628AFBFFB00A416AF /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306904528AFBFFB00A416AF /* RegisterUseCase.swift */; };
 		A306904A28AFC2D000A416AF /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306904928AFC2D000A416AF /* AppContainer.swift */; };
 		A306904D28AFC41700A416AF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306904C28AFC41700A416AF /* RegisterViewController.swift */; };
+		A306905028AFC82D00A416AF /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306904F28AFC82D00A416AF /* RegisterView.swift */; };
+		A306905228AFC8DF00A416AF /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306905128AFC8DF00A416AF /* InputTextField.swift */; };
 		A3BECFD128AEC6FE005E4EB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD028AEC6FE005E4EB5 /* AppDelegate.swift */; };
 		A3BECFD328AEC6FE005E4EB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD228AEC6FE005E4EB5 /* SceneDelegate.swift */; };
 		A3BECFD528AEC6FE005E4EB5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD428AEC6FE005E4EB5 /* FirstViewController.swift */; };
@@ -72,6 +74,8 @@
 		A306904528AFBFFB00A416AF /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
 		A306904928AFC2D000A416AF /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
 		A306904C28AFC41700A416AF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		A306904F28AFC82D00A416AF /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		A306905128AFC8DF00A416AF /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
 		A3BECFCD28AEC6FE005E4EB5 /* PetitAmi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetitAmi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BECFD028AEC6FE005E4EB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3BECFD228AEC6FE005E4EB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -235,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				A306904C28AFC41700A416AF /* RegisterViewController.swift */,
+				A306904F28AFC82D00A416AF /* RegisterView.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -406,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				A3BED02028AED7E3005E4EB5 /* PrimaryButton.swift */,
+				A306905128AFC8DF00A416AF /* InputTextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -685,12 +691,14 @@
 				A306903628AFB4EB00A416AF /* FirebaseAuthRepository.swift in Sources */,
 				A306904328AFBF4C00A416AF /* FirebaseCollections.swift in Sources */,
 				A306904D28AFC41700A416AF /* RegisterViewController.swift in Sources */,
+				A306905228AFC8DF00A416AF /* InputTextField.swift in Sources */,
 				A3BED00B28AEC9CE005E4EB5 /* UIImage+PetitAmi.swift in Sources */,
 				A3BED00D28AEC9F4005E4EB5 /* GenerateUIImage.swift in Sources */,
 				A306903C28AFB71000A416AF /* DefaultFirebaseAuthRepository.swift in Sources */,
 				A306904A28AFC2D000A416AF /* AppContainer.swift in Sources */,
 				A306903F28AFB81700A416AF /* UserModel.swift in Sources */,
 				A3BED01528AED0A8005E4EB5 /* FirstView.swift in Sources */,
+				A306905028AFC82D00A416AF /* RegisterView.swift in Sources */,
 				A3BED02628AEDB6C005E4EB5 /* MainCoordinator.swift in Sources */,
 				A3BECFD328AEC6FE005E4EB5 /* SceneDelegate.swift in Sources */,
 			);

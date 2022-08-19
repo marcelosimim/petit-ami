@@ -12,6 +12,7 @@ class AppContainer {
         let container = Container()
         
         container.register(FirstView.self) { _ in DefaultFirstView()}
+        container.register(RegisterView.self) { _ in DefaultRegisterView()}
 
         return container
     }()
