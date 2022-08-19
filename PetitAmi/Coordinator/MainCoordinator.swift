@@ -15,7 +15,9 @@ class MainCoordinator: Coordinator {
         case .signInTapped:
             break
         case .signUpTapped:
-            break
+            var vc: UIViewController & Coordinating = RegisterViewController()
+            vc.coodinator = self
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 

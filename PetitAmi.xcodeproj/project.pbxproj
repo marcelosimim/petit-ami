@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23ADAF42BD82A076B497901D /* Pods_PetitAmiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4206E858BB3A4A2C93B73F7A /* Pods_PetitAmiTests.framework */; };
+		7BB2957C8C64046296A51558 /* Pods_PetitAmi_PetitAmiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69479A4ABBEE636967FF6255 /* Pods_PetitAmi_PetitAmiUITests.framework */; };
+		A306903628AFB4EB00A416AF /* FirebaseAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306903528AFB4EB00A416AF /* FirebaseAuthRepository.swift */; };
+		A306903A28AFB6BE00A416AF /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306903928AFB6BE00A416AF /* UserEntity.swift */; };
+		A306903C28AFB71000A416AF /* DefaultFirebaseAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306903B28AFB71000A416AF /* DefaultFirebaseAuthRepository.swift */; };
+		A306903F28AFB81700A416AF /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306903E28AFB81700A416AF /* UserModel.swift */; };
+		A306904328AFBF4C00A416AF /* FirebaseCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306904228AFBF4C00A416AF /* FirebaseCollections.swift */; };
+		A306904628AFBFFB00A416AF /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306904528AFBFFB00A416AF /* RegisterUseCase.swift */; };
+		A306904A28AFC2D000A416AF /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306904928AFC2D000A416AF /* AppContainer.swift */; };
+		A306904D28AFC41700A416AF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306904C28AFC41700A416AF /* RegisterViewController.swift */; };
+		A306905028AFC82D00A416AF /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306904F28AFC82D00A416AF /* RegisterView.swift */; };
+		A306905228AFC8DF00A416AF /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306905128AFC8DF00A416AF /* InputTextField.swift */; };
+		A306905428AFD8CB00A416AF /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306905328AFD8CB00A416AF /* RegisterViewModel.swift */; };
+		A306905728AFD9CD00A416AF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306905628AFD9CD00A416AF /* User.swift */; };
+		A306905928AFFAF100A416AF /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306905828AFFAF100A416AF /* Observable.swift */; };
+		A306905C28AFFDC800A416AF /* String+PetitAmi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306905B28AFFDC800A416AF /* String+PetitAmi.swift */; };
+		A306905E28B0081800A416AF /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306905D28B0081800A416AF /* AlertController.swift */; };
+		A306906028B0090B00A416AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A306905F28B0090B00A416AF /* GoogleService-Info.plist */; };
 		A3BECFD128AEC6FE005E4EB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD028AEC6FE005E4EB5 /* AppDelegate.swift */; };
 		A3BECFD328AEC6FE005E4EB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD228AEC6FE005E4EB5 /* SceneDelegate.swift */; };
 		A3BECFD528AEC6FE005E4EB5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD428AEC6FE005E4EB5 /* FirstViewController.swift */; };
@@ -27,6 +45,7 @@
 		A3BED02128AED7E3005E4EB5 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BED02028AED7E3005E4EB5 /* PrimaryButton.swift */; };
 		A3BED02428AEDB50005E4EB5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BED02328AEDB4F005E4EB5 /* Coordinator.swift */; };
 		A3BED02628AEDB6C005E4EB5 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BED02528AEDB6C005E4EB5 /* MainCoordinator.swift */; };
+		A85BC020D0843FDFC5F5E1A6 /* Pods_PetitAmi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD7DF340A34A0FC60CF6798 /* Pods_PetitAmi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +66,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04CD0B333FC9F2A6741CD5A7 /* Pods-PetitAmi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetitAmi.debug.xcconfig"; path = "Target Support Files/Pods-PetitAmi/Pods-PetitAmi.debug.xcconfig"; sourceTree = "<group>"; };
+		3BD7DF340A34A0FC60CF6798 /* Pods_PetitAmi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetitAmi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D3A94C6C318228F6B098038 /* Pods-PetitAmi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetitAmi.release.xcconfig"; path = "Target Support Files/Pods-PetitAmi/Pods-PetitAmi.release.xcconfig"; sourceTree = "<group>"; };
+		4206E858BB3A4A2C93B73F7A /* Pods_PetitAmiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetitAmiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		69479A4ABBEE636967FF6255 /* Pods_PetitAmi_PetitAmiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetitAmi_PetitAmiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A83BCBE7DAAB6B157B1D439 /* Pods-PetitAmi-PetitAmiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetitAmi-PetitAmiUITests.debug.xcconfig"; path = "Target Support Files/Pods-PetitAmi-PetitAmiUITests/Pods-PetitAmi-PetitAmiUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A306903528AFB4EB00A416AF /* FirebaseAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthRepository.swift; sourceTree = "<group>"; };
+		A306903928AFB6BE00A416AF /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
+		A306903B28AFB71000A416AF /* DefaultFirebaseAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFirebaseAuthRepository.swift; sourceTree = "<group>"; };
+		A306903E28AFB81700A416AF /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		A306904228AFBF4C00A416AF /* FirebaseCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCollections.swift; sourceTree = "<group>"; };
+		A306904528AFBFFB00A416AF /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
+		A306904928AFC2D000A416AF /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
+		A306904C28AFC41700A416AF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		A306904F28AFC82D00A416AF /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		A306905128AFC8DF00A416AF /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
+		A306905328AFD8CB00A416AF /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		A306905628AFD9CD00A416AF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A306905828AFFAF100A416AF /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		A306905B28AFFDC800A416AF /* String+PetitAmi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+PetitAmi.swift"; sourceTree = "<group>"; };
+		A306905D28B0081800A416AF /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		A306905F28B0090B00A416AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A3BECFCD28AEC6FE005E4EB5 /* PetitAmi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetitAmi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BECFD028AEC6FE005E4EB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3BECFD228AEC6FE005E4EB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +112,9 @@
 		A3BED02028AED7E3005E4EB5 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		A3BED02328AEDB4F005E4EB5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A3BED02528AEDB6C005E4EB5 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		DB441721C8175B51D1F77A28 /* Pods-PetitAmi-PetitAmiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetitAmi-PetitAmiUITests.release.xcconfig"; path = "Target Support Files/Pods-PetitAmi-PetitAmiUITests/Pods-PetitAmi-PetitAmiUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F2ADA54E6C6AF03791F69F40 /* Pods-PetitAmiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetitAmiTests.release.xcconfig"; path = "Target Support Files/Pods-PetitAmiTests/Pods-PetitAmiTests.release.xcconfig"; sourceTree = "<group>"; };
+		F6506B701D13781A0A74A09D /* Pods-PetitAmiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetitAmiTests.debug.xcconfig"; path = "Target Support Files/Pods-PetitAmiTests/Pods-PetitAmiTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A85BC020D0843FDFC5F5E1A6 /* Pods_PetitAmi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23ADAF42BD82A076B497901D /* Pods_PetitAmiTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,12 +138,133 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BB2957C8C64046296A51558 /* Pods_PetitAmi_PetitAmiUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		60AE968F79CDFBB39D1A26B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3BD7DF340A34A0FC60CF6798 /* Pods_PetitAmi.framework */,
+				69479A4ABBEE636967FF6255 /* Pods_PetitAmi_PetitAmiUITests.framework */,
+				4206E858BB3A4A2C93B73F7A /* Pods_PetitAmiTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A306903028AFB49600A416AF /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				A306903D28AFB80E00A416AF /* Models */,
+				A306903328AFB4B400A416AF /* Use Cases */,
+				A306903228AFB4AF00A416AF /* Repositories */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		A306903128AFB49D00A416AF /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A306903828AFB69900A416AF /* Entities */,
+				A306903728AFB51E00A416AF /* Repositories */,
+				A306904128AFBF2300A416AF /* Utils */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		A306903228AFB4AF00A416AF /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				A306903528AFB4EB00A416AF /* FirebaseAuthRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		A306903328AFB4B400A416AF /* Use Cases */ = {
+			isa = PBXGroup;
+			children = (
+				A306904428AFBFE600A416AF /* Register */,
+			);
+			path = "Use Cases";
+			sourceTree = "<group>";
+		};
+		A306903728AFB51E00A416AF /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				A306903B28AFB71000A416AF /* DefaultFirebaseAuthRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		A306903828AFB69900A416AF /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				A306903928AFB6BE00A416AF /* UserEntity.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		A306903D28AFB80E00A416AF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A306903E28AFB81700A416AF /* UserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A306904128AFBF2300A416AF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A306904228AFBF4C00A416AF /* FirebaseCollections.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A306904428AFBFE600A416AF /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				A306904528AFBFFB00A416AF /* RegisterUseCase.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		A306904728AFC1C800A416AF /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				A306904828AFC1D300A416AF /* DI */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		A306904828AFC1D300A416AF /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				A306904928AFC2D000A416AF /* AppContainer.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		A306904B28AFC40800A416AF /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				A306904C28AFC41700A416AF /* RegisterViewController.swift */,
+				A306904F28AFC82D00A416AF /* RegisterView.swift */,
+				A306905328AFD8CB00A416AF /* RegisterViewModel.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		A306905528AFD9BB00A416AF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A306905628AFD9CD00A416AF /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A3BECFC428AEC6FE005E4EB5 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +272,8 @@
 				A3BECFE628AEC700005E4EB5 /* PetitAmiTests */,
 				A3BECFF028AEC700005E4EB5 /* PetitAmiUITests */,
 				A3BECFCE28AEC6FE005E4EB5 /* Products */,
+				D12B77880C3487E2D03E7B37 /* Pods */,
+				60AE968F79CDFBB39D1A26B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,11 +291,15 @@
 			isa = PBXGroup;
 			children = (
 				A3BED00028AEC79F005E4EB5 /* Application */,
-				A3BED02228AEDB3F005E4EB5 /* Coordinator */,
 				A3BED00128AEC7D3005E4EB5 /* Resources */,
+				A306904728AFC1C800A416AF /* Infrastructure */,
+				A3BED02228AEDB3F005E4EB5 /* Coordinator */,
+				A306903128AFB49D00A416AF /* Data */,
+				A306903028AFB49600A416AF /* Domain */,
 				A3BED01128AECF9A005E4EB5 /* Presentation */,
 				A3BED00228AEC8D6005E4EB5 /* Supporting Files */,
 				A3BECFDE28AEC6FF005E4EB5 /* Info.plist */,
+				A306905F28B0090B00A416AF /* GoogleService-Info.plist */,
 			);
 			path = PetitAmi;
 			sourceTree = "<group>";
@@ -184,6 +357,7 @@
 				A3BED00928AEC9AB005E4EB5 /* UIImage */,
 				A3BED00428AEC932005E4EB5 /* UIColor */,
 				A3BED01A28AED498005E4EB5 /* CGFloat+PetitAmi.swift */,
+				A306905B28AFFDC800A416AF /* String+PetitAmi.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -217,6 +391,7 @@
 		A3BED01128AECF9A005E4EB5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A306905528AFD9BB00A416AF /* Models */,
 				A3BED01228AECFA7005E4EB5 /* Before Login */,
 			);
 			path = Presentation;
@@ -225,6 +400,7 @@
 		A3BED01228AECFA7005E4EB5 /* Before Login */ = {
 			isa = PBXGroup;
 			children = (
+				A306904B28AFC40800A416AF /* Register */,
 				A3BED01328AECFAD005E4EB5 /* First */,
 			);
 			path = "Before Login";
@@ -251,6 +427,8 @@
 			isa = PBXGroup;
 			children = (
 				A3BED01D28AED4D3005E4EB5 /* Dimen.swift */,
+				A306905828AFFAF100A416AF /* Observable.swift */,
+				A306905D28B0081800A416AF /* AlertController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -259,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				A3BED02028AED7E3005E4EB5 /* PrimaryButton.swift */,
+				A306905128AFC8DF00A416AF /* InputTextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -272,6 +451,19 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		D12B77880C3487E2D03E7B37 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				04CD0B333FC9F2A6741CD5A7 /* Pods-PetitAmi.debug.xcconfig */,
+				3D3A94C6C318228F6B098038 /* Pods-PetitAmi.release.xcconfig */,
+				7A83BCBE7DAAB6B157B1D439 /* Pods-PetitAmi-PetitAmiUITests.debug.xcconfig */,
+				DB441721C8175B51D1F77A28 /* Pods-PetitAmi-PetitAmiUITests.release.xcconfig */,
+				F6506B701D13781A0A74A09D /* Pods-PetitAmiTests.debug.xcconfig */,
+				F2ADA54E6C6AF03791F69F40 /* Pods-PetitAmiTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -279,9 +471,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3BECFF728AEC700005E4EB5 /* Build configuration list for PBXNativeTarget "PetitAmi" */;
 			buildPhases = (
+				885759A208AB75F72299A71D /* [CP] Check Pods Manifest.lock */,
 				A3BECFC928AEC6FE005E4EB5 /* Sources */,
 				A3BECFCA28AEC6FE005E4EB5 /* Frameworks */,
 				A3BECFCB28AEC6FE005E4EB5 /* Resources */,
+				4812FBED1BB22046D84C0C9F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -296,6 +490,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3BECFFA28AEC700005E4EB5 /* Build configuration list for PBXNativeTarget "PetitAmiTests" */;
 			buildPhases = (
+				1979288315D664C811C6CCFC /* [CP] Check Pods Manifest.lock */,
 				A3BECFDF28AEC700005E4EB5 /* Sources */,
 				A3BECFE028AEC700005E4EB5 /* Frameworks */,
 				A3BECFE128AEC700005E4EB5 /* Resources */,
@@ -314,9 +509,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3BECFFD28AEC700005E4EB5 /* Build configuration list for PBXNativeTarget "PetitAmiUITests" */;
 			buildPhases = (
+				0C2A54B47CA02491B4DB0AD6 /* [CP] Check Pods Manifest.lock */,
 				A3BECFE928AEC700005E4EB5 /* Sources */,
 				A3BECFEA28AEC700005E4EB5 /* Frameworks */,
 				A3BECFEB28AEC700005E4EB5 /* Resources */,
+				ABE2076F009684EB8F90C405 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -378,6 +575,7 @@
 			files = (
 				A3BECFDD28AEC6FF005E4EB5 /* LaunchScreen.storyboard in Resources */,
 				A3BECFDA28AEC6FF005E4EB5 /* Assets.xcassets in Resources */,
+				A306906028B0090B00A416AF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +595,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0C2A54B47CA02491B4DB0AD6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PetitAmi-PetitAmiUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1979288315D664C811C6CCFC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PetitAmiTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4812FBED1BB22046D84C0C9F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PetitAmi/Pods-PetitAmi-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PetitAmi/Pods-PetitAmi-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PetitAmi/Pods-PetitAmi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		885759A208AB75F72299A71D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PetitAmi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ABE2076F009684EB8F90C405 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PetitAmi-PetitAmiUITests/Pods-PetitAmi-PetitAmiUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PetitAmi-PetitAmiUITests/Pods-PetitAmi-PetitAmiUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PetitAmi-PetitAmiUITests/Pods-PetitAmi-PetitAmiUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A3BECFC928AEC6FE005E4EB5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -407,14 +708,29 @@
 				A3BED01028AECEF1005E4EB5 /* UIView+PetitAmi.swift in Sources */,
 				A3BECFD128AEC6FE005E4EB5 /* AppDelegate.swift in Sources */,
 				A3BED00828AEC984005E4EB5 /* GenerateUIColor.swift in Sources */,
+				A306905728AFD9CD00A416AF /* User.swift in Sources */,
 				A3BED02128AED7E3005E4EB5 /* PrimaryButton.swift in Sources */,
+				A306905C28AFFDC800A416AF /* String+PetitAmi.swift in Sources */,
+				A306903A28AFB6BE00A416AF /* UserEntity.swift in Sources */,
 				A3BED02428AEDB50005E4EB5 /* Coordinator.swift in Sources */,
 				A3BED00628AEC94F005E4EB5 /* UIColor+PetitAmi.swift in Sources */,
+				A306904628AFBFFB00A416AF /* RegisterUseCase.swift in Sources */,
 				A3BED01928AED1D6005E4EB5 /* Stylable.swift in Sources */,
 				A3BED01E28AED4D3005E4EB5 /* Dimen.swift in Sources */,
+				A306903628AFB4EB00A416AF /* FirebaseAuthRepository.swift in Sources */,
+				A306904328AFBF4C00A416AF /* FirebaseCollections.swift in Sources */,
+				A306905E28B0081800A416AF /* AlertController.swift in Sources */,
+				A306904D28AFC41700A416AF /* RegisterViewController.swift in Sources */,
+				A306905228AFC8DF00A416AF /* InputTextField.swift in Sources */,
 				A3BED00B28AEC9CE005E4EB5 /* UIImage+PetitAmi.swift in Sources */,
 				A3BED00D28AEC9F4005E4EB5 /* GenerateUIImage.swift in Sources */,
+				A306903C28AFB71000A416AF /* DefaultFirebaseAuthRepository.swift in Sources */,
+				A306904A28AFC2D000A416AF /* AppContainer.swift in Sources */,
+				A306903F28AFB81700A416AF /* UserModel.swift in Sources */,
+				A306905428AFD8CB00A416AF /* RegisterViewModel.swift in Sources */,
 				A3BED01528AED0A8005E4EB5 /* FirstView.swift in Sources */,
+				A306905928AFFAF100A416AF /* Observable.swift in Sources */,
+				A306905028AFC82D00A416AF /* RegisterView.swift in Sources */,
 				A3BED02628AEDB6C005E4EB5 /* MainCoordinator.swift in Sources */,
 				A3BECFD328AEC6FE005E4EB5 /* SceneDelegate.swift in Sources */,
 			);
@@ -582,6 +898,7 @@
 		};
 		A3BECFF828AEC700005E4EB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04CD0B333FC9F2A6741CD5A7 /* Pods-PetitAmi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -609,6 +926,7 @@
 		};
 		A3BECFF928AEC700005E4EB5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D3A94C6C318228F6B098038 /* Pods-PetitAmi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -636,6 +954,7 @@
 		};
 		A3BECFFB28AEC700005E4EB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6506B701D13781A0A74A09D /* Pods-PetitAmiTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -656,6 +975,7 @@
 		};
 		A3BECFFC28AEC700005E4EB5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2ADA54E6C6AF03791F69F40 /* Pods-PetitAmiTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -676,6 +996,7 @@
 		};
 		A3BECFFE28AEC700005E4EB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A83BCBE7DAAB6B157B1D439 /* Pods-PetitAmi-PetitAmiUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -694,6 +1015,7 @@
 		};
 		A3BECFFF28AEC700005E4EB5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB441721C8175B51D1F77A28 /* Pods-PetitAmi-PetitAmiUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -9,7 +9,7 @@ import UIKit
 
 class FirstViewController: UIViewController, Coordinating {
     var coodinator: Coordinator?
-    private let firstView = DefaultFirstView()
+    private let firstView = AppContainer.shared.resolve(FirstView.self)!
 
     override func viewDidLoad() {
         super.viewDidLoad()
