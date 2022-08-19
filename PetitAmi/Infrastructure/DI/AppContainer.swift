@@ -16,6 +16,7 @@ class AppContainer {
         container.register(RegisterView.self) { _ in DefaultRegisterView()}
         container.register(RegisterUseCase.self) { r in DefaultRegisterUseCase(firebaseAuthRepository: r.resolve(FirebaseAuthRepository.self)!)}
         container.register(RegisterViewModel.self) { r in DefaultRegisterViewModel(registerUseCase: r.resolve(RegisterUseCase.self)!)}
+        container.register(LoginView.self) { _ in DefaultLoginView()}
 
         return container
     }()

@@ -13,7 +13,9 @@ class MainCoordinator: Coordinator {
     func eventOccurred(with type: Event) {
         switch type {
         case .signInTapped:
-            break
+            var vc: UIViewController & Coordinating = LoginViewController()
+            vc.coodinator = self
+            navigationController?.pushViewController(vc, animated: true)
         case .signUpTapped:
             var vc: UIViewController & Coordinating = RegisterViewController()
             vc.coodinator = self
@@ -25,10 +27,10 @@ class MainCoordinator: Coordinator {
         var vc: UIViewController & Coordinating = FirstViewController()
         vc.coodinator = self
         navigationController?.setViewControllers([vc], animated: false)
+        setLightBackArrow()
     }
 
     private func setLightBackArrow() {
         navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.backgroundColor = .clear
     }
 }
