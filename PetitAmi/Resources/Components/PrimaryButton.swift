@@ -26,3 +26,11 @@ extension PrimaryButton: Stylable {
         backgroundColor = .button
     }
 }
+
+extension PrimaryButton {
+    open override var isEnabled: Bool{
+        didSet {
+            alpha = isEnabled ? 1.0 : 0.5
+        }
+    }
+}

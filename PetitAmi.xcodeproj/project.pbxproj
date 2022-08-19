@@ -19,6 +19,12 @@
 		A306904D28AFC41700A416AF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306904C28AFC41700A416AF /* RegisterViewController.swift */; };
 		A306905028AFC82D00A416AF /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306904F28AFC82D00A416AF /* RegisterView.swift */; };
 		A306905228AFC8DF00A416AF /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306905128AFC8DF00A416AF /* InputTextField.swift */; };
+		A306905428AFD8CB00A416AF /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306905328AFD8CB00A416AF /* RegisterViewModel.swift */; };
+		A306905728AFD9CD00A416AF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306905628AFD9CD00A416AF /* User.swift */; };
+		A306905928AFFAF100A416AF /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306905828AFFAF100A416AF /* Observable.swift */; };
+		A306905C28AFFDC800A416AF /* String+PetitAmi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306905B28AFFDC800A416AF /* String+PetitAmi.swift */; };
+		A306905E28B0081800A416AF /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306905D28B0081800A416AF /* AlertController.swift */; };
+		A306906028B0090B00A416AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A306905F28B0090B00A416AF /* GoogleService-Info.plist */; };
 		A3BECFD128AEC6FE005E4EB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD028AEC6FE005E4EB5 /* AppDelegate.swift */; };
 		A3BECFD328AEC6FE005E4EB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD228AEC6FE005E4EB5 /* SceneDelegate.swift */; };
 		A3BECFD528AEC6FE005E4EB5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD428AEC6FE005E4EB5 /* FirstViewController.swift */; };
@@ -76,6 +82,12 @@
 		A306904C28AFC41700A416AF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A306904F28AFC82D00A416AF /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		A306905128AFC8DF00A416AF /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
+		A306905328AFD8CB00A416AF /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		A306905628AFD9CD00A416AF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A306905828AFFAF100A416AF /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		A306905B28AFFDC800A416AF /* String+PetitAmi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+PetitAmi.swift"; sourceTree = "<group>"; };
+		A306905D28B0081800A416AF /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		A306905F28B0090B00A416AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A3BECFCD28AEC6FE005E4EB5 /* PetitAmi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetitAmi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BECFD028AEC6FE005E4EB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3BECFD228AEC6FE005E4EB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -240,8 +252,17 @@
 			children = (
 				A306904C28AFC41700A416AF /* RegisterViewController.swift */,
 				A306904F28AFC82D00A416AF /* RegisterView.swift */,
+				A306905328AFD8CB00A416AF /* RegisterViewModel.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		A306905528AFD9BB00A416AF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A306905628AFD9CD00A416AF /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A3BECFC428AEC6FE005E4EB5 = {
@@ -278,6 +299,7 @@
 				A3BED01128AECF9A005E4EB5 /* Presentation */,
 				A3BED00228AEC8D6005E4EB5 /* Supporting Files */,
 				A3BECFDE28AEC6FF005E4EB5 /* Info.plist */,
+				A306905F28B0090B00A416AF /* GoogleService-Info.plist */,
 			);
 			path = PetitAmi;
 			sourceTree = "<group>";
@@ -335,6 +357,7 @@
 				A3BED00928AEC9AB005E4EB5 /* UIImage */,
 				A3BED00428AEC932005E4EB5 /* UIColor */,
 				A3BED01A28AED498005E4EB5 /* CGFloat+PetitAmi.swift */,
+				A306905B28AFFDC800A416AF /* String+PetitAmi.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -368,6 +391,7 @@
 		A3BED01128AECF9A005E4EB5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A306905528AFD9BB00A416AF /* Models */,
 				A3BED01228AECFA7005E4EB5 /* Before Login */,
 			);
 			path = Presentation;
@@ -403,6 +427,8 @@
 			isa = PBXGroup;
 			children = (
 				A3BED01D28AED4D3005E4EB5 /* Dimen.swift */,
+				A306905828AFFAF100A416AF /* Observable.swift */,
+				A306905D28B0081800A416AF /* AlertController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -549,6 +575,7 @@
 			files = (
 				A3BECFDD28AEC6FF005E4EB5 /* LaunchScreen.storyboard in Resources */,
 				A3BECFDA28AEC6FF005E4EB5 /* Assets.xcassets in Resources */,
+				A306906028B0090B00A416AF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,7 +708,9 @@
 				A3BED01028AECEF1005E4EB5 /* UIView+PetitAmi.swift in Sources */,
 				A3BECFD128AEC6FE005E4EB5 /* AppDelegate.swift in Sources */,
 				A3BED00828AEC984005E4EB5 /* GenerateUIColor.swift in Sources */,
+				A306905728AFD9CD00A416AF /* User.swift in Sources */,
 				A3BED02128AED7E3005E4EB5 /* PrimaryButton.swift in Sources */,
+				A306905C28AFFDC800A416AF /* String+PetitAmi.swift in Sources */,
 				A306903A28AFB6BE00A416AF /* UserEntity.swift in Sources */,
 				A3BED02428AEDB50005E4EB5 /* Coordinator.swift in Sources */,
 				A3BED00628AEC94F005E4EB5 /* UIColor+PetitAmi.swift in Sources */,
@@ -690,6 +719,7 @@
 				A3BED01E28AED4D3005E4EB5 /* Dimen.swift in Sources */,
 				A306903628AFB4EB00A416AF /* FirebaseAuthRepository.swift in Sources */,
 				A306904328AFBF4C00A416AF /* FirebaseCollections.swift in Sources */,
+				A306905E28B0081800A416AF /* AlertController.swift in Sources */,
 				A306904D28AFC41700A416AF /* RegisterViewController.swift in Sources */,
 				A306905228AFC8DF00A416AF /* InputTextField.swift in Sources */,
 				A3BED00B28AEC9CE005E4EB5 /* UIImage+PetitAmi.swift in Sources */,
@@ -697,7 +727,9 @@
 				A306903C28AFB71000A416AF /* DefaultFirebaseAuthRepository.swift in Sources */,
 				A306904A28AFC2D000A416AF /* AppContainer.swift in Sources */,
 				A306903F28AFB81700A416AF /* UserModel.swift in Sources */,
+				A306905428AFD8CB00A416AF /* RegisterViewModel.swift in Sources */,
 				A3BED01528AED0A8005E4EB5 /* FirstView.swift in Sources */,
+				A306905928AFFAF100A416AF /* Observable.swift in Sources */,
 				A306905028AFC82D00A416AF /* RegisterView.swift in Sources */,
 				A3BED02628AEDB6C005E4EB5 /* MainCoordinator.swift in Sources */,
 				A3BECFD328AEC6FE005E4EB5 /* SceneDelegate.swift in Sources */,

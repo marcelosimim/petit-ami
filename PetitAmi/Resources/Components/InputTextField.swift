@@ -43,7 +43,7 @@ class InputTextField: UITextField {
     private func setupName() {
         attributedPlaceholder = NSAttributedString(
             string: "Insira o nome",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.darker(by: 10)]
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.darker(by: 30)]
         )
         autocapitalizationType = .none
     }
@@ -51,7 +51,7 @@ class InputTextField: UITextField {
     private func setupEmail() {
         attributedPlaceholder = NSAttributedString(
             string: "Insira o email",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.darker(by: 10)]
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.darker(by: 30)]
         )
         autocapitalizationType = .none
         keyboardType = .emailAddress
@@ -60,7 +60,7 @@ class InputTextField: UITextField {
     private func setupPassword() {
         attributedPlaceholder = NSAttributedString(
             string: "Insira a senha",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.darker(by: 10)]
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.darker(by: 30)]
         )
         isSecureTextEntry = true
     }
@@ -68,7 +68,7 @@ class InputTextField: UITextField {
     private func setupConfirmPassword() {
         attributedPlaceholder = NSAttributedString(
             string: "Confirme a senha",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.darker(by: 10)]
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.darker(by: 30)]
         )
         isSecureTextEntry = true
     }
@@ -79,7 +79,7 @@ class InputTextField: UITextField {
     }
 
      func defaultState() {
-        textColor = .darkGray
+        textColor = .white
         layer.borderColor = UIColor.background.cgColor
     }
 }

@@ -28,6 +28,7 @@ class DefaultRegisterView: RegisterView {
         setupStyles()
         addViews()
         setupTextFields()
+        signUpButton.isEnabled = false
     }
 
     func addViews() {
@@ -64,6 +65,7 @@ class DefaultRegisterView: RegisterView {
         passwordTextField.setup(type: .password)
         confirmPasswordTextField.setup(type: .confirmPassword)
     }
+
 }
 
 extension DefaultRegisterView: Stylable {
