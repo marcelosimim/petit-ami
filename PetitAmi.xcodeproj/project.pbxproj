@@ -37,6 +37,7 @@
 		A306907B28B05F9300A416AF /* DefaultFirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306907A28B05F9300A416AF /* DefaultFirestoreRepository.swift */; };
 		A306907E28B0621200A416AF /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306907D28B0621200A416AF /* HomeUseCase.swift */; };
 		A343758728B063600078F3C4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343758628B063600078F3C4 /* HomeViewModel.swift */; };
+		A343758928B11FC30078F3C4 /* KeepStudyingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343758828B11FC30078F3C4 /* KeepStudyingView.swift */; };
 		A3BECFD128AEC6FE005E4EB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD028AEC6FE005E4EB5 /* AppDelegate.swift */; };
 		A3BECFD328AEC6FE005E4EB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD228AEC6FE005E4EB5 /* SceneDelegate.swift */; };
 		A3BECFD528AEC6FE005E4EB5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD428AEC6FE005E4EB5 /* FirstViewController.swift */; };
@@ -112,6 +113,7 @@
 		A306907A28B05F9300A416AF /* DefaultFirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFirestoreRepository.swift; sourceTree = "<group>"; };
 		A306907D28B0621200A416AF /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeUseCase.swift; path = ../../../../../../HomeUseCase.swift; sourceTree = "<group>"; };
 		A343758628B063600078F3C4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		A343758828B11FC30078F3C4 /* KeepStudyingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepStudyingView.swift; sourceTree = "<group>"; };
 		A3BECFCD28AEC6FE005E4EB5 /* PetitAmi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetitAmi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BECFD028AEC6FE005E4EB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3BECFD228AEC6FE005E4EB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				A306907528B027DB00A416AF /* HeaderView.swift */,
+				A343758828B11FC30078F3C4 /* KeepStudyingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -829,6 +832,7 @@
 				A3BED02628AEDB6C005E4EB5 /* MainCoordinator.swift in Sources */,
 				A306906528B00BEB00A416AF /* LoginView.swift in Sources */,
 				A3BECFD328AEC6FE005E4EB5 /* SceneDelegate.swift in Sources */,
+				A343758928B11FC30078F3C4 /* KeepStudyingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

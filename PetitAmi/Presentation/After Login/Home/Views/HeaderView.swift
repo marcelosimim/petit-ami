@@ -46,7 +46,7 @@ class HeaderView: UIView {
     }
 
     func setupLabels(user: User) {
-        welcomeLabel.text = "Bienvenue, \(user.name ?? "")"
+        welcomeLabel.text = "Bienvenue, \(user.name ?? "")!"
         unitLabel.text = "Unidade atual: \(user.unit ?? 0)"
         exerciseLabel.text = "Exercício atual: \(user.exercise ?? 0)"
         frenchLevel.text = "Nível do francês: \(user.frenchLevel ?? "")"
@@ -70,7 +70,6 @@ extension HeaderView: Stylable {
 
     func configureUserPhoto(){
         userPhoto.layer.borderWidth = 1
-        print(userPhoto.frame.size.width / 2)
         userPhoto.layer.cornerRadius = 50
         userPhoto.clipsToBounds = true
         userPhoto.contentMode = .scaleAspectFill

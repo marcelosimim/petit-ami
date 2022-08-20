@@ -8,6 +8,7 @@
 import UIKit
 
 extension CGFloat {
+    public static var vertical8: CGFloat { 8*Dimen.heightMultiplier }
     public static var vertical16: CGFloat { 16*Dimen.heightMultiplier }
     public static var vertical32: CGFloat { 32*Dimen.heightMultiplier }
     public static var vertical64: CGFloat { 64*Dimen.heightMultiplier }

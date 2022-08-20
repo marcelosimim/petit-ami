@@ -10,11 +10,13 @@ import UIKit
 protocol HomeView {
     var contentView: UIView { get }
     var headerView: HeaderView { get }
+    var keepStudyingView: KeepStudyingView { get }
 }
 
 class DefaultHomeView: HomeView {
     var contentView = UIView()
     var headerView = HeaderView()
+    var keepStudyingView = KeepStudyingView()
 
     init() {
         setupStyles()
@@ -22,10 +24,14 @@ class DefaultHomeView: HomeView {
     }
 
     func addViews() {
-        contentView.addSubviews([headerView])
+        contentView.addSubviews([headerView, keepStudyingView])
         headerView.topToTop(of: contentView)
         headerView.leadingToLeading(of: contentView)
         headerView.trailingToTrailing(of: contentView)
+
+        keepStudyingView.centerVertical(to: contentView)
+        keepStudyingView.centerHorizontal(to: contentView)
+        keepStudyingView.leadingToLeading(of: contentView, margin: .leadingMargin)
     }
 }
 

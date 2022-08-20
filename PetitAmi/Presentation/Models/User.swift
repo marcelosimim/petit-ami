@@ -13,6 +13,7 @@ struct User {
     var exercise:Int?
     var frenchLevel:String?
     var photo: Data?
+    var progress: Float?
 
     func toModel() -> UserModel {
         UserModel(name: name,
@@ -27,6 +28,7 @@ struct User {
              unit: model.unit,
              exercise: model.exercise,
              frenchLevel: model.frenchLevel,
-             photo: model.photo)
+             photo: model.photo,
+             progress: Float(model.unit ?? 0)/96.0)
     }
 }

@@ -23,7 +23,7 @@ class PrimaryButton: UIButton {
 
 extension PrimaryButton: Stylable {
     func setupColors() {
-        backgroundColor = .button
+        backgroundColor = .darkBlue
     }
 }
 

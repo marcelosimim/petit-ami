@@ -39,7 +39,7 @@ class TabBarViewController: UITabBarController, Coordinating {
     }
 
     private func setupColors() {
-        tabBar.backgroundColor = .tabbar
+        tabBar.backgroundColor = .darkBlue
         tabBar.tintColor = .white
     }
 }

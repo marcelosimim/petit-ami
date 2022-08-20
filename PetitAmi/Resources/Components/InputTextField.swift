@@ -100,6 +100,6 @@ extension InputTextField {
 
 extension InputTextField: Stylable {
     func setupColors() {
-        backgroundColor = .textfield
+        backgroundColor = .darkBlue
     }
 }

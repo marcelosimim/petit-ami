@@ -28,6 +28,7 @@ class HomeViewController: UIViewController, Coordinating {
         viewModel.user.bind { user in
             guard let user = user else { return }
             self.homeView.headerView.setupLabels(user: user)
+            self.homeView.keepStudyingView.setProgress(progress: user.progress)
         }
     }
 }
