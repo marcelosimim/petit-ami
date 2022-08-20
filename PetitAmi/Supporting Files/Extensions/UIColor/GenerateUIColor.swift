@@ -12,4 +12,5 @@ extension UIColor {
     public static var button: UIColor { colorBuilder("button") }
     public static var textfield: UIColor { colorBuilder("textfield") }
     public static var red: UIColor { colorBuilder("red") }
+    public static var tabbar: UIColor { colorBuilder("tabbar") }
 }

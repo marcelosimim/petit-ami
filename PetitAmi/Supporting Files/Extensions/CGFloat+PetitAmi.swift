@@ -18,5 +18,6 @@ extension CGFloat {
     public static var vertical224: CGFloat { 224*Dimen.heightMultiplier }
     public static var leadingMargin: CGFloat { 24*Dimen.widthMultiplier }
     public static var textFieldHeight: CGFloat { 42*Dimen.widthMultiplier }
+    public static var headerHeight: CGFloat { 180*Dimen.heightMultiplier }
 }
 

@@ -49,6 +49,8 @@ class LoginViewController: UIViewController, Coordinating {
         viewModel.login() { error in
             if let error = error {
                 Alert.alertToCorrect(title: "Erro ao logar", message: error.localizedDescription, controller: self)
+            } else {
+                self.coodinator?.eventOccurred(with: .authSuccess)
             }
         }
     }
