@@ -17,10 +17,10 @@ class HeaderView: UIView {
         stack.axis = .vertical
         return stack
     }()
-    let welcomeLabel = UILabel()
-    let unitLabel = UILabel()
-    let exerciseLabel = UILabel()
-    let frenchLevel = UILabel()
+    private let welcomeLabel = UILabel()
+    private let unitLabel = UILabel()
+    private let exerciseLabel = UILabel()
+    private let frenchLevel = UILabel()
 
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -43,6 +43,13 @@ class HeaderView: UIView {
 
         labelsStack.leadingToTrailing(of: userPhoto, margin: 8)
         labelsStack.centerVertical(to: userPhoto)
+    }
+
+    func setupLabels(user: User) {
+        welcomeLabel.text = "Bienvenue, \(user.name ?? "")"
+        unitLabel.text = "Unidade atual: \(user.unit ?? 0)"
+        exerciseLabel.text = "Exercício atual: \(user.exercise ?? 0)"
+        frenchLevel.text = "Nível do francês: \(user.frenchLevel ?? "")"
     }
 }
 
@@ -67,13 +74,6 @@ extension HeaderView: Stylable {
         userPhoto.layer.cornerRadius = 50
         userPhoto.clipsToBounds = true
         userPhoto.contentMode = .scaleAspectFill
-    }
-
-    func setupTexts() {
-        welcomeLabel.text = "Bienvenue, "
-        unitLabel.text = "Unidade atual: "
-        exerciseLabel.text = "Exercício atual: "
-        frenchLevel.text = "Nível do francês: "
     }
 
     func setupFonts() {

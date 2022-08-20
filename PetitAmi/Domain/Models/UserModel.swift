@@ -11,6 +11,6 @@ struct UserModel {
     var name:String?
     var unit:Int?
     var exercise:Int?
-    var frenchLevel:Double?
+    var frenchLevel:String?
     var photo: Data?
 }

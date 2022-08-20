@@ -11,7 +11,7 @@ struct User {
     var name:String?
     var unit:Int?
     var exercise:Int?
-    var frenchLevel:Double?
+    var frenchLevel:String?
     var photo: Data?
 
     func toModel() -> UserModel {
@@ -20,5 +20,13 @@ struct User {
                   exercise: exercise,
                   frenchLevel: frenchLevel,
                   photo: photo)
+    }
+
+    static func fromModel(model: UserModel) -> User {
+        User(name: model.name,
+             unit: model.unit,
+             exercise: model.exercise,
+             frenchLevel: model.frenchLevel,
+             photo: model.photo)
     }
 }

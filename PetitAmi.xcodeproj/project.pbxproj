@@ -33,6 +33,10 @@
 		A306907028B011E500A416AF /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306906F28B011E500A416AF /* TabBarViewController.swift */; };
 		A306907328B0273F00A416AF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306907228B0273F00A416AF /* HomeView.swift */; };
 		A306907628B027DB00A416AF /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306907528B027DB00A416AF /* HeaderView.swift */; };
+		A306907928B05EDC00A416AF /* FirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306907828B05EDC00A416AF /* FirestoreRepository.swift */; };
+		A306907B28B05F9300A416AF /* DefaultFirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306907A28B05F9300A416AF /* DefaultFirestoreRepository.swift */; };
+		A306907E28B0621200A416AF /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306907D28B0621200A416AF /* HomeUseCase.swift */; };
+		A343758728B063600078F3C4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343758628B063600078F3C4 /* HomeViewModel.swift */; };
 		A3BECFD128AEC6FE005E4EB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD028AEC6FE005E4EB5 /* AppDelegate.swift */; };
 		A3BECFD328AEC6FE005E4EB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD228AEC6FE005E4EB5 /* SceneDelegate.swift */; };
 		A3BECFD528AEC6FE005E4EB5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD428AEC6FE005E4EB5 /* FirstViewController.swift */; };
@@ -104,6 +108,10 @@
 		A306906F28B011E500A416AF /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		A306907228B0273F00A416AF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A306907528B027DB00A416AF /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		A306907828B05EDC00A416AF /* FirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreRepository.swift; sourceTree = "<group>"; };
+		A306907A28B05F9300A416AF /* DefaultFirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFirestoreRepository.swift; sourceTree = "<group>"; };
+		A306907D28B0621200A416AF /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeUseCase.swift; path = ../../../../../../HomeUseCase.swift; sourceTree = "<group>"; };
+		A343758628B063600078F3C4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A3BECFCD28AEC6FE005E4EB5 /* PetitAmi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetitAmi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BECFD028AEC6FE005E4EB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3BECFD228AEC6FE005E4EB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				A306903528AFB4EB00A416AF /* FirebaseAuthRepository.swift */,
+				A306907828B05EDC00A416AF /* FirestoreRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -202,6 +211,7 @@
 		A306903328AFB4B400A416AF /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
+				A306907C28B0620600A416AF /* Home */,
 				A306906928B00DFB00A416AF /* Login */,
 				A306904428AFBFE600A416AF /* Register */,
 			);
@@ -212,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				A306903B28AFB71000A416AF /* DefaultFirebaseAuthRepository.swift */,
+				A306907A28B05F9300A416AF /* DefaultFirestoreRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -315,6 +326,7 @@
 				A306907428B027BD00A416AF /* Views */,
 				A306906D28B0119A00A416AF /* HomeViewController.swift */,
 				A306907228B0273F00A416AF /* HomeView.swift */,
+				A343758628B063600078F3C4 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -325,6 +337,14 @@
 				A306907528B027DB00A416AF /* HeaderView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A306907C28B0620600A416AF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A306907D28B0621200A416AF /* HomeUseCase.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		A3BECFC428AEC6FE005E4EB5 = {
@@ -788,7 +808,9 @@
 				A3BED01E28AED4D3005E4EB5 /* Dimen.swift in Sources */,
 				A306903628AFB4EB00A416AF /* FirebaseAuthRepository.swift in Sources */,
 				A306904328AFBF4C00A416AF /* FirebaseCollections.swift in Sources */,
+				A306907E28B0621200A416AF /* HomeUseCase.swift in Sources */,
 				A306905E28B0081800A416AF /* AlertController.swift in Sources */,
+				A306907B28B05F9300A416AF /* DefaultFirestoreRepository.swift in Sources */,
 				A306906B28B00E0700A416AF /* LoginUseCase.swift in Sources */,
 				A306904D28AFC41700A416AF /* RegisterViewController.swift in Sources */,
 				A306907328B0273F00A416AF /* HomeView.swift in Sources */,
@@ -798,9 +820,11 @@
 				A306903C28AFB71000A416AF /* DefaultFirebaseAuthRepository.swift in Sources */,
 				A306904A28AFC2D000A416AF /* AppContainer.swift in Sources */,
 				A306903F28AFB81700A416AF /* UserModel.swift in Sources */,
+				A306907928B05EDC00A416AF /* FirestoreRepository.swift in Sources */,
 				A306905428AFD8CB00A416AF /* RegisterViewModel.swift in Sources */,
 				A3BED01528AED0A8005E4EB5 /* FirstView.swift in Sources */,
 				A306905928AFFAF100A416AF /* Observable.swift in Sources */,
+				A343758728B063600078F3C4 /* HomeViewModel.swift in Sources */,
 				A306905028AFC82D00A416AF /* RegisterView.swift in Sources */,
 				A3BED02628AEDB6C005E4EB5 /* MainCoordinator.swift in Sources */,
 				A306906528B00BEB00A416AF /* LoginView.swift in Sources */,
