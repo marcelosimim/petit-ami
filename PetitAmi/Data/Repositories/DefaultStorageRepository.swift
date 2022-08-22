@@ -20,7 +20,10 @@ class DefaultStorageRepository: StorageRepository {
     }
 
     func uploadUserPhoto(image: Data, completion: @escaping ((Error?) -> Void)) {
-
+        FirebaseReferences.storageReference
+            .putData(image, metadata: nil) { _ , error in
+                    completion(error)
+            }
     }
 
     func fetchUnitCover(unit: Int, completion: @escaping (Result<Data, Error>) -> Void) {

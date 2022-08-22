@@ -60,7 +60,6 @@ extension HomeViewController: UIImagePickerControllerDelegate,   UINavigationCon
     }
 
     @objc private func didTapPhoto() {
-        print("tapped")
         let actionSheet = UIAlertController(title: "Escolha a fonte", message: "", preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Câmera", style: .default, handler: { _ in
             self.present(self.cameraPickerController, animated: true)
