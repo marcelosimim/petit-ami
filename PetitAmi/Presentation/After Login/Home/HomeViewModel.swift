@@ -16,16 +16,18 @@ protocol HomeViewModel {
 
 class DefaultHomeViewModel: HomeViewModel {
 
-    private let homeUseCase: HomeUseCase
+    private let userUseCase: UserUseCase
+    private let unitUseCase: UnitUseCase
     var user = Observable<User?>(nil)
     var unit = Observable<Unit?>(nil)
 
-    init(homeUseCase: HomeUseCase) {
-        self.homeUseCase = homeUseCase
+    init(userUseCase: UserUseCase, unitUseCase: UnitUseCase) {
+        self.userUseCase = userUseCase
+        self.unitUseCase = unitUseCase
     }
 
     func getUserInfo() {
-        homeUseCase.getUserInfo { result in
+        userUseCase.getUserInfo { result in
             switch result {
             case .success(let userModel):
                 self.user.value = User.fromModel(model: userModel)
@@ -34,7 +36,7 @@ class DefaultHomeViewModel: HomeViewModel {
                 break
             }
         }
-        homeUseCase.downloadUserPhoto { result in
+        userUseCase.downloadUserPhoto { result in
             switch result {
             case .success(let data):
                 self.user.value?.photo = data
@@ -45,7 +47,7 @@ class DefaultHomeViewModel: HomeViewModel {
     }
 
     func uploadPhoto(data: Data) {
-        homeUseCase.uploadUserPhoto(image: data) { error in
+        userUseCase.uploadUserPhoto(image: data) { error in
             guard error != nil else {
                 self.user.value?.photo = data
                 return
@@ -62,7 +64,7 @@ class DefaultHomeViewModel: HomeViewModel {
         var unit = Unit()
         unit.number = number
 
-        homeUseCase.fetchUnitCover(unit: number) { result in
+        unitUseCase.fetchUnitCover(unit: number) { result in
             switch result {
             case .success(let data):
                 unit.image = data
