@@ -5,13 +5,16 @@
 //  Created by Marcelo Simim Santos on 8/19/22.
 //
 
+import Foundation
 
 protocol HomeViewModel {
     var user: Observable<User?> { get }
     func getUserInfo()
+    func uploadPhoto(data: Data)
 }
 
 class DefaultHomeViewModel: HomeViewModel {
+
     private let homeUseCase: HomeUseCase
     var user = Observable<User?>(nil)
 
@@ -34,6 +37,15 @@ class DefaultHomeViewModel: HomeViewModel {
                 self.user.value?.photo = data
             case .failure(_):
                 break
+            }
+        }
+    }
+
+    func uploadPhoto(data: Data) {
+        homeUseCase.uploadUserPhoto(image: data) { error in
+            guard let error = error else {
+                self.user.value?.photo = data
+                return
             }
         }
     }

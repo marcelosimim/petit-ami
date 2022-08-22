@@ -9,7 +9,7 @@ import UIKit
 
 class HeaderView: UIView {
     private let headerView = UIImageView()
-    private let userPhoto = UIImageView()
+    let userPhoto = UIImageView()
     private lazy var labelsStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [welcomeLabel, unitLabel, exerciseLabel, frenchLevel])
         stack.spacing = 2
@@ -40,6 +40,7 @@ class HeaderView: UIView {
         userPhoto.leadingToLeading(of: self, margin: .leadingMargin)
         userPhoto.heightTo(100)
         userPhoto.widthTo(100)
+        userPhoto.bottomToBottom(of: self, margin: .vertical16)
 
         labelsStack.leadingToTrailing(of: userPhoto, margin: 8)
         labelsStack.centerVertical(to: userPhoto)
