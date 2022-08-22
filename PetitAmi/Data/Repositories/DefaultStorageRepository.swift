@@ -54,4 +54,15 @@ class DefaultStorageRepository: StorageRepository {
             }
         }
     }
+
+    func getPdf(unit: Int, completion: @escaping (Result<URL, Error>) -> Void) {
+        FirebaseReferences.storagePdfReference(number: unit)
+            .downloadURL { url, error in
+                guard let url = url else {
+                    completion(.failure(error!))
+                    return
+                }
+                completion(.success(url))
+            }
+    }
 }

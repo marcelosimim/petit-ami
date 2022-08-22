@@ -30,7 +30,6 @@ class LibraryCollectionViewCell: UICollectionViewCell {
         imageView.leadingToLeading(of: self)
         imageView.centerHorizontal(to: self)
         imageView.bottomToBottom(of: self)
-        imageView.heightTo(150*Dimen.heightMultiplier)
     }
 
     func setupImage(data: Data?) {

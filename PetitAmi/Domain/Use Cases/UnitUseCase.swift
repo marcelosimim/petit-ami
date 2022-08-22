@@ -10,10 +10,10 @@ import Foundation
 protocol UnitUseCase {
     func fetchUnitCover(unit: Int, completion: @escaping (Result<Data, Error>) -> Void)
     func getLibrary(completion: @escaping (Result<[Data], Error>) -> Void)
+    func getPdf(unit: Int, completion: @escaping(Result<URL, Error>) -> Void)
 }
 
 class DefaultUnitUseCase: UnitUseCase {
-
     private let firestoreRepository: FirestoreRepository
     private let storageRepository: StorageRepository
 
@@ -29,4 +29,9 @@ class DefaultUnitUseCase: UnitUseCase {
     func getLibrary(completion: @escaping (Result<[Data], Error>) -> Void) {
         storageRepository.getLibrary(completion: completion)
     }
+
+    func getPdf(unit: Int, completion: @escaping (Result<URL, Error>) -> Void) {
+        storageRepository.getPdf(unit: unit, completion: completion)
+    }
+
 }

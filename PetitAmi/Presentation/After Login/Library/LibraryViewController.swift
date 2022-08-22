@@ -8,7 +8,6 @@
 import UIKit
 
 class LibraryViewController: UIViewController {
-
     private let libraryView = AppContainer.shared.resolve(LibraryView.self)!
     private let viewModel = AppContainer.shared.resolve(LibraryViewModel.self)!
 
@@ -31,6 +30,16 @@ class LibraryViewController: UIViewController {
                 self.libraryView.collectionView.reloadData()
             }
         }
+        viewModel.pdf.bindWithoutFire { url in
+            guard let url = url else { return }
+            self.openWebView(url: url)
+        }
+    }
+
+    private func openWebView(url: URL) {
+        let vc = WebViewViewController()
+        vc.url = url
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -41,14 +50,15 @@ extension LibraryViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.unit.value.count
+        getUnits().count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LibraryCollectionViewCell.identifier, for: indexPath) as? LibraryCollectionViewCell else {
             fatalError()
         }
-        let data = viewModel.unit.value[indexPath.row]
+
+        let data = getUnits()[indexPath.row]
         cell.setupImage(data: data)
         return cell
     }
@@ -62,6 +72,11 @@ extension LibraryViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let index = indexPath.row
+        viewModel.getPdf(unit: index+1)
     }
 
+    private func getUnits() -> [Data] {
+        viewModel.unit.value
+    }
 }

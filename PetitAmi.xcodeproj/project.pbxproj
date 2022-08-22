@@ -46,6 +46,7 @@
 		A378830028B3E1A000E58954 /* UserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37882FF28B3E1A000E58954 /* UserUseCase.swift */; };
 		A378830328B3E24400E58954 /* UnitUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A378830228B3E24400E58954 /* UnitUseCase.swift */; };
 		A378830528B3E30C00E58954 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A378830428B3E30C00E58954 /* LibraryViewModel.swift */; };
+		A378830828B3F87700E58954 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A378830728B3F87700E58954 /* WebViewViewController.swift */; };
 		A3BECFD128AEC6FE005E4EB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD028AEC6FE005E4EB5 /* AppDelegate.swift */; };
 		A3BECFD328AEC6FE005E4EB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD228AEC6FE005E4EB5 /* SceneDelegate.swift */; };
 		A3BECFD528AEC6FE005E4EB5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD428AEC6FE005E4EB5 /* FirstViewController.swift */; };
@@ -130,6 +131,7 @@
 		A37882FF28B3E1A000E58954 /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCase.swift; sourceTree = "<group>"; };
 		A378830228B3E24400E58954 /* UnitUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitUseCase.swift; sourceTree = "<group>"; };
 		A378830428B3E30C00E58954 /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
+		A378830728B3F87700E58954 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		A3BECFCD28AEC6FE005E4EB5 /* PetitAmi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetitAmi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BECFD028AEC6FE005E4EB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3BECFD228AEC6FE005E4EB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 		A37882F728B3C8F300E58954 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				A378830628B3F85C00E58954 /* WebView */,
 				A37882FC28B3CEBC00E58954 /* Cell */,
 				A37882F828B3C91C00E58954 /* LibraryViewController.swift */,
 				A37882FA28B3CD5700E58954 /* LibraryView.swift */,
@@ -364,6 +367,14 @@
 				A37882FD28B3CED900E58954 /* LibraryCollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		A378830628B3F85C00E58954 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				A378830728B3F87700E58954 /* WebViewViewController.swift */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 		A3BECFC428AEC6FE005E4EB5 = {
@@ -840,6 +851,7 @@
 				A37882FB28B3CD5700E58954 /* LibraryView.swift in Sources */,
 				A306907328B0273F00A416AF /* HomeView.swift in Sources */,
 				A306905228AFC8DF00A416AF /* InputTextField.swift in Sources */,
+				A378830828B3F87700E58954 /* WebViewViewController.swift in Sources */,
 				A3BED00B28AEC9CE005E4EB5 /* UIImage+PetitAmi.swift in Sources */,
 				A3BED00D28AEC9F4005E4EB5 /* GenerateUIImage.swift in Sources */,
 				A306903C28AFB71000A416AF /* DefaultFirebaseAuthRepository.swift in Sources */,
