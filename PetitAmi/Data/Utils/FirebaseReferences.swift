@@ -12,6 +12,10 @@ class FirebaseReferences {
         .collection("users")
         .document(Auth.auth().currentUser?.uid ?? "")
     
-    static let storageReference = Storage.storage()
+    static let storageUserReference = Storage.storage()
         .reference(withPath: "users/\(Auth.auth().currentUser?.uid ?? "")/perfil.png")
+
+    static func storageUnitReference(number: Int) -> StorageReference {
+        Storage.storage().reference(withPath: "cover/capa\(number).png")
+    }
 }

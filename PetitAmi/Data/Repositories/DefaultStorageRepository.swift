@@ -9,7 +9,7 @@ import Foundation
 
 class DefaultStorageRepository: StorageRepository {
     func downloadUserPhoto(completion: @escaping ((Result<Data, Error>) -> Void)) {
-        FirebaseReferences.storageReference
+        FirebaseReferences.storageUserReference
             .getData(maxSize: 4 * 1024 * 1024) { data, error in
                 guard let data = data else {
                     completion(.failure(error!))
@@ -20,13 +20,20 @@ class DefaultStorageRepository: StorageRepository {
     }
 
     func uploadUserPhoto(image: Data, completion: @escaping ((Error?) -> Void)) {
-        FirebaseReferences.storageReference
+        FirebaseReferences.storageUserReference
             .putData(image, metadata: nil) { _ , error in
                     completion(error)
             }
     }
 
     func fetchUnitCover(unit: Int, completion: @escaping (Result<Data, Error>) -> Void) {
-
+        FirebaseReferences.storageUnitReference(number: unit)
+            .getData(maxSize: 4 * 1024 * 1024) { data, error in
+                guard let data = data else {
+                    completion(.failure(error!))
+                    return
+                }
+                completion(.success(data))
+            }
     }
 }

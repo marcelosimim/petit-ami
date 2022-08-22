@@ -34,6 +34,11 @@ class HomeViewController: UIViewController, Coordinating {
             self.homeView.keepStudyingView.setProgress(progress: user.progress)
             self.homeView.headerView.setupPhoto(data: user.photo)
         }
+
+        viewModel.unit.bind { unit in
+            guard let image = unit?.image else { return }
+            self.homeView.keepStudyingView.setCoverImage(data: image)
+        }
     }
 
     private func setupButtons() {

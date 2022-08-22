@@ -5,6 +5,7 @@
 //  Created by Marcelo Simim Santos on 8/20/22.
 //
 
+import Foundation
 import UIKit
 
 class KeepStudyingView: UIView {
@@ -59,8 +60,8 @@ class KeepStudyingView: UIView {
         progressView.setProgress(progress ?? 0, animated: true)
     }
 
-    func setCoverImage(image: UIImage) {
-        coverImage.image = image
+    func setCoverImage(data: Data) {
+        coverImage.image = UIImage(data: data)
         activityIndicator.stopAnimating()
     }
 }

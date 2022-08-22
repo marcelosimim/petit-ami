@@ -23,7 +23,7 @@ class DefaultHomeView: HomeView {
         addViews()
     }
 
-    func addViews() {
+    private func addViews() {
         contentView.addSubviews([headerView, keepStudyingView])
         headerView.topToTop(of: contentView)
         headerView.leadingToLeading(of: contentView)

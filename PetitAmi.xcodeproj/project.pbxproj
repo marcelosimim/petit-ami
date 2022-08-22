@@ -40,6 +40,7 @@
 		A343758928B11FC30078F3C4 /* KeepStudyingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343758828B11FC30078F3C4 /* KeepStudyingView.swift */; };
 		A343758B28B12E8C0078F3C4 /* StorageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343758A28B12E8C0078F3C4 /* StorageRepository.swift */; };
 		A343758D28B12F6C0078F3C4 /* DefaultStorageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343758C28B12F6C0078F3C4 /* DefaultStorageRepository.swift */; };
+		A37882F628B3BFF500E58954 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37882F528B3BFF500E58954 /* Unit.swift */; };
 		A3BECFD128AEC6FE005E4EB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD028AEC6FE005E4EB5 /* AppDelegate.swift */; };
 		A3BECFD328AEC6FE005E4EB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD228AEC6FE005E4EB5 /* SceneDelegate.swift */; };
 		A3BECFD528AEC6FE005E4EB5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD428AEC6FE005E4EB5 /* FirstViewController.swift */; };
@@ -118,6 +119,7 @@
 		A343758828B11FC30078F3C4 /* KeepStudyingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepStudyingView.swift; sourceTree = "<group>"; };
 		A343758A28B12E8C0078F3C4 /* StorageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageRepository.swift; sourceTree = "<group>"; };
 		A343758C28B12F6C0078F3C4 /* DefaultStorageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStorageRepository.swift; sourceTree = "<group>"; };
+		A37882F528B3BFF500E58954 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		A3BECFCD28AEC6FE005E4EB5 /* PetitAmi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetitAmi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BECFD028AEC6FE005E4EB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3BECFD228AEC6FE005E4EB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				A306905628AFD9CD00A416AF /* User.swift */,
+				A37882F528B3BFF500E58954 /* Unit.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -833,6 +836,7 @@
 				A306907928B05EDC00A416AF /* FirestoreRepository.swift in Sources */,
 				A306905428AFD8CB00A416AF /* RegisterViewModel.swift in Sources */,
 				A3BED01528AED0A8005E4EB5 /* FirstView.swift in Sources */,
+				A37882F628B3BFF500E58954 /* Unit.swift in Sources */,
 				A306905928AFFAF100A416AF /* Observable.swift in Sources */,
 				A343758728B063600078F3C4 /* HomeViewModel.swift in Sources */,
 				A306905028AFC82D00A416AF /* RegisterView.swift in Sources */,
