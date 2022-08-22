@@ -13,7 +13,7 @@
 		A306903A28AFB6BE00A416AF /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306903928AFB6BE00A416AF /* UserEntity.swift */; };
 		A306903C28AFB71000A416AF /* DefaultFirebaseAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306903B28AFB71000A416AF /* DefaultFirebaseAuthRepository.swift */; };
 		A306903F28AFB81700A416AF /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306903E28AFB81700A416AF /* UserModel.swift */; };
-		A306904328AFBF4C00A416AF /* FirebaseCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306904228AFBF4C00A416AF /* FirebaseCollections.swift */; };
+		A306904328AFBF4C00A416AF /* FirebaseReferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306904228AFBF4C00A416AF /* FirebaseReferences.swift */; };
 		A306904628AFBFFB00A416AF /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306904528AFBFFB00A416AF /* RegisterUseCase.swift */; };
 		A306904A28AFC2D000A416AF /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306904928AFC2D000A416AF /* AppContainer.swift */; };
 		A306904D28AFC41700A416AF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306904C28AFC41700A416AF /* RegisterViewController.swift */; };
@@ -29,6 +29,18 @@
 		A306906528B00BEB00A416AF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306906428B00BEB00A416AF /* LoginView.swift */; };
 		A306906828B00D5300A416AF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306906728B00D5300A416AF /* LoginViewModel.swift */; };
 		A306906B28B00E0700A416AF /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306906A28B00E0700A416AF /* LoginUseCase.swift */; };
+		A306906E28B0119A00A416AF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306906D28B0119A00A416AF /* HomeViewController.swift */; };
+		A306907028B011E500A416AF /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306906F28B011E500A416AF /* TabBarViewController.swift */; };
+		A306907328B0273F00A416AF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306907228B0273F00A416AF /* HomeView.swift */; };
+		A306907628B027DB00A416AF /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306907528B027DB00A416AF /* HeaderView.swift */; };
+		A306907928B05EDC00A416AF /* FirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306907828B05EDC00A416AF /* FirestoreRepository.swift */; };
+		A306907B28B05F9300A416AF /* DefaultFirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306907A28B05F9300A416AF /* DefaultFirestoreRepository.swift */; };
+		A306907E28B0621200A416AF /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306907D28B0621200A416AF /* HomeUseCase.swift */; };
+		A343758728B063600078F3C4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343758628B063600078F3C4 /* HomeViewModel.swift */; };
+		A343758928B11FC30078F3C4 /* KeepStudyingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343758828B11FC30078F3C4 /* KeepStudyingView.swift */; };
+		A343758B28B12E8C0078F3C4 /* StorageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343758A28B12E8C0078F3C4 /* StorageRepository.swift */; };
+		A343758D28B12F6C0078F3C4 /* DefaultStorageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343758C28B12F6C0078F3C4 /* DefaultStorageRepository.swift */; };
+		A37882F628B3BFF500E58954 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37882F528B3BFF500E58954 /* Unit.swift */; };
 		A3BECFD128AEC6FE005E4EB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD028AEC6FE005E4EB5 /* AppDelegate.swift */; };
 		A3BECFD328AEC6FE005E4EB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD228AEC6FE005E4EB5 /* SceneDelegate.swift */; };
 		A3BECFD528AEC6FE005E4EB5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BECFD428AEC6FE005E4EB5 /* FirstViewController.swift */; };
@@ -80,7 +92,7 @@
 		A306903928AFB6BE00A416AF /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		A306903B28AFB71000A416AF /* DefaultFirebaseAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFirebaseAuthRepository.swift; sourceTree = "<group>"; };
 		A306903E28AFB81700A416AF /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		A306904228AFBF4C00A416AF /* FirebaseCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCollections.swift; sourceTree = "<group>"; };
+		A306904228AFBF4C00A416AF /* FirebaseReferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReferences.swift; sourceTree = "<group>"; };
 		A306904528AFBFFB00A416AF /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
 		A306904928AFC2D000A416AF /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
 		A306904C28AFC41700A416AF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +108,18 @@
 		A306906428B00BEB00A416AF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A306906728B00D5300A416AF /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		A306906A28B00E0700A416AF /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		A306906D28B0119A00A416AF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A306906F28B011E500A416AF /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		A306907228B0273F00A416AF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A306907528B027DB00A416AF /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		A306907828B05EDC00A416AF /* FirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreRepository.swift; sourceTree = "<group>"; };
+		A306907A28B05F9300A416AF /* DefaultFirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFirestoreRepository.swift; sourceTree = "<group>"; };
+		A306907D28B0621200A416AF /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeUseCase.swift; path = ../../../../../../HomeUseCase.swift; sourceTree = "<group>"; };
+		A343758628B063600078F3C4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		A343758828B11FC30078F3C4 /* KeepStudyingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepStudyingView.swift; sourceTree = "<group>"; };
+		A343758A28B12E8C0078F3C4 /* StorageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageRepository.swift; sourceTree = "<group>"; };
+		A343758C28B12F6C0078F3C4 /* DefaultStorageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStorageRepository.swift; sourceTree = "<group>"; };
+		A37882F528B3BFF500E58954 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		A3BECFCD28AEC6FE005E4EB5 /* PetitAmi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetitAmi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BECFD028AEC6FE005E4EB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3BECFD228AEC6FE005E4EB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +211,8 @@
 			isa = PBXGroup;
 			children = (
 				A306903528AFB4EB00A416AF /* FirebaseAuthRepository.swift */,
+				A306907828B05EDC00A416AF /* FirestoreRepository.swift */,
+				A343758A28B12E8C0078F3C4 /* StorageRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -194,6 +220,7 @@
 		A306903328AFB4B400A416AF /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
+				A306907C28B0620600A416AF /* Home */,
 				A306906928B00DFB00A416AF /* Login */,
 				A306904428AFBFE600A416AF /* Register */,
 			);
@@ -204,6 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				A306903B28AFB71000A416AF /* DefaultFirebaseAuthRepository.swift */,
+				A306907A28B05F9300A416AF /* DefaultFirestoreRepository.swift */,
+				A343758C28B12F6C0078F3C4 /* DefaultStorageRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -227,7 +256,7 @@
 		A306904128AFBF2300A416AF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				A306904228AFBF4C00A416AF /* FirebaseCollections.swift */,
+				A306904228AFBF4C00A416AF /* FirebaseReferences.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -270,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				A306905628AFD9CD00A416AF /* User.swift */,
+				A37882F528B3BFF500E58954 /* Unit.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -290,6 +320,43 @@
 				A306906A28B00E0700A416AF /* LoginUseCase.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		A306906C28B0118C00A416AF /* After Login */ = {
+			isa = PBXGroup;
+			children = (
+				A306907128B011E800A416AF /* Home */,
+				A306906F28B011E500A416AF /* TabBarViewController.swift */,
+			);
+			path = "After Login";
+			sourceTree = "<group>";
+		};
+		A306907128B011E800A416AF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A306907428B027BD00A416AF /* Views */,
+				A306906D28B0119A00A416AF /* HomeViewController.swift */,
+				A306907228B0273F00A416AF /* HomeView.swift */,
+				A343758628B063600078F3C4 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A306907428B027BD00A416AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A306907528B027DB00A416AF /* HeaderView.swift */,
+				A343758828B11FC30078F3C4 /* KeepStudyingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A306907C28B0620600A416AF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A306907D28B0621200A416AF /* HomeUseCase.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		A3BECFC428AEC6FE005E4EB5 = {
@@ -419,6 +486,7 @@
 			isa = PBXGroup;
 			children = (
 				A306905528AFD9BB00A416AF /* Models */,
+				A306906C28B0118C00A416AF /* After Login */,
 				A3BED01228AECFA7005E4EB5 /* Before Login */,
 			);
 			path = Presentation;
@@ -731,14 +799,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A306907628B027DB00A416AF /* HeaderView.swift in Sources */,
 				A3BECFD528AEC6FE005E4EB5 /* FirstViewController.swift in Sources */,
 				A3BED01B28AED498005E4EB5 /* CGFloat+PetitAmi.swift in Sources */,
 				A306906828B00D5300A416AF /* LoginViewModel.swift in Sources */,
 				A3BED01028AECEF1005E4EB5 /* UIView+PetitAmi.swift in Sources */,
+				A306907028B011E500A416AF /* TabBarViewController.swift in Sources */,
 				A3BECFD128AEC6FE005E4EB5 /* AppDelegate.swift in Sources */,
+				A306906E28B0119A00A416AF /* HomeViewController.swift in Sources */,
 				A3BED00828AEC984005E4EB5 /* GenerateUIColor.swift in Sources */,
 				A306905728AFD9CD00A416AF /* User.swift in Sources */,
 				A3BED02128AED7E3005E4EB5 /* PrimaryButton.swift in Sources */,
+				A343758B28B12E8C0078F3C4 /* StorageRepository.swift in Sources */,
 				A306905C28AFFDC800A416AF /* String+PetitAmi.swift in Sources */,
 				A306903A28AFB6BE00A416AF /* UserEntity.swift in Sources */,
 				A3BED02428AEDB50005E4EB5 /* Coordinator.swift in Sources */,
@@ -748,23 +820,31 @@
 				A306906328B00A5100A416AF /* LoginViewController.swift in Sources */,
 				A3BED01E28AED4D3005E4EB5 /* Dimen.swift in Sources */,
 				A306903628AFB4EB00A416AF /* FirebaseAuthRepository.swift in Sources */,
-				A306904328AFBF4C00A416AF /* FirebaseCollections.swift in Sources */,
+				A306904328AFBF4C00A416AF /* FirebaseReferences.swift in Sources */,
+				A306907E28B0621200A416AF /* HomeUseCase.swift in Sources */,
 				A306905E28B0081800A416AF /* AlertController.swift in Sources */,
+				A306907B28B05F9300A416AF /* DefaultFirestoreRepository.swift in Sources */,
 				A306906B28B00E0700A416AF /* LoginUseCase.swift in Sources */,
 				A306904D28AFC41700A416AF /* RegisterViewController.swift in Sources */,
+				A306907328B0273F00A416AF /* HomeView.swift in Sources */,
 				A306905228AFC8DF00A416AF /* InputTextField.swift in Sources */,
 				A3BED00B28AEC9CE005E4EB5 /* UIImage+PetitAmi.swift in Sources */,
 				A3BED00D28AEC9F4005E4EB5 /* GenerateUIImage.swift in Sources */,
 				A306903C28AFB71000A416AF /* DefaultFirebaseAuthRepository.swift in Sources */,
 				A306904A28AFC2D000A416AF /* AppContainer.swift in Sources */,
 				A306903F28AFB81700A416AF /* UserModel.swift in Sources */,
+				A306907928B05EDC00A416AF /* FirestoreRepository.swift in Sources */,
 				A306905428AFD8CB00A416AF /* RegisterViewModel.swift in Sources */,
 				A3BED01528AED0A8005E4EB5 /* FirstView.swift in Sources */,
+				A37882F628B3BFF500E58954 /* Unit.swift in Sources */,
 				A306905928AFFAF100A416AF /* Observable.swift in Sources */,
+				A343758728B063600078F3C4 /* HomeViewModel.swift in Sources */,
 				A306905028AFC82D00A416AF /* RegisterView.swift in Sources */,
 				A3BED02628AEDB6C005E4EB5 /* MainCoordinator.swift in Sources */,
 				A306906528B00BEB00A416AF /* LoginView.swift in Sources */,
 				A3BECFD328AEC6FE005E4EB5 /* SceneDelegate.swift in Sources */,
+				A343758928B11FC30078F3C4 /* KeepStudyingView.swift in Sources */,
+				A343758D28B12F6C0078F3C4 /* DefaultStorageRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

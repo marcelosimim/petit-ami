@@ -8,6 +8,7 @@
 import UIKit
 
 extension CGFloat {
+    public static var vertical8: CGFloat { 8*Dimen.heightMultiplier }
     public static var vertical16: CGFloat { 16*Dimen.heightMultiplier }
     public static var vertical32: CGFloat { 32*Dimen.heightMultiplier }
     public static var vertical64: CGFloat { 64*Dimen.heightMultiplier }
@@ -18,5 +19,6 @@ extension CGFloat {
     public static var vertical224: CGFloat { 224*Dimen.heightMultiplier }
     public static var leadingMargin: CGFloat { 24*Dimen.widthMultiplier }
     public static var textFieldHeight: CGFloat { 42*Dimen.widthMultiplier }
+    public static var headerHeight: CGFloat { 180*Dimen.heightMultiplier }
 }
 

@@ -11,10 +11,18 @@ struct UserEntity {
     var name:String?
     var unit:Int?
     var exercise:Int?
-    var frenchLevel:Double?
+    var frenchLevel:String?
     var photo: Data?
 
-    static func fromModel(model: UserModel) -> UserEntity{
+    func toModel() -> UserModel {
+        UserModel(name: name,
+                  unit: unit,
+                  exercise: exercise,
+                  frenchLevel: frenchLevel,
+                  photo: photo)
+    }
+
+    static func fromModel(model: UserModel) -> UserEntity {
         UserEntity(name: model.name,
                    unit: model.unit,
                    exercise: model.exercise,

@@ -57,6 +57,8 @@ class RegisterViewController: UIViewController, Coordinating {
         viewModel.register() { error in
             if let error = error {
                 Alert.alertToCorrect(title: "Erro ao cadastrar", message: error.localizedDescription, controller: self)
+            } else {
+                self.coodinator?.eventOccurred(with: .authSuccess)
             }
         }
     }
