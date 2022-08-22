@@ -14,7 +14,6 @@ class HomeViewController: UIViewController, Coordinating {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Home"
         view = homeView.contentView
     }
 
@@ -29,6 +28,7 @@ class HomeViewController: UIViewController, Coordinating {
             guard let user = user else { return }
             self.homeView.headerView.setupLabels(user: user)
             self.homeView.keepStudyingView.setProgress(progress: user.progress)
+            self.homeView.headerView.setupPhoto(data: user.photo)
         }
     }
 }

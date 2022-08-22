@@ -5,6 +5,7 @@
 //  Created by Marcelo Simim Santos on 8/19/22.
 //
 
+
 protocol HomeViewModel {
     var user: Observable<User?> { get }
     func getUserInfo()
@@ -24,6 +25,14 @@ class DefaultHomeViewModel: HomeViewModel {
             case .success(let userModel):
                 self.user.value = User.fromModel(model: userModel)
             case .failure(let error):
+                break
+            }
+        }
+        homeUseCase.downloadUserPhoto { result in
+            switch result {
+            case .success(let data):
+                self.user.value?.photo = data
+            case .failure(_):
                 break
             }
         }

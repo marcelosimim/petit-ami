@@ -9,7 +9,7 @@ import UIKit
 
 class HeaderView: UIView {
     private let headerView = UIImageView()
-    let userPhoto = UIImageView()
+    private let userPhoto = UIImageView()
     private lazy var labelsStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [welcomeLabel, unitLabel, exerciseLabel, frenchLevel])
         stack.spacing = 2
@@ -50,6 +50,12 @@ class HeaderView: UIView {
         unitLabel.text = "Unidade atual: \(user.unit ?? 0)"
         exerciseLabel.text = "Exercício atual: \(user.exercise ?? 0)"
         frenchLevel.text = "Nível do francês: \(user.frenchLevel ?? "")"
+    }
+
+    func setupPhoto(data: Data?) {
+        guard let data = data else { return }
+        userPhoto.image = UIImage(data: data)
+        configureUserPhoto()
     }
 }
 

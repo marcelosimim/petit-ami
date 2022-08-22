@@ -15,7 +15,8 @@ class DefaultFirestoreRepository: FirestoreRepository {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         var user = UserEntity()
 
-        FirebaseCollections.userReference.document(uid).getDocument { document, error in
+        FirebaseReferences.userReference
+            .getDocument { document, error in
             guard let document = document?.data() else {
                 completion(.failure(error!))
                 return

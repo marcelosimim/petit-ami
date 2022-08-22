@@ -27,9 +27,8 @@ class DefaultFirebaseAuthRepository: FirebaseAuthRepository {
     }
 
     private func addNewUserToCollection(user: UserEntity, completion: @escaping (Error?) -> Void) {
-        let document = FirebaseCollections.userReference.document(Auth.auth().currentUser?.uid ?? "")
-
-        document.setData([
+        FirebaseReferences.userReference
+            .setData([
             "name": user.name,
             "unit": user.unit,
             "exercise": user.exercise

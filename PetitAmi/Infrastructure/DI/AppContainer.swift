@@ -13,6 +13,7 @@ class AppContainer {
 
         container.register(FirebaseAuthRepository.self) { _ in DefaultFirebaseAuthRepository()}
         container.register(FirestoreRepository.self) { _ in DefaultFirestoreRepository()}
+        container.register(StorageRepository.self) { _ in DefaultStorageRepository()}
 
         container.register(FirstView.self) { _ in DefaultFirstView()}
         container.register(RegisterView.self) { _ in DefaultRegisterView()}
@@ -23,7 +24,7 @@ class AppContainer {
         container.register(LoginViewModel.self) { r in DefaultLoginViewModel(loginUseCase: r.resolve(LoginUseCase.self)!)}
 
         container.register(HomeView.self) { _ in DefaultHomeView()}
-        container.register(HomeUseCase.self) { r in DefaultHomeUseCase(firestoreRepository: r.resolve(FirestoreRepository.self)!)}
+        container.register(HomeUseCase.self) { r in DefaultHomeUseCase(firestoreRepository: r.resolve(FirestoreRepository.self)!, storageRepository: r.resolve(StorageRepository.self)!)}
         container.register(HomeViewModel.self) { r in DefaultHomeViewModel(homeUseCase: r.resolve(HomeUseCase.self)!)}
         return container
     }()
