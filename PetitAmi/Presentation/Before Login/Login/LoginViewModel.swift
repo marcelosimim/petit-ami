@@ -45,7 +45,7 @@ class DefaultLoginViewModel: LoginViewModel {
             passwordValue = text ?? ""
             passwordHasError.value = !isPasswordValid(text)
             passwordIsValid = !passwordHasError.value
-        case .name, .confirmPassword:
+        case .name, .confirmPassword, .answer:
            break
         }
         isButtonEnabled.value = isAllFieldsValid()
@@ -59,7 +59,7 @@ class DefaultLoginViewModel: LoginViewModel {
         case .password:
             passwordHasError.value = false
             passwordIsValid = false
-        case .name, .confirmPassword:
+        case .name, .confirmPassword, .answer:
            break
         }
         isButtonEnabled.value = false

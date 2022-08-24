@@ -12,6 +12,7 @@ enum InputTextFieldType {
     case email
     case password
     case confirmPassword
+    case answer
 }
 
 class InputTextField: UITextField {
@@ -32,6 +33,8 @@ class InputTextField: UITextField {
             setupPassword()
         case .confirmPassword:
             setupConfirmPassword()
+        case .answer:
+            setupAnswer()
         }
     }
 
@@ -71,6 +74,14 @@ class InputTextField: UITextField {
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.darker(by: 30)]
         )
         isSecureTextEntry = true
+    }
+
+    private func setupAnswer() {
+        attributedPlaceholder = NSAttributedString(
+            string: "Insira a resposta",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.darker(by: 30)]
+        )
+        autocapitalizationType = .none
     }
 
     func hasErrorState() {

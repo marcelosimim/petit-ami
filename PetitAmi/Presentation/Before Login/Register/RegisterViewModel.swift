@@ -62,6 +62,8 @@ class DefaultRegisterViewModel: RegisterViewModel {
             confirmPasswordValue = text ?? ""
             confirmPasswordHasError.value = !isEqual(text, passwordValue)
             confirmPasswordIsValid = !confirmPasswordHasError.value
+        case .answer:
+            break
         }
         isButtonEnabled.value = isAllFieldsValid()
     }
@@ -80,6 +82,8 @@ class DefaultRegisterViewModel: RegisterViewModel {
         case .confirmPassword:
             confirmPasswordHasError.value = false
             confirmPasswordIsValid = false
+        case .answer:
+            break
         }
         isButtonEnabled.value = false
     }
