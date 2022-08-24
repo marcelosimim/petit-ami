@@ -13,7 +13,6 @@ class TabBarViewController: UITabBarController, Coordinating {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .background
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -23,19 +22,22 @@ class TabBarViewController: UITabBarController, Coordinating {
     }
 
     private func setupTabBar() {
-       let home = HomeViewController()
-       home.title = "Home"
+        let home = HomeViewController()
+        home.title = "Home"
+        let library = LibraryViewController()
+        library.title = "Biblioteca"
 
-       setViewControllers([home], animated: false)
-       modalPresentationStyle = .fullScreen
+        setViewControllers([home, library], animated: false)
+        modalPresentationStyle = .fullScreen
 
-       setupImages()
+        setupImages()
     }
 
     private func setupImages() {
         guard let items = tabBar.items else { return }
 
         items[0].image = .house
+        items[1].image = .library
     }
 
     private func setupColors() {

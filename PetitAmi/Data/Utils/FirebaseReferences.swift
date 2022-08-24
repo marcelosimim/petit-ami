@@ -18,4 +18,8 @@ class FirebaseReferences {
     static func storageUnitReference(number: Int) -> StorageReference {
         Storage.storage().reference(withPath: "cover/capa\(number).png")
     }
+
+    static func storagePdfReference(number: Int) -> StorageReference {
+        Storage.storage().reference(withPath: "pdfs/livro_\(number).pdf")
+    }
 }
