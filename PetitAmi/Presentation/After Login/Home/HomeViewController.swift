@@ -44,6 +44,15 @@ class HomeViewController: UIViewController, Coordinating {
     private func setupButtons() {
         homeView.headerView.userPhoto.isUserInteractionEnabled = true
         homeView.headerView.userPhoto.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapPhoto)))
+        homeView.keepStudyingView.coverImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapCover)))
+    }
+
+    @objc private func didTapCover() {
+        // coodinator?.eventOccurred(with: .exerciseTapped)
+        let vc = ExerciseViewController()
+        vc.unit = viewModel.user.value?.unit
+        vc.exercise = viewModel.user.value?.exercise
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
