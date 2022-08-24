@@ -26,6 +26,7 @@ class AppContainer {
         container.register(LoginUseCase.self) { r in DefaultLoginUseCase(firebaseAuthRepository: r.resolve(FirebaseAuthRepository.self)!)}
         container.register(UserUseCase.self) { r in DefaultUserUseCase(firestoreRepository: r.resolve(FirestoreRepository.self)!, storageRepository: r.resolve(StorageRepository.self)!)}
         container.register(UnitUseCase.self) { r in DefaultUnitUseCase(firestoreRepository: r.resolve(FirestoreRepository.self)!, storageRepository: r.resolve(StorageRepository.self)!)}
+        container.register(ExerciseUseCase.self) { r in DefaultExerciseUseCase(firestoreRepository: r.resolve(FirestoreRepository.self)!, storageRepository: r.resolve(StorageRepository.self)!)}
 
         container.register(RegisterViewModel.self) { r in DefaultRegisterViewModel(registerUseCase: r.resolve(RegisterUseCase.self)!)}
         container.register(LoginViewModel.self) { r in DefaultLoginViewModel(loginUseCase: r.resolve(LoginUseCase.self)!)}

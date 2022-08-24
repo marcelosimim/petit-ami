@@ -17,7 +17,7 @@ class KeepStudyingView: UIView {
         progressView.layer.cornerRadius = 5
         return progressView
     }()
-    private let coverImage = UIImageView()
+    let coverImage = UIImageView()
     private let keepStudyingLabel = UILabel()
     private let activityIndicator : UIActivityIndicatorView  = {
         let activityIndicatorView = UIActivityIndicatorView()

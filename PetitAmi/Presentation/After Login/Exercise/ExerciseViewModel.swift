@@ -11,6 +11,8 @@ protocol ExerciseViewModel {
     var exerciseData: Observable<Exercise?> { get }
 
     func getExercise(unit: Int, exercise: Int)
+    func isExerciseCorrect(text: String) -> Bool
+    func goToNextExercise()
 }
 
 class DefaultExerciseViewModel: ExerciseViewModel {
@@ -29,6 +31,20 @@ class DefaultExerciseViewModel: ExerciseViewModel {
         getAnswer()
         getImage()
         getSound()
+    }
+
+    func isExerciseCorrect(text: String) -> Bool {
+        text.lowercased() == exerciseData.value?.answer?.lowercased()
+    }
+
+    func goToNextExercise() {
+        exerciseUseCase.updateExercise(unit: unitNumber.value, exercise: exerciseNumber.value) { userModel in
+            guard let userModel = userModel else { return }
+            let user = User.fromModel(model: userModel)
+            guard let unit = user.unit, let exercise = user.exercise else { return }
+
+            self.getExercise(unit: unit, exercise: exercise)
+        }
     }
 
     private func getAnswer() {

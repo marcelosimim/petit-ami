@@ -11,7 +11,7 @@ protocol ExerciseUseCase {
     func fetchExerciseAnswer(unit: Int, exercise: Int, completion: @escaping (Result<String, Error>) -> Void)
     func fetchExerciseImage(unit: Int, exercise: Int, completion: @escaping (Result<Data, Error>) -> Void)
     func fetchExerciseSound(unit: Int, exercise: Int, completion: @escaping (Result<URL, Error>) -> Void)
-    func updateExercise(unit: Int, exercise: Int, completion: @escaping (UserEntity?) -> Void)
+    func updateExercise(unit: Int, exercise: Int, completion: @escaping (UserModel?) -> Void)
 }
 
 class DefaultExerciseUseCase: ExerciseUseCase {
@@ -35,7 +35,7 @@ class DefaultExerciseUseCase: ExerciseUseCase {
         storageRepository.fetchExerciseSound(unit: unit, exercise: exercise, completion: completion)
     }
 
-    func updateExercise(unit: Int, exercise: Int, completion: @escaping (UserEntity?) -> Void) {
+    func updateExercise(unit: Int, exercise: Int, completion: @escaping (UserModel?) -> Void) {
         firestoreRepository.updateExercise(unit: unit, exercise: exercise, completion: completion)
     }
 }

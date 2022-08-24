@@ -14,4 +14,8 @@ extension UIImage {
     public static var person: UIImage { UIImage(systemName: "person.circle.fill")! }
     public static var library: UIImage { UIImage(systemName: "book.fill")! }
     public static var header: UIImage { imageBuilder("header") }
+    public static var speaker: UIImage { UIImage(systemName: "speaker.fill")! }
+    public static var speakerLoading: UIImage { UIImage(systemName: "speaker.badge.exclamationmark.fill")! }
+    public static var speakerPlaying: UIImage { UIImage(systemName: "speaker.wave.3.fill")! }
+    public static var mic: UIImage { UIImage(systemName: "mic.fill")! }
 }

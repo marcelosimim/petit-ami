@@ -52,7 +52,7 @@ class DefaultFirestoreRepository: FirestoreRepository {
             }
     }
 
-    func updateExercise(unit: Int, exercise: Int, completion: @escaping (UserEntity?) -> Void) {
+    func updateExercise(unit: Int, exercise: Int, completion: @escaping (UserModel?) -> Void) {
         fetchUnitSize(unit: unit) { unitSize in
             guard let unitSize = unitSize else {
                 completion(nil)
@@ -66,14 +66,14 @@ class DefaultFirestoreRepository: FirestoreRepository {
                     "exercise": 1
                 ])
                 let userEntity = UserEntity(name: nil, unit: newUnit, exercise: 1, frenchLevel: nil, photo: nil)
-                completion(userEntity)
+                completion(userEntity.toModel())
             } else {
                 let newExercise = exercise + 1
                 FirebaseReferences.userReference.updateData([
                     "exercise": newExercise
                 ])
                 let userEntity = UserEntity(name: nil, unit: unit, exercise: newExercise, frenchLevel: nil, photo: nil)
-                completion(userEntity)
+                completion(userEntity.toModel())
             }
         }
     }
