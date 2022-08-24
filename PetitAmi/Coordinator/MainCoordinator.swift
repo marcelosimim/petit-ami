@@ -26,6 +26,10 @@ class MainCoordinator: Coordinator {
             vc.coodinator = self
             navigationController?.pushViewController(vc, animated: true)
             // hide back button 
+        case .exerciseTapped:
+            var vc: UIViewController & Coordinating = ExerciseViewController()
+            vc.coodinator = self
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 

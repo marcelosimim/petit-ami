@@ -65,4 +65,26 @@ class DefaultStorageRepository: StorageRepository {
                 completion(.success(url))
             }
     }
+
+    func fetchExerciseImage(unit: Int, exercise: Int, completion: @escaping (Result<Data, Error>) -> Void) {
+        FirebaseReferences.storageImageReference(unit: unit, exercise: exercise)
+            .getData(maxSize: 4 * 1024 * 1024) { data, error in
+                guard let data = data else {
+                    completion(.failure(error!))
+                    return
+                }
+                completion(.success(data))
+            }
+    }
+
+    func fetchExerciseSound(unit: Int, exercise: Int, completion: @escaping (Result<URL, Error>) -> Void) {
+        FirebaseReferences.storageSoundReference(unit: unit, exercise: exercise)
+            .downloadURL { url, error in
+                guard let url = url else {
+                    completion(.failure(error!))
+                    return
+                }
+                completion(.success(url))
+            }
+    }
 }
