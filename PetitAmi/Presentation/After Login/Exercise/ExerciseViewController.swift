@@ -156,6 +156,7 @@ extension ExerciseViewController: UITextFieldDelegate {
         if viewModel.isExerciseCorrect(text: text) {
             exerciseView.answerTextField.defaultState()
             goToNextExercise()
+            textField.text = ""
         } else {
             exerciseView.answerTextField.hasErrorState()
         }

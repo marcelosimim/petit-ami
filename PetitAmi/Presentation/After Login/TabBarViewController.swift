@@ -41,6 +41,10 @@ class TabBarViewController: UITabBarController, Coordinating {
     }
 
     private func setupColors() {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithTransparentBackground()
+        tabBar.standardAppearance = appearance
+        tabBar.scrollEdgeAppearance = appearance
         tabBar.backgroundColor = .darkBlue
         tabBar.tintColor = .white
     }
