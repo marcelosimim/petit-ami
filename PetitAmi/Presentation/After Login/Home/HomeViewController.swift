@@ -44,6 +44,27 @@ class HomeViewController: UIViewController, Coordinating {
     private func setupButtons() {
         homeView.headerView.userPhoto.isUserInteractionEnabled = true
         homeView.headerView.userPhoto.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapPhoto)))
+        homeView.keepStudyingView.coverImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapCover)))
+        homeView.headerView.logoutButton.addTarget(self, action: #selector(didTapLogout), for: .touchDown)
+    }
+
+    @objc private func didTapCover() {
+        // coodinator?.eventOccurred(with: .exerciseTapped)
+        let vc = ExerciseViewController()
+        vc.unit = viewModel.user.value?.unit
+        vc.exercise = viewModel.user.value?.exercise
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    @objc private func didTapLogout() {
+        Alert.alertToConfirm(title: "Logout", message: "Tem certeza que deseja sair?", controller: self) {
+            self.viewModel.logout {
+                if let window = UIApplication.shared.delegate?.window {
+                    window?.rootViewController = FirstViewController()
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+            }
+        }
     }
 }
 

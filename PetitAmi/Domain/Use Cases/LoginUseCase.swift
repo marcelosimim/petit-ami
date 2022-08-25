@@ -9,6 +9,7 @@ import Foundation
 
 protocol LoginUseCase {
     func login(email:String, password: String, completion: @escaping(Error?) -> Void)
+    func logout(completion: @escaping(Error?) -> Void)
 }
 
 class DefaultLoginUseCase: LoginUseCase {
@@ -20,5 +21,9 @@ class DefaultLoginUseCase: LoginUseCase {
 
     func login(email:String, password: String, completion: @escaping(Error?) -> Void) {
         firebaseAuthRepository.login(email: email, password: password, completion: completion)
+    }
+
+    func logout(completion: @escaping (Error?) -> Void) {
+        firebaseAuthRepository.logout(completion: completion)
     }
 }

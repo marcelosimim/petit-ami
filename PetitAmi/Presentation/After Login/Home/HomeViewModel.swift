@@ -12,18 +12,20 @@ protocol HomeViewModel {
     var unit: Observable<Unit?> { get }
     func getUserInfo()
     func uploadPhoto(data: Data)
+    func logout(completion: @escaping(() -> ()))
 }
 
 class DefaultHomeViewModel: HomeViewModel {
-
     private let userUseCase: UserUseCase
     private let unitUseCase: UnitUseCase
+    private let loginUseCase: LoginUseCase
     var user = Observable<User?>(nil)
     var unit = Observable<Unit?>(nil)
 
-    init(userUseCase: UserUseCase, unitUseCase: UnitUseCase) {
+    init(userUseCase: UserUseCase, unitUseCase: UnitUseCase, loginUseCase: LoginUseCase) {
         self.userUseCase = userUseCase
         self.unitUseCase = unitUseCase
+        self.loginUseCase = loginUseCase
     }
 
     func getUserInfo() {
@@ -51,6 +53,14 @@ class DefaultHomeViewModel: HomeViewModel {
             guard error != nil else {
                 self.user.value?.photo = data
                 return
+            }
+        }
+    }
+
+    func logout(completion: @escaping (() -> ())) {
+        loginUseCase.logout { error in
+            if error == nil {
+                completion()
             }
         }
     }

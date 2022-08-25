@@ -727,6 +727,7 @@ PODS:
     - Libuv-gRPC (= 0.0.10)
   - gRPC-Core/Interface (1.44.0)
   - GTMSessionFetcher/Core (2.0.0)
+  - InstantSearchVoiceOverlay (1.2.0)
   - leveldb-library (1.22.1)
   - Libuv-gRPC (0.0.10):
     - Libuv-gRPC/Implementation (= 0.0.10)
@@ -746,6 +747,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
   - Firebase/Storage
+  - InstantSearchVoiceOverlay
   - Swinject
 
 SPEC REPOS:
@@ -768,6 +770,7 @@ SPEC REPOS:
     - "gRPC-C++"
     - gRPC-Core
     - GTMSessionFetcher
+    - InstantSearchVoiceOverlay
     - leveldb-library
     - Libuv-gRPC
     - nanopb
@@ -793,12 +796,13 @@ SPEC CHECKSUMS:
   "gRPC-C++": 9675f953ace2b3de7c506039d77be1f2e77a8db2
   gRPC-Core: 943e491cb0d45598b0b0eb9e910c88080369290b
   GTMSessionFetcher: 681175626052e03fdde7952f7e9c7a9785719506
+  InstantSearchVoiceOverlay: d9d5db7314ec8416dcf4ed49df2000e8ee0abe2b
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   Swinject: 97112918bd7e0785dc2df7036213f3c8cbba6586
 
-PODFILE CHECKSUM: e4d5e7c4f8683cdc58f3a43a08437b6232cc7833
+PODFILE CHECKSUM: 27e2d1a91d7cee5b617c4a6558e997a292b1e11a
 
 COCOAPODS: 1.11.2

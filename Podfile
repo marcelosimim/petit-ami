@@ -6,6 +6,7 @@ target 'PetitAmi' do
   use_frameworks!
 
   # Pods for PetitAmi
+  pod 'InstantSearchVoiceOverlay'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Firebase/Firestore'

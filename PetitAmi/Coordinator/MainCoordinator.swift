@@ -25,7 +25,10 @@ class MainCoordinator: Coordinator {
             var vc: UIViewController & Coordinating = TabBarViewController()
             vc.coodinator = self
             navigationController?.pushViewController(vc, animated: true)
-            // hide back button 
+        case .exerciseTapped:
+            var vc: UIViewController & Coordinating = ExerciseViewController()
+            vc.coodinator = self
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 
@@ -42,5 +45,9 @@ class MainCoordinator: Coordinator {
 
     private func setLightBackArrow() {
         navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.standardAppearance.backgroundColor = .clear
+        navigationController?.navigationBar.standardAppearance.backgroundEffect = .none
+        navigationController?.navigationBar.standardAppearance.shadowColor = .clear
     }
 }
