@@ -7,8 +7,7 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController, Coordinating {
-    var coodinator: Coordinator?
+class RegisterViewController: UIViewController {
     private let registerView = AppContainer.shared.resolve(RegisterView.self)!
     private let viewModel = AppContainer.shared.resolve(RegisterViewModel.self)!
 
@@ -58,7 +57,7 @@ class RegisterViewController: UIViewController, Coordinating {
             if let error = error {
                 Alert.alertToCorrect(title: "Erro ao cadastrar", message: error.localizedDescription, controller: self)
             } else {
-                self.coodinator?.eventOccurred(with: .authSuccess)
+                self.navigationController?.pushViewController(TabBarViewController(), animated: true)
             }
         }
     }

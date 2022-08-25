@@ -7,8 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, Coordinating {
-    var coodinator: Coordinator?
+class LoginViewController: UIViewController {
     private let loginView = AppContainer.shared.resolve(LoginView.self)!
     private let viewModel = AppContainer.shared.resolve(LoginViewModel.self)!
 
@@ -50,7 +49,7 @@ class LoginViewController: UIViewController, Coordinating {
             if let error = error {
                 Alert.alertToCorrect(title: "Erro ao logar", message: error.localizedDescription, controller: self)
             } else {
-                self.coodinator?.eventOccurred(with: .authSuccess)
+                self.navigationController?.pushViewController(TabBarViewController(), animated: true)
             }
         }
     }

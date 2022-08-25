@@ -8,11 +8,11 @@
 import FirebaseAuth
 import UIKit
 
-class TabBarViewController: UITabBarController, Coordinating {
-    var coodinator: Coordinator?
+class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.hidesBackButton = true
     }
 
     override func viewWillAppear(_ animated: Bool) {

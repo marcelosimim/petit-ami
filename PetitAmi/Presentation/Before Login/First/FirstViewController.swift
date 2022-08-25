@@ -7,13 +7,13 @@
 
 import UIKit
 
-class FirstViewController: UIViewController, Coordinating {
-    var coodinator: Coordinator?
+class FirstViewController: UIViewController {
     private let firstView = AppContainer.shared.resolve(FirstView.self)!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view = firstView.contentView
+        navigationItem.hidesBackButton = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -27,11 +27,12 @@ class FirstViewController: UIViewController, Coordinating {
     }
 
     @objc private func didTapSignIn() {
-        coodinator?.eventOccurred(with: .signInTapped)
+        print(navigationController)
+        navigationController?.pushViewController(LoginViewController(), animated: true)
     }
 
     @objc private func didTapSignUp() {
-        coodinator?.eventOccurred(with: .signUpTapped)
+        navigationController?.pushViewController(RegisterViewController(), animated: true)
     }
 }
 

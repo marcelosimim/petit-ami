@@ -7,8 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, Coordinating {
-    var coodinator: Coordinator?
+class HomeViewController: UIViewController {
     private let homeView = AppContainer.shared.resolve(HomeView.self)!
     private let viewModel = AppContainer.shared.resolve(HomeViewModel.self)!
     private let imagePickerController = UIImagePickerController()
@@ -49,7 +48,6 @@ class HomeViewController: UIViewController, Coordinating {
     }
 
     @objc private func didTapCover() {
-        // coodinator?.eventOccurred(with: .exerciseTapped)
         let vc = ExerciseViewController()
         vc.unit = viewModel.user.value?.unit
         vc.exercise = viewModel.user.value?.exercise
@@ -59,9 +57,8 @@ class HomeViewController: UIViewController, Coordinating {
     @objc private func didTapLogout() {
         Alert.alertToConfirm(title: "Logout", message: "Tem certeza que deseja sair?", controller: self) {
             self.viewModel.logout {
-                if let window = UIApplication.shared.delegate?.window {
-                    window?.rootViewController = FirstViewController()
-                    self.navigationController?.popToRootViewController(animated: true)
+                DispatchQueue.main.async {
+                    self.navigationController?.pushViewController(FirstViewController(), animated: true)
                 }
             }
         }
