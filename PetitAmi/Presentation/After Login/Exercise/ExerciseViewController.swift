@@ -9,8 +9,7 @@ import InstantSearchVoiceOverlay
 import AVFoundation
 import UIKit
 
-class ExerciseViewController: UIViewController, Coordinating {
-    var coodinator: Coordinator?
+class ExerciseViewController: UIViewController {
     var unit: Int?
     var exercise: Int?
     var player: AVPlayer?

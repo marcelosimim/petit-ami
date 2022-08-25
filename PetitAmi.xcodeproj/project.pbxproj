@@ -70,8 +70,6 @@
 		A3BED01B28AED498005E4EB5 /* CGFloat+PetitAmi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BED01A28AED498005E4EB5 /* CGFloat+PetitAmi.swift */; };
 		A3BED01E28AED4D3005E4EB5 /* Dimen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BED01D28AED4D3005E4EB5 /* Dimen.swift */; };
 		A3BED02128AED7E3005E4EB5 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BED02028AED7E3005E4EB5 /* PrimaryButton.swift */; };
-		A3BED02428AEDB50005E4EB5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BED02328AEDB4F005E4EB5 /* Coordinator.swift */; };
-		A3BED02628AEDB6C005E4EB5 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BED02528AEDB6C005E4EB5 /* MainCoordinator.swift */; };
 		A85BC020D0843FDFC5F5E1A6 /* Pods_PetitAmi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD7DF340A34A0FC60CF6798 /* Pods_PetitAmi.framework */; };
 /* End PBXBuildFile section */
 
@@ -164,8 +162,6 @@
 		A3BED01A28AED498005E4EB5 /* CGFloat+PetitAmi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+PetitAmi.swift"; sourceTree = "<group>"; };
 		A3BED01D28AED4D3005E4EB5 /* Dimen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimen.swift; sourceTree = "<group>"; };
 		A3BED02028AED7E3005E4EB5 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
-		A3BED02328AEDB4F005E4EB5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		A3BED02528AEDB6C005E4EB5 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		DB441721C8175B51D1F77A28 /* Pods-PetitAmi-PetitAmiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetitAmi-PetitAmiUITests.release.xcconfig"; path = "Target Support Files/Pods-PetitAmi-PetitAmiUITests/Pods-PetitAmi-PetitAmiUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F2ADA54E6C6AF03791F69F40 /* Pods-PetitAmiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetitAmiTests.release.xcconfig"; path = "Target Support Files/Pods-PetitAmiTests/Pods-PetitAmiTests.release.xcconfig"; sourceTree = "<group>"; };
 		F6506B701D13781A0A74A09D /* Pods-PetitAmiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetitAmiTests.debug.xcconfig"; path = "Target Support Files/Pods-PetitAmiTests/Pods-PetitAmiTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -428,7 +424,6 @@
 				A3BED00028AEC79F005E4EB5 /* Application */,
 				A3BED00128AEC7D3005E4EB5 /* Resources */,
 				A306904728AFC1C800A416AF /* Infrastructure */,
-				A3BED02228AEDB3F005E4EB5 /* Coordinator */,
 				A306903128AFB49D00A416AF /* Data */,
 				A306903028AFB49600A416AF /* Domain */,
 				A3BED01128AECF9A005E4EB5 /* Presentation */,
@@ -577,15 +572,6 @@
 				A306905128AFC8DF00A416AF /* InputTextField.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		A3BED02228AEDB3F005E4EB5 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				A3BED02328AEDB4F005E4EB5 /* Coordinator.swift */,
-				A3BED02528AEDB6C005E4EB5 /* MainCoordinator.swift */,
-			);
-			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		D12B77880C3487E2D03E7B37 /* Pods */ = {
@@ -862,7 +848,6 @@
 				A30BD96628B68F4000D71EED /* ExerciseUseCase.swift in Sources */,
 				A306903A28AFB6BE00A416AF /* UserEntity.swift in Sources */,
 				A37882FE28B3CED900E58954 /* LibraryCollectionViewCell.swift in Sources */,
-				A3BED02428AEDB50005E4EB5 /* Coordinator.swift in Sources */,
 				A3BED00628AEC94F005E4EB5 /* UIColor+PetitAmi.swift in Sources */,
 				A306904628AFBFFB00A416AF /* RegisterUseCase.swift in Sources */,
 				A3BED01928AED1D6005E4EB5 /* Stylable.swift in Sources */,
@@ -892,7 +877,6 @@
 				A306905928AFFAF100A416AF /* Observable.swift in Sources */,
 				A343758728B063600078F3C4 /* HomeViewModel.swift in Sources */,
 				A306905028AFC82D00A416AF /* RegisterView.swift in Sources */,
-				A3BED02628AEDB6C005E4EB5 /* MainCoordinator.swift in Sources */,
 				A306906528B00BEB00A416AF /* LoginView.swift in Sources */,
 				A3BECFD328AEC6FE005E4EB5 /* SceneDelegate.swift in Sources */,
 				A343758928B11FC30078F3C4 /* KeepStudyingView.swift in Sources */,
