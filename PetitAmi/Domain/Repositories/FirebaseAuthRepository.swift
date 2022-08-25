@@ -8,4 +8,5 @@
 protocol FirebaseAuthRepository {
     func login(email:String, password: String, completion: @escaping(Error?) -> Void)
     func register(user:UserModel, email:String, password: String, completion: @escaping(Error?) -> Void)
+    func logout(completion: @escaping(Error?) -> Void)
 }

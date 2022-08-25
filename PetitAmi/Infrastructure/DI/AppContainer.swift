@@ -30,7 +30,7 @@ class AppContainer {
 
         container.register(RegisterViewModel.self) { r in DefaultRegisterViewModel(registerUseCase: r.resolve(RegisterUseCase.self)!)}
         container.register(LoginViewModel.self) { r in DefaultLoginViewModel(loginUseCase: r.resolve(LoginUseCase.self)!)}
-        container.register(HomeViewModel.self) { r in DefaultHomeViewModel(userUseCase: r.resolve(UserUseCase.self)!, unitUseCase: r.resolve(UnitUseCase.self)!)}
+        container.register(HomeViewModel.self) { r in DefaultHomeViewModel(userUseCase: r.resolve(UserUseCase.self)!, unitUseCase: r.resolve(UnitUseCase.self)!, loginUseCase: r.resolve(LoginUseCase.self)!)}
         container.register(LibraryViewModel.self) { r in DefaultLibraryViewModel(unitUseCase: r.resolve(UnitUseCase.self)!)}
         container.register(ExerciseViewModel.self) { r in DefaultExerciseViewModel(exerciseUseCase: r.resolve(ExerciseUseCase.self)!)}
 

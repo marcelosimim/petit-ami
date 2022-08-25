@@ -21,6 +21,7 @@ class HeaderView: UIView {
     private let unitLabel = UILabel()
     private let exerciseLabel = UILabel()
     private let frenchLevel = UILabel()
+    let logoutButton = UIButton()
 
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -29,7 +30,7 @@ class HeaderView: UIView {
     }
 
     func addViews() {
-        addSubviews([headerView, userPhoto, labelsStack])
+        addSubviews([headerView, userPhoto, labelsStack, logoutButton])
 
         headerView.topToTop(of: self)
         headerView.leadingToLeading(of: self)
@@ -44,6 +45,9 @@ class HeaderView: UIView {
 
         labelsStack.leadingToTrailing(of: userPhoto, margin: 8)
         labelsStack.centerVertical(to: userPhoto)
+
+        logoutButton.centerVertical(to: headerView)
+        logoutButton.trailingToTrailing(of: self, margin: .leadingMargin)
     }
 
     func setupLabels(user: User) {
@@ -73,6 +77,7 @@ extension HeaderView: Stylable {
         headerView.image = .header
         userPhoto.image = .logo
         configureUserPhoto()
+        logoutButton.setImage(.logout, for: .normal)
     }
 
     func configureUserPhoto(){

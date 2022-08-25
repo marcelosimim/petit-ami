@@ -9,7 +9,6 @@ import FirebaseAuth
 import Foundation
 
 class DefaultFirebaseAuthRepository: FirebaseAuthRepository {
-
     func login(email: String, password: String, completion: @escaping (Error?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authDataResult, error in
             completion(error)
@@ -23,6 +22,15 @@ class DefaultFirebaseAuthRepository: FirebaseAuthRepository {
                 return
             }
             self.addNewUserToCollection(user: UserEntity.fromModel(model: user), completion: completion)
+        }
+    }
+
+    func logout(completion: @escaping (Error?) -> Void) {
+        do {
+            try Auth.auth().signOut()
+            completion(nil)
+        } catch(let error) {
+            completion(error)
         }
     }
 

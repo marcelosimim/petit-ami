@@ -18,4 +18,5 @@ extension UIImage {
     public static var speakerLoading: UIImage { UIImage(systemName: "speaker.badge.exclamationmark.fill")! }
     public static var speakerPlaying: UIImage { UIImage(systemName: "speaker.wave.3.fill")! }
     public static var mic: UIImage { UIImage(systemName: "mic.fill")! }
+    public static var logout: UIImage { UIImage(systemName: "rectangle.portrait.and.arrow.right.fill")!}
 }
