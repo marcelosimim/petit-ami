@@ -34,7 +34,7 @@ class DefaultExerciseViewModel: ExerciseViewModel {
     }
 
     func isExerciseCorrect(text: String) -> Bool {
-        text.lowercased() == exerciseData.value?.answer?.lowercased()
+        text.lowercased().replacingOccurrences(of: "?", with: "") == exerciseData.value?.answer?.lowercased().replacingOccurrences(of: "?", with: "")
     }
 
     func goToNextExercise() {

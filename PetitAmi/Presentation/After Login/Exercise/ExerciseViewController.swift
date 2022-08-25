@@ -26,6 +26,7 @@ class ExerciseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = exerciseView.contentView
+        navigationController?.navigationBar.tintColor = .white
     }
 
     override func viewWillAppear(_ animated: Bool) {
